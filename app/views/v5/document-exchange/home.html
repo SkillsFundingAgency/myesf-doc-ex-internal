@@ -1,0 +1,78 @@
+<!--This page is a prototype. Please do not use as production code.-->
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Document exchange
+{% endblock %}
+
+{% block beforeContent %}
+<!--Phase banner-->
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<!--Navigation-->
+<div class="account-features">
+  <span class="account-link">
+    <a href="#">My roles and permissions</a>
+  </span>
+  <span class="account-link">
+    <a href="#">Sign out</a>
+  </span>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+<!--Breadcrumbs-->
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Document exchange</a>
+        </li>
+      </ol>
+    </div>
+{% endblock %}
+
+{% block content %}
+<!--Row start
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+Heading-->
+    <h1 class="govuk-heading-xl">Document exchange</h1>
+    <section>
+<!--Row start-->
+      <div class="govuk-grid-row">
+<!--One third column start-->
+        <div class="govuk-grid-column-one-third govuk-!-margin-top-3">
+          <a id="allocations" class="dashboard-links" href="#">
+            <span id="allocations-service" class="service-name">Publish documents from your file share</span>
+            <span id="allocation-alert" class="alert alert-name-red">68 documents in your file share</span>
+            <!-- <span id="contract-alert" class="alert alert-name-green">View documents</span> -->
+          </a>
+        </div>
+
+        <div class="govuk-grid-column-one-third govuk-!-margin-top-3">
+          <a id="contracts" class="dashboard-links" href="#">
+            <span id="contracts-service" class="service-name">Download documents</span>
+            <span id="contract-alert" class="alert alert-name-red">2 new documents</span>
+            <!-- <span id="contract-alert" class="alert alert-name-green">View documents</span> -->
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<!--Row end-->
+
+
+{% endblock %}

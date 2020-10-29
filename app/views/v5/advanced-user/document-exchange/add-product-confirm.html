@@ -1,0 +1,230 @@
+<!--
+    This page is a prototype.
+    Please do not use as production code.
+    It was created with speed in mind, so treat as throwaway HTML.
+-->
+
+{% extends "layout.html" %}
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+{% block pageTitle %}
+  Check your new product details
+{% endblock %}
+
+{% block beforeContent %}
+<!--
+    Phase banner
+-->
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<!--
+    Navigation
+-->
+<div class="account-features">
+  <span class="account-link">
+    <a href="#">Settings</a>
+  </span>
+  <span class="account-link">
+    <a href="#">Sign out</a>
+  </span>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+<!--
+    Breadcrumbs
+
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Document exchange</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Download your documents</a>
+          </li>
+        <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Delete documents</a>
+        </li>
+      </ol>
+    </div>
+    <a class="govuk-back-link" href="download-documents">Back</a>
+    -->
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Check your new product details</h1>
+    
+    <dl class="govuk-summary-list">
+      <!--Identifier-->
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Identifier
+        </dt>
+        <dd class="govuk-summary-list__value">
+          10031
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="edit-product.html">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <!--Document name-->
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Document name (singular)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Test product single
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="edit-product.html">
+            Change<span class="govuk-visually-hidden"> document name</span>
+          </a>
+        </dd>
+      </div>
+      <!--Document plural name-->
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Document Plural name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Test product multiple
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="edit-product.html">
+            Change<span class="govuk-visually-hidden"> document plural name</span>
+          </a>
+        </dd>
+      </div>
+      <!--Agency team-->
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Agency Teams
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Grant assurance
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="edit-product.html">
+            Change<span class="govuk-visually-hidden"> contact details</span>
+          </a>
+        </dd>
+      </div>
+      <!--Can organisations upload-->
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Can organisations upload
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Yes
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="edit-product.html">
+          Change<span class="govuk-visually-hidden"> contact details</span>
+        </a>
+      </dd>
+    </div>
+    </dl>
+
+    <p class="govuk-body">By confirming, you will create a new product with the details above.</p>
+
+      <form action="#" method="link" novalidate>
+
+        <input type="hidden" name="delete-confirmed" value="true">
+
+        <button type="submit" class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
+          Confirm
+        </button>
+
+      </form>
+<!--
+  <p class="govuk-body">By continuing, you will delete:</p>
+  <ul class="govuk-list govuk-list--bullet">
+        <li>the documents listed</li>
+        <li>all their previous versions</li>
+  </ul>
+  <p>By continuing, you will delete the documents listed and all their previous versions.</p>
+  <p>By continuing, you will delete the documents listed and all previously submitted versions.</p>
+  <p>By continuing, you will delete the documents listed and all versions previously submitted by the provider.</p>
+  <p>By continuing, you will delete the documents listed and all previous versions submitted by the provider.</p>
+-->
+
+<div class="govuk-form-group govuk-!-margin-bottom-0">
+  <a href="edit-product.html">Cancel</a>
+</div>
+
+<!--
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-heading-xl">
+        Are you sure you want to delete these documents?
+      </h1>
+    </legend>
+    <p>You have selected <strong>2</strong> documents for deletion.</p>
+    <div class="govuk-radios govuk-radios--inline">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="changed-name-2">
+          No
+        </label>
+      </div>
+    </div>
+
+  </fieldset>
+</div>
+-->
+
+  </div>
+</div>
+
+<!--
+    Heading
+
+    <h1 class="govuk-heading-xl">Are you sure you want to delete these documents?</h1>
+    <section>
+
+    Row start
+
+      <div class="govuk-grid-row">
+
+    One third column start
+
+            <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
+    <p class="govuk-body">The documents are:</p>
+            </div>
+        </div>
+        --Row end--
+    </section>
+  -->
+  </div>
+</div>
+
+{% endblock %}

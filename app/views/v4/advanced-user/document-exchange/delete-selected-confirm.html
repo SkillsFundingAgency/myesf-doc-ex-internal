@@ -1,0 +1,326 @@
+<!--
+    This page is a prototype.
+    Please do not use as production code.
+    It was created with speed in mind, so treat as throwaway HTML.
+-->
+
+{% extends "layout.html" %}
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+{% block pageTitle %}
+  Are you sure you want to delete these documents?
+{% endblock %}
+
+{% block beforeContent %}
+<!--
+    Phase banner
+-->
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<!--
+    Navigation
+-->
+<div class="account-features">
+  <span class="account-link">
+    <a href="#">My roles and permissions</a>
+  </span>
+  <span class="account-link">
+    <a href="#">Sign out</a>
+  </span>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+<!--
+    Breadcrumbs
+-->
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Document exchange</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Download your documents</a>
+          </li>
+        <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Delete documents</a>
+        </li>
+      </ol>
+    </div>
+    <a class="govuk-back-link" href="download-documents">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <h1 class="govuk-heading-xl">Are you sure you want to delete these documents?</h1>
+    <p>You have selected <strong>2</strong> documents for deletion.</p>
+  
+<!--
+    Table start
+-->
+<table class="govuk-table govuk-!-margin-top-9">
+  <!--Table head-->
+  <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Document type</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Provider name</th>
+          <th scope="col" class="govuk-table__header">UKPRN</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Uploaded</th>
+          <!--<th scope="col" class="govuk-table__header govuk-!-width-one-third">Status</th>-->
+      </tr>
+  </thead>
+  <tbody class="govuk-table__body" id="mainContentResults">
+      <!--Table row 1-->
+      <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+          <td class="govuk-table__cell">
+              Business case
+              
+                  
+          </td>
+          <td class="govuk-table__cell">Stockton-on-Tees Borough Council</td>
+
+          <td class="govuk-table__cell">
+              10006337
+          </td>
+          <td class="govuk-table__cell">
+            Today 10:54am
+              <div class="govuk-!-margin-top-6">
+                <details class="govuk-details govuk-!-margin-top-0 govuk-!-margin-bottom-3" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      Document details
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <p class="govuk-body"><strong>Document name:</strong><br>10006337_STOCKTON-ON-TEES-BOROUGH-COUNCIL_Business-case_v1-202021.xlsx</p>
+                    <p class="govuk-body"><strong>Versions:</strong><br>1</p>
+                    <!--
+                    <p class="govuk-body"><strong>Provider type:</strong><br></p>
+                    <p class="govuk-body"><strong>Provider sub-type:</strong><br></p>
+                    <p class="govuk-body"><strong>Document version:</strong><br>1</p>
+                    -->
+                    <p class="govuk-body"><strong>Date downloaded:</strong><br>10:14am on 3 October 2020</p>
+                    <p class="govuk-body"><strong>Downloaded by:</strong><br>Jonathan Jones</p>
+                    <!--
+                    <p class="govuk-body"><strong>Change note for this version:</strong> </p>
+                    <p class="govuk-body"><a class="govuk-link" href="datasethistory">View all versions</a></p>
+                    -->
+                  </div>
+                </details>
+                </div>
+          </td>
+      </tr>
+      <!--Table row 1a-->
+      <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+        <td class="govuk-table__cell">
+            Financial report
+            
+                
+        </td>
+        <td class="govuk-table__cell">Gloucestershire County Council</td>
+
+        <td class="govuk-table__cell">
+            10002697
+        </td>
+        <td class="govuk-table__cell">
+          3:34pm on 2 October 2020
+            <div class="govuk-!-margin-top-6">
+              <details class="govuk-details govuk-!-margin-top-0 govuk-!-margin-bottom-3" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Document details
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p class="govuk-body"><strong>Document name:</strong><br>10002697_GLOUCESTERSHIRE-COUNTY-COUNCIL_Financial-report_v3-202021.xlsx</p>
+                  <p class="govuk-body"><strong>Versions:</strong><br>1, 2, 3</p>
+                  <!--
+                  <p class="govuk-body"><strong>Provider type:</strong><br></p>
+                  <p class="govuk-body"><strong>Provider sub-type:</strong><br></p>
+                  <p class="govuk-body"><strong>Document version:</strong><br>3</p>
+                  -->
+                  <p class="govuk-body"><strong>Date downloaded:</strong><br>9:34am on 3 October 2020</p>
+                  <p class="govuk-body"><strong>Downloaded by:</strong><br>Jonathan Jones</p>
+                  <!--
+                  <p class="govuk-body"><strong>Change note for this version:</strong> </p>
+                  <p class="govuk-body"><a class="govuk-link" href="datasethistory">View all versions</a></p>
+                  -->
+                </div>
+              </details>
+              </div>
+        </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!--
+    <h2 class="govuk-heading-m">Document details</h2>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Document name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          10006337_STOCKTON-ON-TEES-BOROUGH-COUNCIL_BUSINESS-CASE-extract_v1-202021.xlsx
+        <br>
+          <details class="govuk-details govuk-!-margin-top-3 govuk-!-margin-bottom-3" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                  Document details
+              </span>
+              </summary>
+              <div class="govuk-details__text">
+              <p class="govuk-body"><strong>Document name:</strong> <br>10002697_STOCKTON-ON-TEES-BOROUGH-COUNCIL_Non-maintained-special-schools-allocation-statement_v3-202021.pdf</p>
+              <p class="govuk-body"><strong>Provider name:</strong> <br></p>
+              <p class="govuk-body"><strong>Provider type:</strong> <br></p>
+              <p class="govuk-body"><strong>Provider sub-type:</strong> <br></p>
+              <p class="govuk-body"><strong>Document version:</strong> <br>3</p>
+              <p class="govuk-body"><strong>Downloaded:</strong> <br>3:17pm on 22 September 2020</p>
+              <p class="govuk-body"><strong>Downloaded by:</strong> <br>Jonathan Jones</p>
+              
+              <p class="govuk-body"><strong>Change note for this version:</strong> </p>
+              <p class="govuk-body"><a class="govuk-link" href="datasethistory">View all versions</a></p>
+              
+              </div>
+          </details>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Document type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Business case
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Provider name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Stockton-on-Tees Borough Council
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Document version
+        </dt>
+        <dd class="govuk-summary-list__value">
+          1
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Downloaded
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p>3:34pm on 2 October 2020</p>
+          <p>by Jonathan Jones</p>
+        </dd>
+      </div>
+    </dl>
+
+  -->
+  <h2 class="govuk-heading-m">Confirm and delete</h2>
+  <p class="govuk-body">By continuing, you will delete the documents and versions listed.</p>
+ 
+      <form action="documents-deleted-confirmation.html" method="link" novalidate>
+
+        <input type="hidden" name="delete-confirmed" value="true">
+
+        <button type="submit" class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+<!--
+  <p class="govuk-body">By continuing, you will delete:</p>
+  <ul class="govuk-list govuk-list--bullet">
+        <li>the documents listed</li>
+        <li>all their previous versions</li>
+  </ul>
+  <p>By continuing, you will delete the documents listed and all their previous versions.</p>
+  <p>By continuing, you will delete the documents listed and all previously submitted versions.</p>
+  <p>By continuing, you will delete the documents listed and all versions previously submitted by the provider.</p>
+  <p>By continuing, you will delete the documents listed and all previous versions submitted by the provider.</p>
+-->
+
+<div class="govuk-form-group govuk-!-margin-bottom-0">
+  <a href="download-documents.html">Cancel</a>
+</div>
+
+<!--
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-heading-xl">
+        Are you sure you want to delete these documents?
+      </h1>
+    </legend>
+    <p>You have selected <strong>2</strong> documents for deletion.</p>
+    <div class="govuk-radios govuk-radios--inline">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="changed-name-2">
+          No
+        </label>
+      </div>
+    </div>
+
+  </fieldset>
+</div>
+-->
+
+  </div>
+</div>
+
+<!--
+    Heading
+
+    <h1 class="govuk-heading-xl">Are you sure you want to delete these documents?</h1>
+    <section>
+
+    Row start
+
+      <div class="govuk-grid-row">
+
+    One third column start
+
+            <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
+    <p class="govuk-body">The documents are:</p>
+            </div>
+        </div>
+        --Row end--
+    </section>
+  -->
+  </div>
+</div>
+
+{% endblock %}
