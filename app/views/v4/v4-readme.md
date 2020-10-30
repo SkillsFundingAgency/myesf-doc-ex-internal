@@ -12,7 +12,7 @@ This prototype represents the internal view of Document Exchange.
 
 This version is focused on the **'Download your documents'** and new **deletion** pages.
 
-### Background
+## Background
 
 This prototype was created using the [GOV.UK prototype kit](https://govuk-prototype-kit.herokuapp.com/docs), version 9.10.0.
 
@@ -56,9 +56,9 @@ All screens created/tested in this round:
 * [Deletion - 'are you sure?' page](#deletion-are-you-sure-page)
 * [Deletion - confirmation page](#deletion-confirmation-page)
 
-# Features
+## Features
 
-## Filter by uploaded today
+### Filter by uploaded today
 
 **Previous version** (Version 2) of the component, renamed 'Filter by uploaded today'.
 
@@ -91,7 +91,7 @@ Changes based on research findings are:
 
 ![Deletion 'are you sure?' page version 2 detail](../../assets/images/v4/deletion-are-you-sure-v2-detail.png)
 
-## Deletion confirmation page iteration
+### Deletion confirmation page iteration
 
 **Previous version** (Version 1) of the deletion confirmation page - detail.
 

@@ -12,7 +12,7 @@ This prototype represents the internal view of Document Exchange.
 
 This version is focused on the **'Download your documents'** page.
 
-### Background
+## Background
 
 This prototype was created using the [GOV.UK prototype kit](https://govuk-prototype-kit.herokuapp.com/docs), version 9.10.0.
 
@@ -59,9 +59,9 @@ All screens created/tested in this round:
 * [Download your documents](#download-documents-v2)
 * [Date error states](#date-error-states)
 
-# Features
+## Features
 
-## Filter by date
+### Filter by date
 
 **Previous version** (Version 1) of the 'Filter by date' component.
 
@@ -77,7 +77,7 @@ Changes based on research findings are:
 
 ![Filter by date version 2](../../assets/images/v2/date-filter-v2.png)
 
-## Filter by date error states
+### Filter by date error states
 
 The first version of the full range of ['error states'](#date-error-states) for the 'Filter by date' component was added.
 
@@ -88,19 +88,19 @@ This included error states for:
 * when one or both dates entered are in the future
 * when a day, month or year field is left blank
 
-## Combined providers list
+### Combined providers list
 
 The combined providers list filter was added in response to testing findings.
 
 ![Combined providers list filter](../../assets/images/v2/combined-providers-list.png)
 
-## Document types filter
+### Document types filter
 
 The document types filter was updated to reflect the full range of document types that providers can upload.
 
 ![Document types filter version 2](../../assets/images/v2/document-types-v2.png)
 
-## Adding a thousands comma separator
+### Adding a thousands comma separator
 
 A thousands comma separator was added to the document count to align with the [GDS style guide](https://www.gov.uk/guidance/style-guide).
 

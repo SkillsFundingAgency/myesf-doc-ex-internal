@@ -12,7 +12,7 @@ This prototype represents the internal view of Document Exchange.
 
 This version is focused on the **'Download your documents'** and **'Edit product'** pages.
 
-### Background
+## Background
 
 This prototype was created using the [GOV.UK prototype kit](https://govuk-prototype-kit.herokuapp.com/docs), version 9.10.0.
 
@@ -61,9 +61,9 @@ All screens created/tested in this round:
 * [Edit product page error states](#edit-product-error-states)
 * [Filter by date error states MVP](#date-error-states-mvp)
 
-# Features
+## Features
 
-## Search by UKPRN
+### Search by UKPRN
 
 A 'Search by UKPRN' component was added to the 'Download your documents' page.
 
@@ -74,7 +74,7 @@ This component supports user behaviours:
 * when searching for a document from a specific provider in order to confirm its receipt
 * when searching for a document from a specific provider in order to delete it due to a GDPR issue
 
-## Edit product page
+### Edit product page
 
 **NEW version** (Version 2) of the 'Edit product' page. Version 1 was built without UX design input.
 
@@ -86,7 +86,7 @@ Suggested changes are:
 * revisit field labels and hint text to clarify the field purpose and help prevent errors
 * provide a character count indicator to aid valid file name creation
 
-## Edit product page error states
+### Edit product page error states
 
 **NEW version** (Version 1) of the 'Edit product' page error states.
 
@@ -99,7 +99,7 @@ Error messages/states created for:
 * identifier field blank - 'Enter a 5 digit number'
 * 'Document name' and 'Document plural name' fields blank - 'Enter a document name' and 'Enter a document plural name' respectively
 
-## Edit product check your changes page
+### Edit product check your changes page
 
 **NEW version** (Version 1) of Edit product 'Check your changes' page.
 
@@ -107,7 +107,7 @@ The product information is displayed in a GOV.UK design system [summary list](ht
 
 ![Edit product 'Check your changes' page](../../assets/images/v5/edit-product-confirm.png)
 
-## Filter by date error states MVP
+### Filter by date error states MVP
 
 This iteration of 'Filter by date' ['error states'](#date-error-states-mvp) was created as a de-scoped/'MVP' (Minimum viable product) version.
 
@@ -118,7 +118,7 @@ It includes a reduced number of error messages to cover:
 * when one or both dates entered are in the future - now covered by **'Invalid date - please review'**
 * when a day, month or year field is left blank - now covered by **'Invalid date - please review'**
 
-## Filter by provider type
+### Filter by provider type
 
 This component was iterated based on research findings that:
 

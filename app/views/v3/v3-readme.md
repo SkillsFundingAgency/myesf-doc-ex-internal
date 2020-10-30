@@ -12,7 +12,7 @@ This prototype represents the internal view of Document Exchange.
 
 This version is focused on the **'Download your documents'** and new **deletion** pages.
 
-### Background
+## Background
 
 This prototype was created using the [GOV.UK prototype kit](https://govuk-prototype-kit.herokuapp.com/docs), version 9.10.0.
 
@@ -66,9 +66,9 @@ All screens created/tested in this round:
 * [Deletion - 'are you sure?' page](#deletion-are-you-sure-page)
 * [Deletion - confirmation page](#deletion-confirmation-page)
 
-# Features
+## Features
 
-## Filter by uploaded today
+### Filter by uploaded today
 
 **Previous version** (Version 1) of the 'Filter by time period' component.
 
@@ -103,13 +103,13 @@ Changes based on research findings are:
 
 ![Filter by provider type version 3](../../assets/images/v3/filter-by-provider-type-v3.png)
 
-## Filter by team
+### Filter by team
 
 **NEW version** (Version 1) of the 'Filter by team' component (Advanced users only). This component was added to allow 'Advanced users' to view only 1 team's documents at a time. This was needed to provide a solution to an issue with downloading documents from multiple teams simultaneously.
 
 ![Filter by team](../../assets/images/v3/filter-by-team.png)
 
-## Alternative table format
+### Alternative table format
 
 **Original** table format.
 
@@ -128,13 +128,13 @@ Changes based on research findings are:
 
 ![Table format version 2](../../assets/images/v3/alternative-table-format.png)
 
-## Removing the document name link
+### Removing the document name link
 
 The document name link was removed to help users to avoid downloading documents by mistake with a single click. This was based on testing, where observed user behaviour showed that documents were never intentionally downloaded using the link - users opted for selecting the document using its checkbox and clicking the 'Download selected documents' button instead.
 
 ![Filter by team](../../assets/images/v3/document-name-link-removed.png)
 
-## Revising the table row font sizes
+### Revising the table row font sizes
 
 The table row font sizes were revised, with secondary information using the **govuk-body-s** class, to aid differentiation from primary information.
 

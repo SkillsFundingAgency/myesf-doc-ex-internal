@@ -12,7 +12,7 @@ This prototype represents the internal view of Document Exchange.
 
 This version is focused on the **'Download your documents'** page.
 
-### Background
+## Background
 
 This prototype was created using the [GOV.UK prototype kit](https://govuk-prototype-kit.herokuapp.com/docs), version 9.10.0.
 
@@ -39,7 +39,7 @@ It was not created inside the main Skills Funding Agency [sfs-sitedesign](https:
 ### GitHub repo ###
 [https://github.com/SkillsFundingAgency/myesf-doc-ex-internal-design-history](https://github.com/SkillsFundingAgency/myesf-doc-ex-internal-design-history)
 
-### Features prototyped
+## Features prototyped
 
 The features prototyped and tested were:
 
@@ -55,7 +55,7 @@ Small user interface iterations were also introduced, including:
 * including a ['Delete selected documents' link](#delete-selected-documents) for advanced users
 * including a '[number selected indicator](#number-selected-indicator)' on one version of the provider filters
 
-### Screenshots
+## Screenshots
 
 All screens created/tested in this round:
 
@@ -165,19 +165,19 @@ Number selected indicator introduced to test with users to find out if it aided 
 
 ![Number selected indicator](../../assets/images/v1/number-selected.png)
 
-### All screenshots
+## All screenshots
 
-#### Download documents
+### Download documents
 ![Separate provider lists, auto height](../../assets/images/v1/download-documents.png)
 
-#### Download documents scroll list
+### Download documents scroll list
 ![Separate provider lists, fixed height](../../assets/images/v1/download-documents-scroll-list.png)
 
-#### Download documents combined providers
+### Download documents combined providers
 ![Combined provider lists, auto height](../../assets/images/v1/download-documents-combined-providers.png)
 
-#### Download documents combined scroll list
+### Download documents combined scroll list
 ![Combined provider lists, fixed height](../../assets/images/v1/download-documents-combined-scroll-list.png)
 
-#### Download documents date error state
+### Download documents date error state
 ![Download documents - date error state (not tested)](../../assets/images/v1/download-documents-date-error-state-not-tested.png)
