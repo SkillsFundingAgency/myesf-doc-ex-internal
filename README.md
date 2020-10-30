@@ -2,8 +2,6 @@
 
 Designs for the ESFA MYESF Document Exchange (Doc Ex) internal prototype, Autumn-Winter 2020
 
-Hosted with Heroku
-
 ## Links to the Document exchange internal prototype
 
 ### Prototype (Heroku app) ###
