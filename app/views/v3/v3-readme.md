@@ -1,18 +1,18 @@
 ---
 title: Version 3 prototype
 description: This version is focused on the 'Download your documents' and new deletion pages.
-date: 2020-10-27
+date: 2020-10-28
 ---
 
-# ESFA Document Exchange (Doc Ex) internal prototype
+# ESFA MYESF Document Exchange (Doc Ex) internal prototype
 
 This prototype represents the internal view of Document Exchange.
 
-# Version 3
+## Version 3
 
 This version is focused on the **'Download your documents'** and new **deletion** pages.
 
-## Background
+### Background
 
 This prototype was created using the [GOV.UK prototype kit](https://govuk-prototype-kit.herokuapp.com/docs), version 9.10.0.
 
@@ -23,9 +23,21 @@ It was not created inside the main Skills Funding Agency sfs-sitedesign prototyp
 * this prototype was built with speed in mind
 * this prototype is to be considered throwaway HTML, CSS and JavaScript - not production code
 
-## Link to the prototype
+## Links to the Document exchange internal prototype
 
-Link - to be added when DfE repo and app is created for the prototype
+### Prototype (Heroku app) ###
+[https://myesf-doc-ex-internal.herokuapp.com/](https://myesf-doc-ex-internal.herokuapp.com/)
+
+### GitHub repo ###
+[https://github.com/SkillsFundingAgency/myesf-doc-ex-internal](hhttps://github.com/SkillsFundingAgency/myesf-doc-ex-internal)
+
+## Links to the Document exchange internal design history
+
+### Design history (Heroku app) ###
+[https://myesf-doc-ex-internal-history.herokuapp.com/](https://myesf-doc-ex-internal-history.herokuapp.com/)
+
+### GitHub repo ###
+[https://github.com/SkillsFundingAgency/myesf-doc-ex-internal-design-history](https://github.com/SkillsFundingAgency/myesf-doc-ex-internal-design-history)
 
 ## Features prototyped
 
