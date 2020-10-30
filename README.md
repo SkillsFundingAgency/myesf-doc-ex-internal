@@ -20,4 +20,4 @@ Hosted with Heroku
 ### GitHub repo ###
 [https://github.com/SkillsFundingAgency/myesf-doc-ex-internal-design-history](https://github.com/SkillsFundingAgency/myesf-doc-ex-internal-design-history)
 
-Contact Keith Symonds at Methods/DfE <keith.symonds@methods.co.uk> or <keith.symonds@education.gov.uk> for latest usernames and passwords.
+Contact Keith Symonds at Methods/DfE <keith.symonds@methods.co.uk> or <keith.symonds@education.gov.uk> for the latest usernames and passwords.
