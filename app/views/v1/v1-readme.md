@@ -124,11 +124,11 @@ Examples of the versions of this filter can be found here:
 
 ### Documents selected number move
 
-Documents selected indicator number previous version.
+**Previous version** - Documents selected indicator number.
 
 ![Documents selected indicator number previous version](../../assets/images/v1/documents-selected-previous.png)
 
-NEW - Documents selected indicator number version 1.
+**NEW version** (Version 1) - Documents selected indicator number.
 
 ![Documents selected indicator number version 1](../../assets/images/v1/documents-selected-v1.png)
 
@@ -138,17 +138,17 @@ Select all link previous version.
 
 ![Filter by provider type version 1](../../assets/images/v1/select-all-previous.png)
 
-NEW - Select all checkbox version 1.
+**NEW version** (Version 1) - Select all checkbox.
 
 ![Select all checkbox version 1](../../assets/images/v1/select-all-checkbox-v1.png)
 
 ### Table rows update
 
-Table rows previous version.
+**Previous version** - Table rows.
 
 ![Table rows previous version](../../assets/images/v1/table-rows-previous.png)
 
-NEW - Table rows version 1.
+**NEW version** (Version 1) - Table rows.
 This version shows the correct number of rows based on the latest pagination. 
 
 ![Table rows version 1](../../assets/images/v1/table-rows-v1.png)
