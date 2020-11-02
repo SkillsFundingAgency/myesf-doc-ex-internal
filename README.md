@@ -8,7 +8,7 @@ Designs for the ESFA MYESF Document Exchange (Doc Ex) internal prototype, Autumn
 [https://myesf-doc-ex-internal.herokuapp.com/](https://myesf-doc-ex-internal.herokuapp.com/)
 
 ### GitHub repo ###
-[https://github.com/SkillsFundingAgency/myesf-doc-ex-internal](hhttps://github.com/SkillsFundingAgency/myesf-doc-ex-internal)
+[https://github.com/SkillsFundingAgency/myesf-doc-ex-internal](https://github.com/SkillsFundingAgency/myesf-doc-ex-internal)
 
 ## Links to the Document exchange internal design history
 
