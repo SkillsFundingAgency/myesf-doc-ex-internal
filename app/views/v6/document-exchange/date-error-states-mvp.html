@@ -1,0 +1,1095 @@
+<!--
+    This page is a prototype.
+    Please do not use as production code.
+    It was created with speed in mind, so treat as throwaway HTML.
+-->
+
+{% extends "layout.html" %}
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+{% block pageTitle %}
+  Date error states - MVP
+{% endblock %}
+
+{% block beforeContent %}
+<!--
+    Phase banner
+-->
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<!--
+    Navigation
+-->
+<div class="account-features">
+  <span class="account-link">
+    <a href="#">My roles and permissions</a>
+  </span>
+  <span class="account-link">
+    <a href="#">Sign out</a>
+  </span>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+<!--
+    Breadcrumbs
+-->
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Document exchange</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Download your documents</a>
+          </li>
+      </ol>
+    </div>
+{% endblock %}
+
+{% block content %}
+<!--
+    Heading
+-->
+    <h1 class="govuk-heading-xl">Date error states</h1>
+    <section>
+        <div class="govuk-form-group govuk-!-margin-top-6">
+            <h2 class="govuk-heading-l">From and to date error</h2>
+        </div>
+<!--
+    Row 1 start
+-->
+      <div class="govuk-grid-row">
+<!--
+    One third column start
+-->
+        <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
+<!-- 
+    Filter by date.
+    Text field inputs.
+    FROM and TO DATE error.
+-->
+<p>FROM and TO DATE error</p>
+                <div class="govuk-form-group filterbyContainer">
+                <fieldset class="govuk-fieldset">
+                    <button
+                        class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-date-error-states-examples govuk-button">
+                        <h4 class="govuk-heading-s">Filter by date<span><i id="arrowRotateDate" class="material-icons right-align"> keyboard_arrow_down </i></span>
+                        </h4>
+                    </button>
+                    <div id="filter-content-date-error-states-examples" class="filter-content-date-error-states-examples dates">
+                        <div class="govuk-form-group govuk-form-group--error custom-form-group-padding">
+                        <div class="govuk-date-input" id="date-1">
+                            <label class="govuk-label" for="from-date">
+                                <strong>Date from</strong>
+                              </label>
+                            <span id="" class="govuk-hint">
+                                For example, 22 10 2020. Future dates not accepted.
+                            </span>
+                            <span id="passport-issued-error" class="govuk-error-message">
+                                <span class="govuk-visually-hidden">Error:</span> 'From' date must be the same as or before 'to' date
+                              </span>
+                            <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                                Day
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="10">
+                            </div>
+                            </div>
+                            <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                                Month
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="10">
+                            </div>
+                            </div>
+                            <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                                Year
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="2020">
+                            </div>
+                            </div>
+                        </div>
+                        <!-- 'To' section -->
+                        <div class="govuk-date-input custom-form-group-padding" id="date-2">
+                            <label class="govuk-label govuk-!-margin-top-6" for="to-date">
+                                <strong>Date to</strong>
+                              </label>
+                            <span id="" class="govuk-hint">
+                                For example, 22 10 2020. Future dates not accepted.
+                            </span>
+                            <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                                Day
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="13">
+                            </div>
+                            </div>
+                            <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                                Month
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="9">
+                            </div>
+                            </div>
+                            <div class="govuk-date-input__item govuk-!-margin-bottom-3">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                                Year
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="2020">
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="govuk-form-group custom-form-group-padding">
+                        <button class="govuk-button govuk-button--secondary govuk-!-margin-top-3" data-module="govuk-button" id="apply-payment-filters" type="submit" formaction="/manage-funding/payments" >
+                            Apply date filter
+                        </button>
+                        <a href="#" style="display: inline-block; margin-top: 22px; margin-left: 10px;">Clear date filter<span class="govuk-visually-hidden"> by UKPRN</span></a>
+                        </div>
+                    </div>
+                </fieldset>
+                </div>          
+        </div>
+        <!--One third column end-->
+<!--
+    One third column start
+-->
+        <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
+        </div>
+        <!--One third column end-->
+<!--
+    One third column start
+-->
+<div class="govuk-grid-column-one-third govuk-!-margin-top-9">
+</div>
+<!--One third column end-->
+
+        </div>
+        <!--Row 1 end-->
+<!--
+    Row 2 start
+-->
+<div class="govuk-form-group govuk-!-margin-top-6">
+    <h2 class="govuk-heading-l">FROM errors</h2>
+</div>
+<div class="govuk-grid-row">
+    <!--
+        One third column start
+    -->
+            <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
+    <!-- 
+        Filter by date.
+        Text field inputs.
+        Invalid FROM DAY error.
+    -->
+        <div class="govuk-form-group filterbyContainer">
+        <fieldset class="govuk-fieldset">
+            <button
+                class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-date-error-states-examples govuk-button">
+                <h4 class="govuk-heading-s">Filter by date<span><i id="arrowRotateDate" class="material-icons right-align"> keyboard_arrow_down </i></span>
+                </h4>
+            </button>
+            <div id="filter-content-date-error-states-examples" class="filter-content-date-error-states-examples dates">
+                <div class="govuk-form-group">
+                <div class="govuk-date-input govuk-form-group--error custom-form-group-padding" id="date-1">
+                    <label class="govuk-label" for="from-date">
+                        <strong>Date from</strong>
+                    </label>
+                    <span id="" class="govuk-hint">
+                        For example, 22 10 2020. Future dates not accepted.
+                    </span>
+                    <span id="passport-issued-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Invalid date - please review
+                    </span>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                        Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="32">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                        Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="9">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                        Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="2020">
+                    </div>
+                    </div>
+                </div>
+                <!-- 'To' section -->
+                <div class="govuk-date-input custom-form-group-padding" id="date-2">
+                    <label class="govuk-label govuk-!-margin-top-6" for="to-date">
+                        <strong>Date to</strong>
+                      </label>
+                    <span id="" class="govuk-hint">
+                        For example, 22 10 2020. Future dates not accepted.
+                    </span>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                        Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="13">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                        Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="9">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item govuk-!-margin-bottom-3">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                        Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="2020">
+                    </div>
+                    </div>
+                    </div>
+                </div>
+                <button class="govuk-button govuk-button--secondary govuk-!-margin-top-3" data-module="govuk-button" id="apply-payment-filters" type="submit" formaction="/manage-funding/payments" >
+                    Apply date filter
+                </button>
+            </div>
+        </fieldset>
+        </div>          
+            </div>
+            <!--One third column end-->
+    <!--
+        One third column start
+    -->
+            <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
+    <!-- 
+        Filter by date.
+        Text field inputs.
+        Invalid FROM MONTH error.
+    -->
+                    <div class="govuk-form-group filterbyContainer">
+                    <fieldset class="govuk-fieldset">
+                        <button
+                            class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-date-error-states-examples govuk-button">
+                            <h4 class="govuk-heading-s">Filter by date<span><i id="arrowRotateDate" class="material-icons right-align"> keyboard_arrow_down </i></span>
+                            </h4>
+                        </button>
+                        <div id="filter-content-date-error-states-examples" class="filter-content-date-error-states-examples dates">
+                            <div class="govuk-form-group">
+                            <div class="govuk-date-input govuk-form-group--error custom-form-group-padding" id="date-1">
+                                <label class="govuk-label" for="from-date">
+                                    <strong>Date from</strong>
+                                </label>
+                                <span id="" class="govuk-hint">
+                                    For example, 22 10 2020. Future dates not accepted.
+                                </span>
+                                <span id="passport-issued-error" class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span> Invalid date - please review
+                                </span>
+                                <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                                    Day
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="10">
+                                </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                                    Month
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="13">
+                                </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                                    Year
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="2020">
+                                </div>
+                                </div>
+                            </div>
+                            <!-- 'To' section -->
+                            <div class="govuk-date-input custom-form-group-padding" id="date-2">
+                                <label class="govuk-label govuk-!-margin-top-6" for="to-date">
+                                    <strong>Date to</strong>
+                                  </label>
+                                <span id="" class="govuk-hint">
+                                    For example, 22 10 2020. Future dates not accepted.
+                                </span>
+                                <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                                    Day
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="13">
+                                </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                                    Month
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="9">
+                                </div>
+                                </div>
+                                <div class="govuk-date-input__item govuk-!-margin-bottom-3">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                                    Year
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="2020">
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                            <button class="govuk-button govuk-button--secondary govuk-!-margin-top-3" data-module="govuk-button" id="apply-payment-filters" type="submit" formaction="/manage-funding/payments" >
+                                Apply date filter
+                            </button>
+                        </div>
+                    </fieldset>
+                    </div>
+            </div>
+            <!--One third column end-->
+    <!--
+        One third column start
+    -->
+    <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
+                <!-- 
+        Filter by date.
+        Text field inputs.
+        Invalid FROM YEAR error.
+    -->
+        <div class="govuk-form-group filterbyContainer">
+        <fieldset class="govuk-fieldset">
+            <button
+                class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-date-error-states-examples govuk-button">
+                <h4 class="govuk-heading-s">Filter by date<span><i id="arrowRotateDate" class="material-icons right-align"> keyboard_arrow_down </i></span>
+                </h4>
+            </button>
+            <div id="filter-content-date-error-states-examples" class="filter-content-date-error-states-examples dates">
+                <div class="govuk-form-group">
+                <div class="govuk-date-input govuk-form-group--error custom-form-group-padding" id="date-1">
+                    <label class="govuk-label" for="from-date">
+                        <strong>Date from</strong>
+                    </label>
+                    <span id="" class="govuk-hint">
+                        For example, 22 10 2020. Future dates not accepted.
+                    </span>
+                    <span id="passport-issued-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Invalid date - please review
+                    </span>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                        Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="10">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                        Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="9">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                        Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="202">
+                    </div>
+                    </div>
+                </div>
+                <!-- 'To' section -->
+                <div class="govuk-date-input custom-form-group-padding" id="date-2">
+                    <label class="govuk-label govuk-!-margin-top-6" for="to-date">
+                        <strong>Date to</strong>
+                      </label>
+                    <span id="" class="govuk-hint">
+                        For example, 22 10 2020. Future dates not accepted.
+                    </span>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                        Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="13">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                        Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="9">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item govuk-!-margin-bottom-3">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                        Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="2020">
+                    </div>
+                    </div>
+                    </div>
+                </div>
+                <button class="govuk-button govuk-button--secondary govuk-!-margin-top-3" data-module="govuk-button" id="apply-payment-filters" type="submit" formaction="/manage-funding/payments" >
+                    Apply date filter
+                </button>
+            </div>
+        </fieldset>
+        </div>
+    </div>
+    <!--One third column end-->
+    
+            </div>
+            <!--Row end-->
+            <div class="govuk-form-group govuk-!-margin-top-6">
+                <h2 class="govuk-heading-l">Combination errors</h2>
+                <!--<span class="govuk-hint">Brought together under 'date' error</span>-->
+            </div>
+<!--
+    Row start
+-->
+<div class="govuk-grid-row">
+    <!--
+        One third column start
+    -->
+            <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
+    <!-- 
+        Filter by date.
+        Text field inputs.
+        Combination DATE error - 2 invalid fields.
+    -->
+    <p>Combination DATE error - 2 invalid fields</p>
+        <div class="govuk-form-group filterbyContainer">
+        <fieldset class="govuk-fieldset">
+            <button
+                class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-date-error-states-examples govuk-button">
+                <h4 class="govuk-heading-s">Filter by date<span><i id="arrowRotateDate" class="material-icons right-align"> keyboard_arrow_down </i></span>
+                </h4>
+            </button>
+            <div id="filter-content-date-error-states-examples" class="filter-content-date-error-states-examples dates">
+                <div class="govuk-form-group">
+                <div class="govuk-date-input govuk-form-group--error custom-form-group-padding" id="date-1">
+                    <label class="govuk-label" for="from-date">
+                        <strong>Date from</strong>
+                    </label>
+                    <span id="" class="govuk-hint">
+                        For example, 22 10 2020. Future dates not accepted.
+                    </span>
+                    <span id="passport-issued-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Invalid date - please review
+                    </span>
+                    <!--
+                    <span id="passport-issued-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Date must be today or in the past
+                    </span>
+                    -->
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                        Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="10">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                        Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="13">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                        Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="2022">
+                    </div>
+                    </div>
+                </div>
+                <!-- 'To' section -->
+                <div class="govuk-date-input custom-form-group-padding" id="date-2">
+                    <label class="govuk-label govuk-!-margin-top-6" for="to-date">
+                        <strong>Date to</strong>
+                      </label>
+                    <span id="" class="govuk-hint">
+                        For example, 22 10 2020. Future dates not accepted.
+                    </span>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                        Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="13">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                        Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="9">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item govuk-!-margin-bottom-3">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                        Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="2020">
+                    </div>
+                    </div>
+                    </div>
+                </div>
+                <button class="govuk-button govuk-button--secondary govuk-!-margin-top-3" data-module="govuk-button" id="apply-payment-filters" type="submit" formaction="/manage-funding/payments" >
+                    Apply date filter
+                </button>
+            </div>
+        </fieldset>
+        </div>           
+            </div>
+            <!--One third column end-->
+    <!--
+        One third column start
+    -->
+            <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
+<!-- 
+        Filter by date.
+        Text field inputs.
+        Combination DATE error - 1 invalid, 1 missing field.
+    -->
+    <p>Combination DATE error - 1 invalid, 1 missing</p>
+        <div class="govuk-form-group filterbyContainer">
+        <fieldset class="govuk-fieldset">
+            <button
+                class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-date-error-states-examples govuk-button">
+                <h4 class="govuk-heading-s">Filter by date<span><i id="arrowRotateDate" class="material-icons right-align"> keyboard_arrow_down </i></span>
+                </h4>
+            </button>
+            <div id="filter-content-date-error-states-examples" class="filter-content-date-error-states-examples dates">
+                <div class="govuk-form-group">
+                <div class="govuk-date-input govuk-form-group--error custom-form-group-padding" id="date-1">
+                    <label class="govuk-label" for="from-date">
+                        <strong>Date from</strong>
+                    </label>
+                    <span id="" class="govuk-hint">
+                        For example, 22 10 2020. Future dates not accepted.
+                    </span>
+                    <span id="passport-issued-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Invalid date - please review
+                    </span>
+                    <!--
+                    <span id="passport-issued-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Date must be today or in the past
+                    </span>
+                    -->
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                        Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="10">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                        Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                        Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="2022">
+                    </div>
+                    </div>
+                </div>
+                <!-- 'To' section -->
+                <div class="govuk-date-input custom-form-group-padding" id="date-2">
+                    <label class="govuk-label govuk-!-margin-top-6" for="to-date">
+                        <strong>Date to</strong>
+                      </label>
+                    <span id="" class="govuk-hint">
+                        For example, 22 10 2020. Future dates not accepted.
+                    </span>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                        Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="13">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                        Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="9">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item govuk-!-margin-bottom-3">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                        Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="2020">
+                    </div>
+                    </div>
+                    </div>
+                </div>
+                <button class="govuk-button govuk-button--secondary govuk-!-margin-top-3" data-module="govuk-button" id="apply-payment-filters" type="submit" formaction="/manage-funding/payments" >
+                    Apply date filter
+                </button>
+            </div>
+        </fieldset>
+        </div>
+            </div>
+            <!--One third column end-->
+    <!--
+        One third column start
+    -->
+    <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
+        <p>Combination FROM and TO fields errors</p>
+                    <div class="govuk-form-group filterbyContainer">
+                    <fieldset class="govuk-fieldset">
+                        <button
+                            class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-date-error-states-examples govuk-button">
+                            <h4 class="govuk-heading-s">Filter by date<span><i id="arrowRotateDate" class="material-icons right-align"> keyboard_arrow_down </i></span>
+                            </h4>
+                        </button>
+                        <div id="filter-content-date-error-states-examples" class="filter-content-date-error-states-examples dates">
+                            <div class="govuk-form-group govuk-form-group--error custom-form-group-padding">
+                            <div class="govuk-date-input" id="date-1">
+                                <label class="govuk-label" for="from-date">
+                                    <strong>Date from</strong>
+                                  </label>
+                                <span id="" class="govuk-hint">
+                                    For example, 22 10 2020. Future dates not accepted.
+                                </span>
+                                <span id="passport-issued-error" class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span> Invalid date - please review
+                                  </span>
+                                <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                                    Day
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                                    Month
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                                    Year
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                                </div>
+                            </div>
+                            <!-- 'To' section -->
+                            <div class="govuk-date-input custom-form-group-padding" id="date-2">
+                                <label class="govuk-label govuk-!-margin-top-6" for="to-date">
+                                    <strong>Date to</strong>
+                                  </label>
+                                <span id="" class="govuk-hint">
+                                    For example, 22 10 2020. Future dates not accepted.
+                                </span>
+                                <span id="passport-issued-error" class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span> Invalid date - please review
+                                  </span>
+                                <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                                    Day
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                                    Month
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                                </div>
+                                <div class="govuk-date-input__item govuk-!-margin-bottom-3">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                                    Year
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                            <button class="govuk-button govuk-button--secondary govuk-!-margin-top-3" data-module="govuk-button" id="apply-payment-filters" type="submit" formaction="/manage-funding/payments" >
+                                Apply date filter
+                            </button>
+                        </div>
+                    </fieldset>
+                    </div>   
+<!--One third column end-->
+            </div>
+    </div>
+    
+    
+            <!--Row end-->
+            <div class="govuk-form-group govuk-!-margin-top-6">
+                <h2 class="govuk-heading-l">TO errors</h2>
+            </div>
+<!--
+    Row start
+-->
+<div class="govuk-grid-row">
+    <!--
+        One third column start
+    -->
+            <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
+    <!-- 
+        Filter by date.
+        Text field inputs.
+        Invalid TO DAY error.
+    -->
+                    <div class="govuk-form-group filterbyContainer">
+                    <fieldset class="govuk-fieldset">
+                        <button
+                            class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-date-error-states-examples govuk-button">
+                            <h4 class="govuk-heading-s">Filter by date<span><i id="arrowRotateDate" class="material-icons right-align"> keyboard_arrow_down </i></span>
+                            </h4>
+                        </button>
+                        <div id="filter-content-date-error-states-examples" class="filter-content-date-error-states-examples dates">
+                            <div class="govuk-form-group">
+                            <div class="govuk-date-input" id="date-1">
+                                <label class="govuk-label" for="from-date">
+                                    <strong>Date from</strong>
+                                  </label>
+                                <span id="" class="govuk-hint">
+                                    For example, 22 10 2020. Future dates not accepted.
+                                </span>
+                                <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                                    Day
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="10">
+                                </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                                    Month
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="9">
+                                </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                                    Year
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="2020">
+                                </div>
+                                </div>
+                            </div>
+                            <!-- 'To' section -->
+                            <div class="govuk-date-input govuk-form-group--error custom-form-group-padding" id="date-2">
+                                <label class="govuk-label govuk-!-margin-top-6" for="to-date">
+                                    <strong>Date to</strong>
+                                  </label>
+                                <span id="" class="govuk-hint">
+                                    For example, 22 10 2020. Future dates not accepted.
+                                </span>
+                                <span id="passport-issued-error" class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span> Invalid date - please review
+                                  </span>
+                                <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                                    Day
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="32">
+                                </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                                    Month
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="9">
+                                </div>
+                                </div>
+                                <div class="govuk-date-input__item govuk-!-margin-bottom-3">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                                    Year
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="2020">
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                            <button class="govuk-button govuk-button--secondary govuk-!-margin-top-3" data-module="govuk-button" id="apply-payment-filters" type="submit" formaction="/manage-funding/payments" >
+                                Apply date filter
+                            </button>
+                        </div>
+                    </fieldset>
+                
+                </div>           
+            </div>
+            <!--One third column end-->
+    <!--
+        One third column start
+    -->
+            <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
+    <!-- 
+        Filter by date.
+        Text field inputs.
+        Invalid TO MONTH error.
+    -->
+        <div class="govuk-form-group filterbyContainer">
+        <fieldset class="govuk-fieldset">
+            <button
+                class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-date-error-states-examples govuk-button">
+                <h4 class="govuk-heading-s">Filter by date<span><i id="arrowRotateDate" class="material-icons right-align"> keyboard_arrow_down </i></span>
+                </h4>
+            </button>
+            <div id="filter-content-date-error-states-examples" class="filter-content-date-error-states-examples dates">
+                <div class="govuk-form-group">
+                <div class="govuk-date-input" id="date-1">
+                    <label class="govuk-label" for="from-date">
+                        <strong>Date from</strong>
+                      </label>
+                    <span id="" class="govuk-hint">
+                        For example, 22 10 2020. Future dates not accepted.
+                    </span>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                        Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="10">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                        Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="9">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                        Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="2020">
+                    </div>
+                    </div>
+                </div>
+                <!-- 'To' section -->
+                <div class="govuk-date-input govuk-form-group--error custom-form-group-padding" id="date-2">
+                    <label class="govuk-label govuk-!-margin-top-6" for="to-date">
+                        <strong>Date to</strong>
+                      </label>
+                    <span id="" class="govuk-hint">
+                        For example, 22 10 2020. Future dates not accepted.
+                    </span>
+                    <span id="passport-issued-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Invalid date - please review
+                      </span>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                        Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="24">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                        Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="13">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item govuk-!-margin-bottom-3">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                        Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="2020">
+                    </div>
+                    </div>
+                    </div>
+                </div>
+                <button class="govuk-button govuk-button--secondary govuk-!-margin-top-3" data-module="govuk-button" id="apply-payment-filters" type="submit" formaction="/manage-funding/payments" >
+                    Apply date filter
+                </button>
+            </div>
+        </fieldset>
+        </div>
+            </div>
+            <!--One third column end-->
+    <!--
+        One third column start
+    -->
+    <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
+                <!-- 
+        Filter by date.
+        Text field inputs.
+        Invalid TO YEAR error.
+    -->
+        <div class="govuk-form-group filterbyContainer">
+        <fieldset class="govuk-fieldset">
+            <button
+                class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-date-error-states-examples govuk-button">
+                <h4 class="govuk-heading-s">Filter by date<span><i id="arrowRotateDate" class="material-icons right-align"> keyboard_arrow_down </i></span>
+                </h4>
+            </button>
+            <div id="filter-content-date-error-states-examples" class="filter-content-date-error-states-examples dates">
+                <div class="govuk-form-group">
+                <div class="govuk-date-input" id="date-1">
+                    <label class="govuk-label" for="from-date">
+                        <strong>Date from</strong>
+                      </label>
+                    <span id="" class="govuk-hint">
+                        For example, 22 10 2020. Future dates not accepted.
+                    </span>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                        Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="10">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                        Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="9">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                        Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="2020">
+                    </div>
+                    </div>
+                </div>
+                <!-- 'To' section -->
+                <div class="govuk-date-input govuk-form-group--error custom-form-group-padding" id="date-2">
+                    <label class="govuk-label govuk-!-margin-top-6" for="to-date">
+                        <strong>Date to</strong>
+                      </label>
+                    <span id="" class="govuk-hint">
+                        For example, 22 10 2020. Future dates not accepted.
+                    </span>
+                    <span id="passport-issued-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Invalid date - please review
+                      </span>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                        Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="24">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                        Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="9">
+                    </div>
+                    </div>
+                    <div class="govuk-date-input__item govuk-!-margin-bottom-3">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                        Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="2022">
+                    </div>
+                    </div>
+                    </div>
+                </div>
+                <button class="govuk-button govuk-button--secondary govuk-!-margin-top-3" data-module="govuk-button" id="apply-payment-filters" type="submit" formaction="/manage-funding/payments" >
+                    Apply date filter
+                </button>
+            </div>
+        </fieldset>
+        </div>
+    </div>
+    <!--One third column end-->
+    
+            </div>
+            <!--Row end-->
+    </section>
+  </div>
+</div>
+
+<!--
+    Row end
+-->
+
+{% endblock %}
