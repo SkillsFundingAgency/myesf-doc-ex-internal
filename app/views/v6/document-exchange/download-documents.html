@@ -80,6 +80,8 @@
 -->
 
 <div class="govuk-form-group filterbyContainer">
+    <section>
+    <fieldset class="govuk-fieldset">
     <h4 class="govuk-label-wrapper">
         <label class="govuk-label govuk-label--s searchbyHeading" for="ukprn-search">
         Search by UKPRN
@@ -95,6 +97,8 @@
         </button>
         <a href="#" style="display: inline-block; margin-top: 32px; margin-left: 10px;">Clear search<span class="govuk-visually-hidden"> by UKPRN</span></a>
     </div>
+</fieldset>
+</section>
 </div>
 <!--
     Filter by status.
@@ -102,27 +106,37 @@
 -->
             <div class="govuk-form-group filterbyContainer">
                 <fieldset class="govuk-fieldset">
+                    <!--
+                    <div id="status" class="govuk-hint govuk-visually-hidden">
+                        Filter by status
+                    </div>
+                    -->
                     <button
                         class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-status govuk-button">
-                        <h4 class="govuk-heading-s">Filter by status<span><i id="arrowRotateStatus" class="material-icons right-align"> keyboard_arrow_down </i></span>
+                        <h4 class="govuk-heading-s">Filter by status<span class="govuk-visually-hidden">:</span><span><i id="arrowRotateStatus" class="material-icons right-align" aria-describedby="status"> keyboard_arrow_down </i></span>
                         </h4>
-                        
                     </button>
                     <div id="filter-content-status" class="filter-content-status">
-                        <div class="govuk-checkboxes govuk-checkboxes--small filterbyCheckbox govuk-!-margin-top-3" id="filterBySchoolResults">
+                        <div class="govuk-checkboxes govuk-checkboxes--small filterbyCheckbox govuk-!-margin-top-3 group" id="filterBySchoolResults">
                             <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
-                                    type="checkbox" value="hmrc">
-                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                <input class="govuk-checkboxes__input" id="new" name="new"
+                                    type="checkbox" value="new">
+                                <label class="govuk-label govuk-checkboxes__label" for="new">
                                     New
                                 </label>
+                                <div id="new-hint" class="govuk-hint govuk-visually-hidden" for="new">
+                                    Filter by status: New
+                                </div>
                             </div>
                             <div class="govuk-checkboxes__item govuk-!-margin-bottom-3">
-                                <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
-                                    type="checkbox" value="employment-tribunal">
-                                <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                                <input class="govuk-checkboxes__input" id="downloaded" name="downloaded"
+                                    type="checkbox" value="downloaded">
+                                <label class="govuk-label govuk-checkboxes__label" for="downloaded">
                                     Downloaded
                                 </label>
+                                <div id="downloaded-hint" class="govuk-hint govuk-visually-hidden" for="downloaded">
+                                    Filter by status: Downloaded
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -136,7 +150,7 @@
                 <fieldset class="govuk-fieldset">
                     <button
                         class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-document-type govuk-button">
-                        <h4 class="govuk-heading-s">Filter by document type <span><i id="arrowRotateDocumentType" class="material-icons right-align">
+                        <h4 class="govuk-heading-s">Filter by document type <span class="govuk-visually-hidden">:</span><span><i id="arrowRotateDocumentType" class="material-icons right-align">
                                     keyboard_arrow_down</i></span>
                         </h4>
                     </button>
@@ -220,7 +234,7 @@
                 <fieldset class="govuk-fieldset">
                     <button
                         class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-time-period govuk-button">
-                        <h4 class="govuk-heading-s">Filter by uploaded today<span><i id="arrowRotateTime" class="material-icons right-align"> keyboard_arrow_down </i></span>
+                        <h4 class="govuk-heading-s">Filter by uploaded today <span class="govuk-visually-hidden">:</span><span><i id="arrowRotateTime" class="material-icons right-align"> keyboard_arrow_down </i></span>
                         </h4>
                     </button>
                     <div id="filter-content-time-period" class="filter-content-time-period govuk-!-margin-top-3">
@@ -276,7 +290,7 @@
                 <fieldset class="govuk-fieldset">
                     <button
                         class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-date govuk-button">
-                        <h4 class="govuk-heading-s">Filter by date<span><i id="arrowRotateDate" class="material-icons right-align"> keyboard_arrow_down </i></span>
+                        <h4 class="govuk-heading-s">Filter by date <span class="govuk-visually-hidden">:</span><span><i id="arrowRotateDate" class="material-icons right-align"> keyboard_arrow_down </i></span>
                         </h4>
                     </button>
                     <div id="filter-content-date" class="filter-content-date dates">
@@ -362,7 +376,7 @@
     <fieldset class="govuk-fieldset">
         <button
             class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-establishment-type govuk-button">
-            <h4 class="govuk-heading-s">Filter by provider type<span><i id="arrowRotateEstablishmentType" class="material-icons right-align"> keyboard_arrow_down </i>
+            <h4 class="govuk-heading-s">Filter by provider type <span class="govuk-visually-hidden">:</span><span><i id="arrowRotateEstablishmentType" class="material-icons right-align"> keyboard_arrow_down </i>
             </h4>
             <!--
                 Number selected

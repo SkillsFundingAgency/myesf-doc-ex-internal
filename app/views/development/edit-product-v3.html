@@ -1,0 +1,364 @@
+<!--
+    This page is a prototype.
+    Please do not use as production code.
+    It was created with speed in mind, so treat as throwaway HTML.
+-->
+
+{% extends "layout.html" %}
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+{% block pageTitle %}
+  Edit product (alternative)
+{% endblock %}
+
+{% block beforeContent %}
+<!--
+    Phase banner
+-->
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<!--
+    Navigation
+-->
+<div class="account-features">
+  <span class="account-link">
+    <a href="#">My roles and permissions</a>
+  </span>
+  <span class="account-link">
+    <a href="#">Sign out</a>
+  </span>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+<!--
+    Breadcrumbs go here
+-->
+<!--
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="dashboard.html">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="home.html">Document exchange</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Settings</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="product-settings.html">Products</a>
+        </li>
+      </ol>
+    </div>
+-->
+    <!--<a class="govuk-back-link" href="download-documents">Back</a>-->
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">Edit product</h1>
+
+    <!--Identifier-->
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="width-5">
+        <strong>Identifier</strong>
+      </label>
+      <div id="event-name-hint" class="govuk-hint">
+        The product's unique 5 digit code.
+      </div>
+      <input class="govuk-input govuk-input--width-5" id="width-5" name="width-5" type="text" value="10001">
+    </div>
+
+    <!--Document name
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="width-5">
+        <strong>Document name</strong>
+      </label>
+      <div id="event-name-hint" class="govuk-hint">
+        Used to refer to one of this product type.
+        --
+        For use when referring to a single product.
+        --
+      </div>
+      <input class="govuk-input govuk-!-width-one-third" id="one-half" name="one-half" type="text" value="Allocation calculation toolkit">
+    </div>
+-->
+    <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="40">
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="with-hint">
+          <strong>Document name</strong>
+        </label>
+        <div id="with-hint-hint" class="govuk-hint">
+          Used to refer to one of this product type.
+        </div>
+        <input class="govuk-input govuk-js-character-count govuk-!-width-one-third" id="document-name" name="document-name" aria-describedby="document-name-info document-name-hint">
+      </div>
+      <div id="document-name-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+        You can enter up to 40 characters
+      </div>
+    
+    </div>
+
+    <!--Document plural name-->
+    <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="40">
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="width-5">
+       <strong>Document plural name</strong>
+      </label>
+      <div id="event-name-hint" class="govuk-hint">
+        Used to refer to more than one of this product type.
+        <!--
+        For use when referring to more than one product.
+        -->
+      </div>
+      <input class="govuk-input govuk-js-character-count govuk-!-width-one-third" id="document-name" name="document-name" aria-describedby="document-name-info document-name-hint" value="Allocation calculation toolkits">
+      </div>
+      <div id="document-name-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+        You can enter up to 40 characters
+      </div>
+    </div>
+
+    <!--Agency team-->
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="sort">
+        <strong>Agency team</strong>
+      </label>
+      <div id="event-name-hint" class="govuk-hint">
+        Select the team that will use and receive updates about this product.
+        <!--
+        Select the team that will use this product.
+        -->
+      </div>
+      <select class="govuk-select" id="sort" name="sort">
+        <option value="published">Option 1</option>
+        <option value="updated" selected>Funding</option>
+        <option value="views">Option 3</option>
+        <option value="comments">Option 4</option>
+      </select>
+    </div>
+
+    <!--Can organisations upload-->
+    <div class="govuk-form-group">
+      <!--
+      <label class="govuk-label" for="sort">
+        Allow providers to upload this document to the ESFA.
+      </label>
+      <div id="event-name-hint" class="govuk-hint">
+        Select whether providers can upload this document to the ESFA.
+      </div>
+      -->
+      <label class="govuk-label" for="sort">
+        <strong>Can providers return this product?</strong>
+      </label>
+      <div id="event-name-hint" class="govuk-hint">
+        Select whether providers can upload this document to the ESFA.
+      </div>
+      
+      <select class="govuk-select" id="sort" name="sort">
+        <option value="published">Yes</option>
+        <option value="updated" selected>No</option>
+      </select>
+    </div>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h4 class="govuk-fieldset__heading">
+            Send follow up emails?
+          </h4>
+        </legend>
+        <div id="contact-hint" class="govuk-hint">
+          Select the number of emails required.
+        </div>
+        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="contact" name="contact" type="checkbox" value="email" data-aria-controls="conditional-contact">
+            <label class="govuk-label govuk-checkboxes__label" for="contact">
+              One
+            </label>
+          </div>
+          <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="contact-by-email">
+                Time interval
+              </label>
+              <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contact-by-email" type="email" spellcheck="false"></div>
+    
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="contact-2" name="contact" type="checkbox" value="phone" data-aria-controls="conditional-contact-2">
+            <label class="govuk-label govuk-checkboxes__label" for="contact-2">
+              Two
+            </label>
+          </div>
+          <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact-2">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="contact-by-phone">
+                Time interval
+              </label>
+              <input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contact-by-phone" type="tel"></div>
+    
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="contact-3" name="contact" type="checkbox" value="text message" data-aria-controls="conditional-contact-3">
+            <label class="govuk-label govuk-checkboxes__label" for="contact-3">
+              Three
+            </label>
+          </div>
+          <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact-3">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="contact-by-text">
+                Time interval
+              </label>
+              <input class="govuk-input govuk-!-width-one-third" id="contact-by-text" name="contact-by-text" type="tel"></div>
+    
+          </div>
+        </div>
+    
+      </fieldset>
+    </div>
+
+
+    <!--Document plural name-->
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="width-5">
+         Follow up email
+        </label>
+        <div id="event-name-hint" class="govuk-hint">
+        Working days
+          <!--
+          For use when referring to more than one product.
+          -->
+        </div>
+        <input class="govuk-input govuk-js-character-count govuk-input--width-2" id="document-name" name="document-name" aria-describedby="document-name-info document-name-hint">
+        </div>
+
+    <!--
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            Send follow-up emails
+          </legend>
+          <div id="changed-name-hint" class="govuk-hint">
+            Chase email frequency.
+          </div>
+          <div class="govuk-checkboxes govuk-checkboxes--small">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+              <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                10 working days
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+              <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                13 working days
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="organisation-3" name="organisation" type="checkbox" value="MOD">
+              <label class="govuk-label govuk-checkboxes__label" for="organisation-3">
+                15 working days
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      -->
+
+      <form action="edit-product-confirm-v1.html" method="link" novalidate>
+
+        <input type="hidden" name="delete-confirmed" value="true">
+
+        <button type="submit" class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+<!--
+  <p class="govuk-body">By continuing, you will delete:</p>
+  <ul class="govuk-list govuk-list--bullet">
+        <li>the documents listed</li>
+        <li>all their previous versions</li>
+  </ul>
+  <p>By continuing, you will delete the documents listed and all their previous versions.</p>
+  <p>By continuing, you will delete the documents listed and all previously submitted versions.</p>
+  <p>By continuing, you will delete the documents listed and all versions previously submitted by the provider.</p>
+  <p>By continuing, you will delete the documents listed and all previous versions submitted by the provider.</p>
+-->
+
+<div class="govuk-form-group govuk-!-margin-bottom-0">
+  <a href="product-settings.html">Cancel</a>
+</div>
+
+<!--
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-heading-xl">
+        Are you sure you want to delete these documents?
+      </h1>
+    </legend>
+    <p>You have selected <strong>2</strong> documents for deletion.</p>
+    <div class="govuk-radios govuk-radios--inline">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="changed-name-2">
+          No
+        </label>
+      </div>
+    </div>
+
+  </fieldset>
+</div>
+-->
+
+  </div>
+</div>
+
+<!--
+    Heading
+
+    <h1 class="govuk-heading-xl">Are you sure you want to delete these documents?</h1>
+    <section>
+
+    Row start
+
+      <div class="govuk-grid-row">
+
+    One third column start
+
+            <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
+    <p class="govuk-body">The documents are:</p>
+            </div>
+        </div>
+        --Row end--
+    </section>
+  -->
+  </div>
+</div>
+
+{% endblock %}

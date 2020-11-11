@@ -212,6 +212,14 @@ div.filter-content-establishment-sub-type {
 	cursor: pointer;
 }
 
+.searchbyHeading {
+	background-color: lightgrey;
+	width: auto;
+	padding: 6px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
 .filterbyHeading h4 {
 		margin-bottom: 0px;
 }
@@ -421,6 +429,15 @@ div.filter-content-establishment-sub-type {
 
 .custom-form-group-padding {
   padding-right: 10px;
+}
+
+.error-form-group-padding {
+  padding-left: 50px;
+}
+
+.ukprn-error-margins {
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 /* GIAS filter permanent scrollbar 
