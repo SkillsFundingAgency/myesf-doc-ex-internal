@@ -29,7 +29,7 @@ It was not created inside the main Skills Funding Agency sfs-sitedesign prototyp
 [https://myesf-doc-ex-internal.herokuapp.com/](https://myesf-doc-ex-internal.herokuapp.com/)
 
 ### GitHub repo ###
-[https://github.com/SkillsFundingAgency/myesf-doc-ex-internal](hhttps://github.com/SkillsFundingAgency/myesf-doc-ex-internal)
+[https://github.com/SkillsFundingAgency/myesf-doc-ex-internal](https://github.com/SkillsFundingAgency/myesf-doc-ex-internal)
 
 ## Links to the Document exchange internal design history
 
