@@ -1,0 +1,213 @@
+<!--
+    This page is a prototype.
+    Please do not use as production code.
+    It was created with speed in mind, so treat as throwaway HTML.
+-->
+
+{% extends "layout.html" %}
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+{% block pageTitle %}
+  Download your documents
+{% endblock %}
+
+{% block beforeContent %}
+<!--
+    Phase banner
+-->
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<!--
+    Navigation
+-->
+<div class="account-features">
+  <span class="account-link">
+    <a href="#">My roles and permissions</a>
+  </span>
+  <span class="account-link">
+    <a href="#">Sign out</a>
+  </span>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+<!--
+    Breadcrumbs
+-->
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="dashboard.html">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="home.html">Document exchange</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            Download your documents
+          </li>
+      </ol>
+    </div>
+{% endblock %}
+
+{% block content %}
+<!--
+    Heading
+-->
+    <h1 class="govuk-heading-xl">Download your documents</h1>
+    <section>
+<!--
+    Row start
+-->
+      <div class="govuk-grid-row">
+<!--
+    One third column start
+-->
+
+        <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
+
+<!--
+    Search by UKPRN.
+    Numeric input.
+    Updated 5.11.2020.
+-->
+
+<div class="govuk-form-group filterbyContainer" id="search-by-ukprn">
+    <section>
+    <fieldset class="govuk-fieldset">
+    <h4 class="govuk-label-wrapper" tabindex="0">
+        <label class="govuk-label govuk-label--s searchbyHeading" for="ukprn-search" aria-describedby="ukprn-search-hint">
+        Search by UKPRN
+      </label>
+    </h4>
+    <div class="filterSearch">
+        <div id="ukprn-search-hint" class="govuk-hint" style="margin-bottom: 10px;">
+        Must be an 8 digit number
+        </div>
+        <input class="govuk-input filterSearchInput" id="ukprn-search" name="ukprn-search" type="text" spellcheck="false" aria-describedby="ukprn-search-hint" pattern="[0-9]*" inputmode="numeric">
+        <form action="#" method="link" novalidate>
+
+    
+    
+    
+          
+        
+        <button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-3" style="margin-top: 25px;" data-module="govuk-button" id="apply-ukprn-search" type="submit">
+            <span class="govuk-visually-hidden">Apply</span> Search <span class="govuk-visually-hidden">by UKPRN</span>
+        </button>
+        <a href="#" style="display: inline-block; margin-top: 32px; margin-left: 10px;">Clear search<span class="govuk-visually-hidden"> by UKPRN</span></a>
+    </form>
+    </div>
+</fieldset>
+</section>
+</div>
+
+<!-- 
+    Filter by date preprod.
+    Text field inputs.
+-->
+<fieldset class="filter" id="searchByUKPRN">
+    <legend class="visuallyhidden"><!--Removed redundant 'Filter by' from legend-->Search <!--Added hidden 'for providers' descriptor for screen readers--><span class="visuallyhidden">for providers </span>by UKPRN <span class="visuallyhidden"><!--Added hidden 'uploaded' descriptor for screen readers-->uploaded</span></legend>
+    <div class="js-filter-collapsible-collections">
+        <section id="UploadDate-filter" class="js-filter-collapsible js-open">
+            <input type="hidden" name="queryFilterOpen-UploadDate" id="queryFilterOpen-UploadDate" aria-expanded="true" aria-controls="filter-by-UploadDate" value="true">
+                <header id="UploadDate" class="js-filter-collapsible-header" tabindex="0" role="button">
+                    <h2 class="filters-headings heading-small">Search by UKPRN</h2>
+                </header>
+            
+
+            <div id="search-by-UKPRN" class="js-filter-collapsible-content" aria-labelledby="SearchByUKPRN">
+                <section class="toggled-adult-funding-content group">
+                    <h3 style="font-weight: bold;" aria-describedby="date-from-hint" tabindex="0"><!--h2 changed to h3 (there is already a h2 for this component)--><!--BOLD style applied inline that will need to be removed and reflected in CSS-->Date from</h3>
+                    <span style="color: #505a5f;" id="date-from-hint"><!--h4 changed to span #505a5f--><!--Style colour applied inline that will need to be removed and reflected in CSS-->For example, 12 11 2020. Future dates not accepted.</span>
+                    <div class="date-filter-input">
+                        
+                        <span class="error-message" data-filterkey="UploadDate" data-dateinputdirection="from"></span>
+
+                        <div class="date-filter-input-item date-filter-input-item-width-2">
+                            <label for="DateFilter.UploadDate.From.Day"><!--Added 'for' attribute to label-->Day</label>
+                            <!--Added 'id' attribute to input-->
+                            <input class="date-filter-value-input" id="DateFilter.UploadDate.From.Day" name="DateFilter.UploadDate.From.Day" data-filterkey="UploadDate" data-dateinputdirection="from" data-dateinputtype="day" maxlength="2">
+                        </div>
+
+                        <div class="date-filter-input-item date-filter-input-item-width-2">
+                            <label for="DateFilter.UploadDate.From.Month"><!--Added 'for' attribute to label-->Month</label>
+                            <!--Added 'id' attribute to input-->
+                            <input class="date-filter-value-input" id="DateFilter.UploadDate.From.Month" name="DateFilter.UploadDate.From.Month" data-filterkey="UploadDate" data-dateinputdirection="from" data-dateinputtype="month" maxlength="2">
+                        </div>
+
+                        <div class="date-filter-input-item date-filter-input-item-width-4">
+                            <label for="DateFilter.UploadDate.From.Year"><!--Added 'for' attribute to label-->Year</label>
+                            <!--Added 'id' attribute to input-->
+                            <input class="date-filter-value-input" id="DateFilter.UploadDate.From.Year" name="DateFilter.UploadDate.From.Year" data-filterkey="UploadDate" data-dateinputdirection="from" data-dateinputtype="year" maxlength="4">
+                        </div>
+                    </div>
+                
+                    <h3 h3 style="font-weight: bold;" aria-describedby="date-to-hint" tabindex="0"><!--h2 changed to h3 (there is already a h2 for this component) --><!--BOLD style applied inline that will need to be removed and reflected in CSS-->Date to</h3>
+                        <span style="color: #505a5f;" id="date-to-hint"><!--h4 changed to span--><!--Style colour applied inline that will need to be removed and reflected in CSS-->For example, 12 11 2020. Future dates not accepted.</span>
+
+                    <div class="date-filter-input">
+                        
+                        <span class="error-message" data-filterkey="UploadDate" data-dateinputdirection="to"></span>
+
+                        <div class="date-filter-input-item date-filter-input-item-width-2">
+                            <label for="DateFilter.UploadDate.To.Day"><!--Added 'for' attribute to label-->Day</label>
+                            <!--Added 'id' attribute to input-->
+                            <input class="date-filter-value-input" id="DateFilter.UploadDate.To.Day" name="DateFilter.UploadDate.To.Day" data-filterkey="UploadDate" data-dateinputdirection="to" data-dateinputtype="day" maxlength="2">
+                        </div>
+
+                        <div class="date-filter-input-item date-filter-input-item-width-2">
+                            <label for="DateFilter.UploadDate.To.Month"><!--Added 'for' attribute to label-->Month</label>
+                            <!--Added 'id' attribute to input-->
+                            <input class="date-filter-value-input" id="DateFilter.UploadDate.To.Month" name="DateFilter.UploadDate.To.Month" data-filterkey="UploadDate" data-dateinputdirection="to" data-dateinputtype="month" maxlength="2">
+                        </div>
+
+                        <div class="date-filter-input-item date-filter-input-item-width-4">
+                            <label for="DateFilter.UploadDate.To.Year"><!--Added 'for' attribute to label-->Year</label>
+                            <!--Added 'id' attribute to input-->
+                            <input class="date-filter-value-input" id="DateFilter.UploadDate.To.Year" name="DateFilter.UploadDate.To.Year" data-filterkey="UploadDate" data-dateinputdirection="to" data-dateinputtype="year" maxlength="4">
+                        </div>
+                    </div>
+
+                    <div id="applyDateFilter" class="form-group date-filter-form-group">
+                        <input type="button" class="button date-filter-button" value="Apply date filter" data-filterkey="UploadDate">
+                    </div>
+                    <a href="#" style="display: inline-block; margin-top: 20px;">Clear date filter</a>
+
+                </section>
+
+            </div>
+
+        </section>
+    </div>
+</fieldset>
+
+            <a href>Clear filters</a>
+                <!--
+                Alternative 'Clear filters' link          
+                <a href="#" class="govuk-link" onclick="$('input:checkbox').removeAttr('checked');">Clear filters</a>
+                -->
+        </div>
+<!--
+    Two thirds column start
+-->
+
+        </div>
+        <!--Row end-->
+    </section>
+  </div>
+</div>
+
+<!--
+    Row end
+-->
+
+{% endblock %}

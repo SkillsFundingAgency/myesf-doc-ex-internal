@@ -23,7 +23,7 @@ $(document).ready(function () {
 //   }
 // });
 
-// Collapsible filters status
+// // Collapsible filters status
 $('.filter-expand-status').click(function () {
   if ($("[id^=filter-content-status]").hasClass('filter-content-status')) {
     $("[id^=filter-content-status]").removeClass('filter-content-status');
@@ -34,6 +34,7 @@ $('.filter-expand-status').click(function () {
     $("[id^=filter-content-status]").addClass('filter-content-status');
   }
 });
+
 // Collapsible filters document type
 $('.filter-expand-document-type').click(function () {
   if ($("[id^=filter-content-document-type]").hasClass('filter-content-document-type')) {
@@ -79,16 +80,16 @@ $('.filter-expand-establishment-type').click(function () {
   }
 });
 // Collapsible filters establishment sub-type
-$('.filter-expand-establishment-sub-type').click(function () {
-  if ($("[id^=filter-content-establishment-sub-type]").hasClass('filter-content-establishment-sub-type')) {
-    $("[id^=filter-content-establishment-sub-type]").removeClass('filter-content-establishment-sub-type');
-    $("[id^=arrowRotateEstablishmentSubType]").addClass('arrowChange');
-  }
-  else {
-    $("[id^=arrowRotateEstablishmentSubType]").removeClass('arrowChange');
-    $("[id^=filter-content-establishment-sub-type]").addClass('filter-content-establishment-sub-type');
-  }
-});
+// $('.filter-expand-establishment-sub-type').click(function () {
+//   if ($("[id^=filter-content-establishment-sub-type]").hasClass('filter-content-establishment-sub-type')) {
+//     $("[id^=filter-content-establishment-sub-type]").removeClass('filter-content-establishment-sub-type');
+//     $("[id^=arrowRotateEstablishmentSubType]").addClass('arrowChange');
+//   }
+//   else {
+//     $("[id^=arrowRotateEstablishmentSubType]").removeClass('arrowChange');
+//     $("[id^=filter-content-establishment-sub-type]").addClass('filter-content-establishment-sub-type');
+//   }
+// });
 
 //Filter and search 
 $(document).ready(function () {
@@ -126,3 +127,65 @@ $(document).ready(function () {
     });
   });
 });
+
+// // Button changes
+
+// // STATUS FILTER
+// function buttonChangeStatus() {
+// var x = document.getElementById("statusButton").getAttribute("aria-expanded"); 
+// if (x == "true") 
+// {
+// x = "false"
+// } else {
+// x = "true"
+// }
+// document.getElementById("statusButton").setAttribute("aria-expanded", x);
+// }
+
+// // DOCUMENT TYPE FILTER
+// function buttonChangeDocumentType() {
+// var x = document.getElementById("documentTypeButton").getAttribute("aria-expanded"); 
+// if (x == "true") 
+// {
+// x = "false"
+// } else {
+// x = "true"
+// }
+// document.getElementById("documentTypeButton").setAttribute("aria-expanded", x);
+// }
+
+// // UPLOADED TODAY FILTER
+// function buttonChangeUploadedToday() {
+// var x = document.getElementById("uploadedTodayButton").getAttribute("aria-expanded"); 
+// if (x == "true") 
+// {
+// x = "false"
+// } else {
+// x = "true"
+// }
+// document.getElementById("uploadedTodayButton").setAttribute("aria-expanded", x);
+// }
+
+// // DATE FILTER
+// function buttonChangeDate() {
+// var x = document.getElementById("dateFilterButton").getAttribute("aria-expanded"); 
+// if (x == "true") 
+// {
+// x = "false"
+// } else {
+// x = "true"
+// }
+// document.getElementById("dateFilterButton").setAttribute("aria-expanded", x);
+// }
+
+// // PROVIDER TYPE FILTER
+// function buttonChangeProviderType() {
+// var x = document.getElementById("providerTypeButton").getAttribute("aria-expanded"); 
+// if (x == "true") 
+// {
+// x = "false"
+// } else {
+// x = "true"
+// }
+// document.getElementById("providerTypeButton").setAttribute("aria-expanded", x);
+// }

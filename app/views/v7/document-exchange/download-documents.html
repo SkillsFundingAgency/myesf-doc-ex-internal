@@ -74,6 +74,11 @@
 
         <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
 <!--
+    Visually hidden 'Documents selected' count for screen readers
+    <p class="govuk-visually-hidden govuk-body">0 documents selected</p>
+-->
+<p class="govuk-body" tabindex="0">0 documents selected</p>
+<!--
     Search by UKPRN.
     Numeric input.
     Updated 5.11.2020.
@@ -82,14 +87,14 @@
 <div class="govuk-form-group filterbyContainer" id="search-by-ukprn">
     <section>
     <fieldset class="govuk-fieldset">
-    <h4 class="govuk-label-wrapper">
-        <label class="govuk-label govuk-label--s searchbyHeading" for="ukprn-search">
+    <h4 class="govuk-label-wrapper" tabindex="0">
+        <label class="govuk-label govuk-label--s searchbyHeading" for="ukprn-search" aria-describedby="ukprn-search-hint">
         Search by UKPRN
       </label>
     </h4>
     <div class="filterSearch">
         <div id="ukprn-search-hint" class="govuk-hint" style="margin-bottom: 10px;">
-        <span class="govuk-visually-hidden">Search by UKPRN. </span>Must be an 8 digit number
+        Search by UK Provider Reference Number. Must be an 8 digit number
         </div>
         <input class="govuk-input filterSearchInput" id="ukprn-search" name="ukprn-search" type="text" spellcheck="false" aria-describedby="ukprn-search-hint" pattern="[0-9]*" inputmode="numeric">
         <form action="download-documents-10076625#search-by-ukprn" method="link" novalidate>
@@ -119,11 +124,21 @@
                         Filter by status
                     </div>
                     -->
-                    <button
-                        class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-status govuk-button">
-                        <h4 class="govuk-heading-s">Filter by status<span class="govuk-visually-hidden">:</span><span><i id="arrowRotateStatus" class="material-icons right-align" aria-describedby="status"> keyboard_arrow_down </i></span>
+                    <button id="statusButton" onclick="buttonChangeStatus()"
+                        class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-status govuk-button" aria-label="Filter by document status" aria-expanded="false">
+                        <h4 class="govuk-heading-s">Filter by status<span class="govuk-visually-hidden">:</span><span><i id="arrowRotateStatus" class="material-icons right-align" aria-describedby="status"> expand_more </i></span>
                         </h4>
                     </button>
+                    <script>function buttonChangeStatus() {
+                        var x = document.getElementById("statusButton").getAttribute("aria-expanded"); 
+                        if (x == "true") 
+                        {
+                        x = "false"
+                        } else {
+                        x = "true"
+                        }
+                        document.getElementById("statusButton").setAttribute("aria-expanded", x);
+                        }</script>
                     <div id="filter-content-status" class="filter-content-status">
                         <div class="govuk-checkboxes govuk-checkboxes--small filterbyCheckbox govuk-!-margin-top-3 group" id="filterBySchoolResults">
                             <div class="govuk-checkboxes__item">
@@ -156,12 +171,22 @@
 -->
             <div class="govuk-form-group filterbyContainer">
                 <fieldset class="govuk-fieldset">
-                    <button
-                        class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-document-type govuk-button">
+                    <button id="documentTypeButton" onclick="buttonChangeDocumentType()"
+                        class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-document-type govuk-button" aria-label="Filter by document type" aria-expanded="false">
                         <h4 class="govuk-heading-s">Filter by document type <span class="govuk-visually-hidden">:</span><span><i id="arrowRotateDocumentType" class="material-icons right-align">
-                                    keyboard_arrow_down</i></span>
+                                    expand_more</i></span>
                         </h4>
                     </button>
+                    <script>function buttonChangeDocumentType() {
+                        var x = document.getElementById("documentTypeButton").getAttribute("aria-expanded"); 
+                        if (x == "true") 
+                        {
+                        x = "false"
+                        } else {
+                        x = "true"
+                        }
+                        document.getElementById("documentTypeButton").setAttribute("aria-expanded", x);
+                        }</script>
                     <div id="filter-content-document-type" class="filter-content-document-type">
                         <div class="govuk-checkboxes govuk-checkboxes--small filterbyCheckbox govuk-!-margin-top-3" id="filterBySchoolResults">
                             <div class="govuk-checkboxes__item">
@@ -240,11 +265,21 @@
 -->
             <div class="govuk-form-group filterbyContainer">
                 <fieldset class="govuk-fieldset">
-                    <button
-                        class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-time-period govuk-button">
-                        <h4 class="govuk-heading-s">Filter by uploaded today <span class="govuk-visually-hidden">:</span><span><i id="arrowRotateTime" class="material-icons right-align"> keyboard_arrow_down </i></span>
+                    <button id="uploadedTodayButton" onclick="buttonChangeUploadedToday()"
+                        class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-time-period govuk-button" aria-label="Filter by documents uploaded today" aria-expanded="false">
+                        <h4 class="govuk-heading-s">Filter by uploaded today <span class="govuk-visually-hidden">:</span><span><i id="arrowRotateTime" class="material-icons right-align"> expand_more </i></span>
                         </h4>
                     </button>
+                    <script>function buttonChangeUploadedToday() {
+                        var x = document.getElementById("uploadedTodayButton").getAttribute("aria-expanded"); 
+                        if (x == "true") 
+                        {
+                        x = "false"
+                        } else {
+                        x = "true"
+                        }
+                        document.getElementById("uploadedTodayButton").setAttribute("aria-expanded", x);
+                        }</script>
                     <div id="filter-content-time-period" class="filter-content-time-period govuk-!-margin-top-3">
                         <div class="govuk-radios govuk-radios--small filterbyRadios" id="filterBySchoolResults">
 
@@ -296,11 +331,23 @@
 -->
             <div class="govuk-form-group filterbyContainer">
                 <fieldset class="govuk-fieldset">
-                    <button
-                        class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-date govuk-button">
-                        <h4 class="govuk-heading-s">Filter by date <span class="govuk-visually-hidden">:</span><span><i id="arrowRotateDate" class="material-icons right-align"> keyboard_arrow_down </i></span>
-                        </h4>
+                    <button id="dateFilterButton" onclick="buttonChangeDate()"
+                        class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-date govuk-button" aria-label="Filter by date uploaded" aria-expanded="false">
+                        <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Filter by date <span class="govuk-visually-hidden">:</span><span><i id="arrowRotateDate" class="material-icons right-align"> expand_more </i></span>
+                        </h2>
                     </button>
+                    <script>
+                    function buttonChangeDate() {
+                        var x = document.getElementById("dateFilterButton").getAttribute("aria-expanded"); 
+                        if (x == "true") 
+                        {
+                        x = "false"
+                        } else {
+                        x = "true"
+                        }
+                        document.getElementById("dateFilterButton").setAttribute("aria-expanded", x);
+                        }
+                    </script>
                     <div id="filter-content-date" class="filter-content-date dates">
                         <div class="govuk-date-input" id="date-from">
                             <label class="govuk-label" for="from-date">
@@ -382,15 +429,25 @@
 -->
 <div class="govuk-form-group filterbyContainer">
     <fieldset class="govuk-fieldset">
-        <button
-            class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-establishment-type govuk-button">
-            <h4 class="govuk-heading-s">Filter by provider type <span class="govuk-visually-hidden">:</span><span><i id="arrowRotateEstablishmentType" class="material-icons right-align"> keyboard_arrow_down </i>
+        <button id="providerTypeButton" onclick="buttonChangeProviderType()"
+            class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-establishment-type govuk-button" aria-label="Filter by provider type" aria-expanded="false">
+            <h4 class="govuk-heading-s">Filter by provider type <span class="govuk-visually-hidden">:</span><span><span id="arrowRotateEstablishmentType" class="material-icons right-align"> expand_more </span>
             </h4>
             <!--
                 Number selected
                 <p class="govuk-body-s govuk-!-margin-bottom-0">0 Selected</p>
             -->
         </button>
+        <script>function buttonChangeProviderType() {
+            var x = document.getElementById("providerTypeButton").getAttribute("aria-expanded"); 
+            if (x == "true") 
+            {
+            x = "false"
+            } else {
+            x = "true"
+            }
+            document.getElementById("providerTypeButton").setAttribute("aria-expanded", x);
+            }</script>
         <div id="filter-content-establishment-type" class="filter-content-establishment-type">
             <!--
             SEARCH FIELD
@@ -874,7 +931,7 @@
                 <fieldset class="govuk-fieldset">
                     <div class="govuk-checkboxes govuk-checkboxes--small">
                         <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="hmrc">
+                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="Business case audit evidence">
                         <label class="govuk-label govuk-checkboxes__label" for="document-1">
                             <!--Longest document type name-->
                 <span class="govuk-body">Business case audit evidence</span>
@@ -893,7 +950,7 @@
             </td>
             <!--UKPRN-->
             <td class="govuk-table__cell" style="padding-top: 19px;">
-                <span class="govuk-body">10006337</span>
+                <span class="govuk-body" aria-label="one zero zero zero six three three seven">10006337</span>
             </td>
             <!--Uploaded-->
             <td class="govuk-table__cell" style="padding-top: 19px;">
@@ -908,8 +965,8 @@
                             </span>
                         </summary>
                         <div class="govuk-details__text">
-                            <p class="govuk-body "><strong>Document name:</strong> <br>10006337_Stockton-On-Tees-Borough-Council_Business-case-audit-evidence_v1_202021.xlsx</p>
-                            <p class="govuk-body "><strong>Document version:</strong> <br>1</p>
+                            <p class="govuk-body" aria-label="10006337. Stockton On Tees Borough Council. Business case audit evidence. v1. 202021.xlsx"><strong>Document name:</strong> <br>10006337_Stockton-On-Tees-Borough-Council_Business-case-audit-evidence_v1_202021.xlsx</p>
+                            <p class="govuk-body"><strong>Document version:</strong> <br>1</p>
                             <!--
                             <p class="govuk-body"><strong>Change note for this version:</strong> </p>
                             <p class="govuk-body"><a class="govuk-link" href="datasethistory">View all versions</a></p>
@@ -926,8 +983,8 @@
                 <fieldset class="govuk-fieldset">
                     <div class="govuk-checkboxes govuk-checkboxes--small">
                         <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="hmrc">
-                        <label class="govuk-label govuk-checkboxes__label" for="document-1">
+                        <input class="govuk-checkboxes__input" id="document-2" name="document-2" type="checkbox" value="hmrc">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-2">
                             <!--Shortest document type name-->
                             <span class="govuk-body">Business case</span>
                         </label>
@@ -978,8 +1035,8 @@
                 <fieldset class="govuk-fieldset">
                     <div class="govuk-checkboxes govuk-checkboxes--small">
                         <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="hmrc">
-                        <label class="govuk-label govuk-checkboxes__label" for="document-1">
+                        <input class="govuk-checkboxes__input" id="document-3" name="document-3" type="checkbox" value="hmrc">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-3">
                             <!--Shortest document type name-->
                             <span class="govuk-body">Alternative completion</span>
                         </label>
@@ -1030,8 +1087,8 @@
                 <fieldset class="govuk-fieldset">
                     <div class="govuk-checkboxes govuk-checkboxes--small">
                         <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="hmrc">
-                        <label class="govuk-label govuk-checkboxes__label" for="document-1">
+                        <input class="govuk-checkboxes__input" id="document-4" name="document-4" type="checkbox" value="hmrc">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-4">
                             <!--Shortest document type name-->
                             <span class="govuk-body">Data sharing protocol</span>
                         </label>
@@ -1082,8 +1139,8 @@
                 <fieldset class="govuk-fieldset">
                     <div class="govuk-checkboxes govuk-checkboxes--small">
                         <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="hmrc">
-                        <label class="govuk-label govuk-checkboxes__label" for="document-1">
+                        <input class="govuk-checkboxes__input" id="document-5" name="document-5" type="checkbox" value="hmrc">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-5">
                             <!--Shortest document type name-->
                             <span class="govuk-body">Financial report</span>
                         </label>
@@ -1134,8 +1191,8 @@
                 <fieldset class="govuk-fieldset">
                     <div class="govuk-checkboxes govuk-checkboxes--small">
                         <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="hmrc">
-                        <label class="govuk-label govuk-checkboxes__label" for="document-1">
+                        <input class="govuk-checkboxes__input" id="document-6" name="document-6" type="checkbox" value="hmrc">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-6">
                             <!--Shortest document type name-->
                             <span class="govuk-body">Funding monitoring report</span>
                         </label>
@@ -1186,8 +1243,8 @@
                 <fieldset class="govuk-fieldset">
                     <div class="govuk-checkboxes govuk-checkboxes--small">
                         <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="hmrc">
-                        <label class="govuk-label govuk-checkboxes__label" for="document-1">
+                        <input class="govuk-checkboxes__input" id="document-7" name="document-7" type="checkbox" value="hmrc">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-7">
                             <!--Shortest document type name-->
                             <span class="govuk-body">Infrastructure return</span>
                         </label>
@@ -1238,8 +1295,8 @@
                 <fieldset class="govuk-fieldset">
                     <div class="govuk-checkboxes govuk-checkboxes--small">
                         <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="hmrc">
-                        <label class="govuk-label govuk-checkboxes__label" for="document-1">
+                        <input class="govuk-checkboxes__input" id="document-8" name="document-8" type="checkbox" value="hmrc">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-8">
                             <!--Shortest document type name-->
                             <span class="govuk-body">Reconciliation return</span>
                         </label>
