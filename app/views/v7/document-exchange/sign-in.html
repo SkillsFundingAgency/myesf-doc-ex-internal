@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+DfE Sign-in
+{% endblock %}
+
+{% set serviceName %}
+DfE Sign-in
+{% endset%}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+<!--Phase banner-->
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+
+    
+
+          
+
+            
+              <h1 class="govuk-heading-xl govuk-!-margin-top-3 govuk-!-margin-bottom-6">
+                Department for Education Sign-in
+              </h1>
+
+            <p class="govuk-body">DfE Sign-in allows you to access several important services in the education sector, such as COLLECT.</p>
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h2 class="govuk-fieldset__heading">
+                  Sign-in
+                </h2>
+              </legend>
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="email-address">
+                  Email address <span class="govuk-visually-hidden">user ID</span>
+                </label>
+                <input class="govuk-input govuk-!-width-two-thirds" id="email-address" name="email-address" type="email">
+              </div>
+
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="password">
+                  Password <span class="govuk-visually-hidden">password</span>
+                </label>
+                <input type="password" class="govuk-input govuk-!-width-two-thirds" value maxlength="22" id="password" name="password" type="text">
+                <!--SHOW PASSWORD control from DfE Sign-in not recreated (15.12.2020)-->
+              </div>
+            </fieldset>
+            <a href="#">Forgotten your password?</a>
+          
+          </fieldset>
+        
+
+        <div class="govuk-inset-text">
+          By continuing you accept the <a href="#">terms and conditions.</a>
+        </div>
+
+        <a href="home.html" role="button" draggable="false" class="govuk-button govuk-button--primary" data-module="govuk-button">Sign in</a>
+        <a href="#" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">Create account</a>
+
+      
+
+    </div>
+  </div>
+
+  <p class="govuk-body govuk-!-margin-top-3 user-feedback"><span class="govuk-!-font-weight-bold">Need help?</span> <a class="govuk-link" href="#">See our DfE Sign-in help guides</a></p>
+
+{% endblock %}

@@ -12,20 +12,19 @@
   Download your documents
 {% endblock %}
 
+{% set serviceName %}
+  Document exchange
+{% endset%}
+
 {% block beforeContent %}
-<!--
-    Phase banner
--->
-<div class="govuk-phase-banner">
-  <p class="govuk-phase-banner__content">
-    <strong class="govuk-tag govuk-phase-banner__content__tag">
-      beta
-    </strong>
-    <span class="govuk-phase-banner__text">
-      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
-    </span>
-  </p>
-</div>
+<!--Phase banner-->
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
 
 <!--
     Navigation
@@ -46,10 +45,7 @@
     <div class="govuk-breadcrumbs">
       <ol class="govuk-breadcrumbs__list">
         <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" href="dashboard.html">Home</a>
-        </li>
-        <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" href="home.html">Document exchange</a>
+          <a class="govuk-breadcrumbs__link" href="home.html">Home</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
             Download your documents

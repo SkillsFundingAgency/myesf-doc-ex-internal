@@ -1,0 +1,472 @@
+<!--
+    This page is a prototype.
+    Please do not use as production code.
+    It was created with speed in mind, so treat as throwaway HTML.
+-->
+
+{% extends "layout.html" %}
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+{% block pageTitle %}
+  Publish your documents
+{% endblock %}
+
+{% set serviceName %}
+  Document exchange
+{% endset%}
+
+{% block beforeContent %}
+<!--Phase banner-->
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+<!--
+    Navigation
+-->
+<div class="account-features">
+  <span class="account-link">
+    <a href="#">My roles and permissions</a>
+  </span>
+  <span class="account-link">
+    <a href="#">Sign out</a>
+  </span>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+<!--
+    Breadcrumbs
+-->
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="home.html">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="file-share.html">File share documents</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            Publish your documents
+          </li>
+      </ol>
+    </div>
+{% endblock %}
+
+{% block content %}
+<!--
+    Heading
+-->
+    <h1 class="govuk-heading-xl">Publish your documents</h1>
+    <p class="govuk-body">You must select at least 1 document.</p>
+    <section>
+<!--
+    Row start
+-->
+      <div class="govuk-grid-row govuk-!-margin-top-6">
+<!--
+    One third column start
+-->
+
+        <div class="govuk-grid-column-one-third govuk-!-margin-top-3">
+<!--
+    Visually hidden 'Documents selected' count for screen readers
+    <p class="govuk-visually-hidden govuk-body">0 documents selected</p>
+-->
+<p class="govuk-body" tabindex="0">0 documents selected</p>
+
+
+<!--
+    Filter by document type.
+    Checkbox inputs.
+-->
+            <div class="govuk-form-group filterbyContainer">
+                <fieldset class="govuk-fieldset">
+                    <button id="documentTypeButton" onclick="buttonChangeDocumentType()"
+                        class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-document-type govuk-button" aria-label="Filter by document type" aria-expanded="false">
+                        <h4 class="govuk-heading-s">Filter by document type <span class="govuk-visually-hidden">:</span><span><i id="arrowRotateDocumentType" class="material-icons right-align">
+                                    expand_more</i></span>
+                        </h4>
+                    </button>
+                    <script>function buttonChangeDocumentType() {
+                        var x = document.getElementById("documentTypeButton").getAttribute("aria-expanded"); 
+                        if (x == "true") 
+                        {
+                        x = "false"
+                        } else {
+                        x = "true"
+                        }
+                        document.getElementById("documentTypeButton").setAttribute("aria-expanded", x);
+                        }</script>
+                    <div id="filter-content-document-type" class="filter-content-document-type">
+                        <div class="govuk-checkboxes govuk-checkboxes--small filterbyCheckbox govuk-!-margin-top-3" id="filterBySchoolResults">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Alternative completion
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Business case
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Business case audit evidence
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Data sharing protocol
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Financial report
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Funding monitoring report
+                                </label>
+                            </div>
+                            <!--
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Grant assurance
+                                </label>
+                            </div>
+                            -->
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Infrastructure return
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item govuk-!-margin-bottom-3">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Reconciliation return
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <a href>Clear filters</a>
+                <!--
+                Alternative 'Clear filters' link          
+                <a href="#" class="govuk-link" onclick="$('input:checkbox').removeAttr('checked');">Clear filters</a>
+                -->
+        </div>
+<!--
+    Two thirds column start
+-->
+        <div class="govuk-grid-column-two-thirds govuk-!-margin-top-6">
+            <!--<p class="govuk-body">0 documents selected</p>-->
+<!--
+    Select all
+-->
+            <div class="govuk-form-group govuk-!-margin-top-6">
+                <fieldset class="govuk-fieldset">
+                    <!--
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h1 class="govuk-fieldset__heading">
+                    Heading here
+                    </h1>
+                </legend>
+                -->
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="select-all" name="select-all" type="checkbox" value="select-all">
+                        <label class="govuk-label govuk-checkboxes__label" for="select-all">
+                            Select all documents
+                        </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+<!--
+    Table start
+    Updated 21-10-2020
+-->
+<table class="govuk-table govuk-!-margin-top-3">
+    <!--Table head-->
+    <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" style="padding-left: 35px;">Document name</th>
+            <th scope="col" class="govuk-table__header">Document type</th>
+            <!--<th scope="col" class="govuk-table__header govuk-!-width-one-third">Status</th>-->
+        </tr>
+    </thead>
+    <tbody class="govuk-table__body" id="mainContentResults">
+        <!--Table row 1 Business case audit evidence-->
+        <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+            <td class="govuk-table__cell">
+                <!--<div class="govuk-form-group">-->
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="Business case audit evidence">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-1">
+                            <!--Document name-->
+                <span class="govuk-body">10000604_10003_201819.pdf</span>
+                        </label>
+                        
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <!--</div>-->
+                    
+            </td>
+            <!--Document type-->
+            <td class="govuk-table__cell" style="padding-top: 19px;"><span class="govuk-body">Business case audit evidence</span>
+                
+            </td>
+        </tr>
+        <!--Table row 2 Business case-->
+        <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+            <td class="govuk-table__cell">
+                <!--<div class="govuk-form-group">-->
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="Business case audit evidence">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-1">
+                            <!--Document name-->
+                <span class="govuk-body">10000604_10003_201819.pdf</span>
+                        </label>
+                        
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <!--</div>-->
+                    
+            </td>
+            <!--Document type-->
+            <td class="govuk-table__cell" style="padding-top: 19px;"><span class="govuk-body">Business case audit evidence</span>
+                
+            </td>
+        </tr>
+        <!--Table row 3 Alternative completion-->
+        <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+            <td class="govuk-table__cell">
+                <!--<div class="govuk-form-group">-->
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="Business case audit evidence">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-1">
+                            <!--Document name-->
+                <span class="govuk-body">10000604_10003_201819.pdf</span>
+                        </label>
+                        
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <!--</div>-->
+                    
+            </td>
+            <!--Document type-->
+            <td class="govuk-table__cell" style="padding-top: 19px;"><span class="govuk-body">Business case audit evidence</span>
+                
+            </td>
+        </tr>
+        <!--Table row 4 Data sharing protocol-->
+        <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+            <td class="govuk-table__cell">
+                <!--<div class="govuk-form-group">-->
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="Business case audit evidence">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-1">
+                            <!--Document name-->
+                <span class="govuk-body">10000604_10003_201819.pdf</span>
+                        </label>
+                        
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <!--</div>-->
+                    
+            </td>
+            <!--Document type-->
+            <td class="govuk-table__cell" style="padding-top: 19px;"><span class="govuk-body">Business case audit evidence</span>
+                
+            </td>
+        </tr>
+        <!--Table row 5 Financial report-->
+        <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+            <td class="govuk-table__cell">
+                <!--<div class="govuk-form-group">-->
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="Business case audit evidence">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-1">
+                            <!--Document name-->
+                <span class="govuk-body">10000604_10003_201819.pdf</span>
+                        </label>
+                        
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <!--</div>-->
+                    
+            </td>
+            <!--Document type-->
+            <td class="govuk-table__cell" style="padding-top: 19px;"><span class="govuk-body">Business case audit evidence</span>
+                
+            </td>
+        </tr>
+        <!--Table row 6 Funding monitoring report-->
+        <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+            <td class="govuk-table__cell">
+                <!--<div class="govuk-form-group">-->
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="Business case audit evidence">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-1">
+                            <!--Document name-->
+                <span class="govuk-body">10000604_10003_201819.pdf</span>
+                        </label>
+                        
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <!--</div>-->
+                    
+            </td>
+            <!--Document type-->
+            <td class="govuk-table__cell" style="padding-top: 19px;"><span class="govuk-body">Business case audit evidence</span>
+                
+            </td>
+        </tr>
+        <!--Table row 7 Infrastructure return-->
+        <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+            <td class="govuk-table__cell">
+                <!--<div class="govuk-form-group">-->
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="Business case audit evidence">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-1">
+                            <!--Document name-->
+                <span class="govuk-body">10000604_10003_201819.pdf</span>
+                        </label>
+                        
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <!--</div>-->
+                    
+            </td>
+            <!--Document type-->
+            <td class="govuk-table__cell" style="padding-top: 19px;"><span class="govuk-body">Business case audit evidence</span>
+                
+            </td>
+        </tr>
+        <!--Table row 8 Reconciliation return-->
+        <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+            <td class="govuk-table__cell">
+                <!--<div class="govuk-form-group">-->
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="Business case audit evidence">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-1">
+                            <!--Document name-->
+                <span class="govuk-body">10000604_10003_201819.pdf</span>
+                        </label>
+                        
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <!--</div>-->
+                    
+            </td>
+            <!--Document type-->
+            <td class="govuk-table__cell" style="padding-top: 19px;"><span class="govuk-body">Business case audit evidence</span>
+                
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!--
+    Pagination
+-->     
+            <div class="govuk-form-group">       
+                        <nav role="navigation" aria-label="Pagination">
+                            <div class="pagination__summary">Showing 1 to 8 of 8 documents</div>
+                            
+                        </nav>
+            </div>
+<!--
+    Nav end
+-->
+            <div class="govuk-form-group govuk-!-margin-top-9 govuk-!-margin-bottom-0">
+                <a href="https://esfstest.herokuapp.com/public/documents/allocation-statements/example-statement-breakdown.pdf" class="govuk-button govuk-button--primary" data-module="govuk-button" role="button" draggable="false" title="Publish selected documents">Publish selected documents</a>
+            </div>
+            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                <a href="https://esfstest.herokuapp.com/public/documents/allocation-statements/example-statement-breakdown.pdf" class="govuk-button govuk-button--secondary" data-module="govuk-button" role="button" draggable="false" title="Remove selected documents">Remove selected documents</a>
+            </div>
+            <!--Delete selected documents for advanced users only-->
+            <!--
+            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                <a href="delete-selected-confirm.html">Delete selected documents</a>
+            </div>
+            -->
+            <div class="back-to-top">       
+            <div class="app-back-to-top app-back-to-top--fixed" data-module="app-back-to-top">
+                <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+                <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                    <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                </svg>Back to top
+                </a>
+            </div>
+            </div>
+
+            </div>
+            <!--Column two thirds end-->
+        </div>
+        <!--Row end-->
+    </section>
+  </div>
+</div>
+
+<!--
+    Row end
+-->
+
+{% endblock %}
