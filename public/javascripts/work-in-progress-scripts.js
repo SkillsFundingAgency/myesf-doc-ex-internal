@@ -189,3 +189,26 @@ $(document).ready(function () {
 // }
 // document.getElementById("providerTypeButton").setAttribute("aria-expanded", x);
 // }
+
+// // Checkbox select
+
+// function toggleCheckbox() {
+//   var checkbox1 = document.getElementById("documenttype1").checked;
+//   if (checkbox1) {
+//     document.getElementById("14to16revenue").style.display = "block";
+//   } else {
+//     document.getElementById("14to16revenue").style.display = "none";
+//   }
+// }
+
+// document.getElementById("documenttype1").onclick = toggleCheckbox;
+
+
+$("[id^=documenttype1]").click(function () {
+  if ($("[id^=14to16revenue]").hasClass('select-14-16-revenue')) {
+    $("[id^=14to16revenue]").removeClass('select-14-16-revenue');
+  }
+  else {
+    $("[id^=14to16revenue]").addClass('select-14-16-revenue');
+  }
+});
