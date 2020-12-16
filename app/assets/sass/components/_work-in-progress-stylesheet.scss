@@ -473,7 +473,45 @@ div.filter-content-establishment-sub-type {
   display: none;
 }
 
-div.select-14-16-revenue
+
+/* Document type divs toggle on/off */
+.hideDocumentType
 {
-	display: none;
+  display: none;
+}
+
+.showDocumentType
+{
+	display: block;
+}
+
+/* Hide none selected for each div */
+.hideNoneSelected1
+{
+  display: none;
+}
+
+.hideNoneSelected2
+{
+  display: none;
+}
+
+.hideNoneSelected3
+{
+  display: none;
+}
+
+.hideNoneSelected4
+{
+  display: none;
+}
+
+.hideNoneSelected5
+{
+  display: none;
+}
+
+.hideNoneSelected6
+{
+  display: none;
 }

@@ -204,11 +204,24 @@ $(document).ready(function () {
 // document.getElementById("documenttype1").onclick = toggleCheckbox;
 
 
-$("[id^=documenttype1]").click(function () {
-  if ($("[id^=14to16revenue]").hasClass('select-14-16-revenue')) {
-    $("[id^=14to16revenue]").removeClass('select-14-16-revenue');
-  }
-  else {
-    $("[id^=14to16revenue]").addClass('select-14-16-revenue');
-  }
+// $('.selecttype1').click(function () {
+//   if ($("[id^=14to16revenue]").hasClass('select1416revenue')) {
+//     $("[id^=14to16revenue]").removeClass('select1416revenue');
+//   }
+//   else {
+//     $("[id^=14to16revenue]").addClass('select1416revenue');
+//   }
+// });
+
+$( document ).ready(function() {
+    
+  var checkboxes = $("input[id^=documenttype1]"),
+  displays1 = $("#14to16revenue");
+
+  checkboxes.click(function() {
+  
+    displays1.attr("hidden", !checkboxes.is(":checked"));
+    
+  });
+    
 });

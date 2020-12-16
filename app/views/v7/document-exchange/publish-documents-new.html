@@ -107,42 +107,42 @@
                     <div id="filter-content-document-type" class="select-document-type">
                         <div class="govuk-checkboxes govuk-checkboxes--small filterbyCheckbox govuk-!-margin-top-3" id="filterBySchoolResults">
                             <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="documenttype1" name="organisation"
+                                <input class="govuk-checkboxes__input" id="selectDocumentType1" name="organisation"
                                     type="checkbox" value="hmrc">
                                 <label class="govuk-label govuk-checkboxes__label" for="organisation">
                                     14 to 16 revenue funding allocation statements
                                 </label>
                             </div>
                             <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                <input class="govuk-checkboxes__input" id="selectDocumentType2" name="organisation"
                                     type="checkbox" value="hmrc">
                                 <label class="govuk-label govuk-checkboxes__label" for="organisation">
                                     16 to 19 reconciliation statements
                                 </label>
                             </div>
                             <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                <input class="govuk-checkboxes__input" id="selectDocumentType3" name="organisation"
                                     type="checkbox" value="hmrc">
                                 <label class="govuk-label govuk-checkboxes__label" for="organisation">
                                    Business case audit evidence requests
                                 </label>
                             </div>
                             <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                <input class="govuk-checkboxes__input" id="selectDocumentType4" name="organisation"
                                     type="checkbox" value="hmrc">
                                 <label class="govuk-label govuk-checkboxes__label" for="organisation">
                                 Data and management information (MI) reports
                                 </label>
                             </div>
                             <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                <input class="govuk-checkboxes__input" id="selectDocumentType5" name="organisation"
                                     type="checkbox" value="hmrc">
                                 <label class="govuk-label govuk-checkboxes__label" for="organisation">                                 
                                 Local authority (LA) student number summaries
                                 </label>
                             </div>
                             <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                <input class="govuk-checkboxes__input" id="selectDocumentType6" name="organisation"
                                     type="checkbox" value="hmrc">
                                 <label class="govuk-label govuk-checkboxes__label" for="organisation">
                                     Non maintained special school allocation statements
@@ -187,28 +187,55 @@
     Two thirds column start
 -->
         <div class="govuk-grid-column-two-thirds">
-            <div id="14to16revenue" class="select-14-16-revenue">
-            <h2 class="govuk-heading-l">14 to 16 revenue funding allocation statements</h2>
+            <div id="noneSelected" class="govuk-!-margin-top-6">
+            <h2 class="govuk-heading-m" style="margin-bottom: 400px;">0 document types selected</h2>
+            </div>
+            <div id="documentType1" class="govuk-!-margin-top-6 hideDocumentType">
+            <h2 class="govuk-heading-m">14 to 16 revenue funding allocation statements</h2>
             <p>You can publish <strong>8</strong> documents.</p>
             <p><a href="#">Publish all 14 to 16 revenue funding allocation statements</a>.</p>
             </div>
-
-            <h2 class="govuk-heading-l govuk-!-margin-top-6">16 to 19 reconciliation statements</h2>
+            <div id="documentType2" class="govuk-!-margin-top-6 hideDocumentType">
+            <h2 class="govuk-heading-m govuk-!-margin-top-6">16 to 19 reconciliation statements</h2>
             <p>You can publish <strong>13</strong> documents.</p>
             <p><a href="#">Publish all 16 to 19 reconciliation statements</a>.</p>
-
-            <h2 class="govuk-heading-l govuk-!-margin-top-6">Business case audit evidence requests</h2>
+            </div>
+            <div id="documentType3" class="govuk-!-margin-top-6 hideDocumentType">
+            <h2 class="govuk-heading-m govuk-!-margin-top-6">Business case audit evidence requests</h2>
             <p>You can publish <strong>4</strong> documents.</p>
             <p><a href="#">Publish all business case audit evidence requests</a>.</p>
-
+            </div>
+            <div id="documentType4" class="govuk-!-margin-top-6 hideDocumentType">
+            <h2 class="govuk-heading-m govuk-!-margin-top-6">Data and management information (MI) reports</h2>
+            <p>You can publish <strong>1</strong> documents.</p>
+            <p><a href="#">Publish all data and management information (MI) reports</a>.</p>
+            </div>
+            <div id="documentType5" class="govuk-!-margin-top-6 hideDocumentType">
+            <h2 class="govuk-heading-m govuk-!-margin-top-6">Local authority (LA) student number summaries</h2>
+            <p>You can publish <strong>7</strong> documents.</p>
+            <p><a href="#">Publish all local authority (LA) student number summaries</a>.</p>
+            </div>
+            <div id="documentType6" class="govuk-!-margin-top-6 hideDocumentType">
+            <h2 class="govuk-heading-m govuk-!-margin-top-6">Non maintained special school allocation statements</h2>
+            <p>You can publish <strong>16</strong> documents.</p>
+            <p><a href="#">Publish all non maintained special school allocation statements</a>.</p>
+            </div>
 <!-- PUBLISH ALL button
-            
--->
-<div class="govuk-form-group govuk-!-margin-top-9 govuk-!-margin-bottom-0">
+         <div class="govuk-form-group govuk-!-margin-top-9 govuk-!-margin-bottom-0">
     <a href="https://esfstest.herokuapp.com/public/documents/allocation-statements/example-statement-breakdown.pdf" class="govuk-button govuk-button--primary" data-module="govuk-button" role="button" draggable="false" title="Publish all selected document types">Publish all selected document types</a>
-</div>
-            
-            
+</div>   
+-->
+
+            <!--Back to top-->
+                <div class="back-to-top" style="margin-top: 30px">       
+                <div class="app-back-to-top app-back-to-top--fixed" data-module="app-back-to-top">
+                    <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+                    <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                        <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                    </svg>Back to top
+                    </a>
+                </div>
+                </div>
 
             </div>
             <!--Column two thirds end-->
