@@ -138,8 +138,8 @@ $(document).ready(function () {
   });
 });
 
-//Checkboxes
-//14 to 16 revenue funding allocation statements (Document type 1)
+// Checkboxes
+// 14 to 16 revenue funding allocation statements (Document type 1)
 $("[id^=selectDocumentType1]").click(function () {
   if ($("[id^=documentType1]").hasClass('hideDocumentType')) {
     $("[id^=documentType1]").removeClass('hideDocumentType');
@@ -152,7 +152,7 @@ $("[id^=selectDocumentType1]").click(function () {
     $("[id^=noneSelected]").removeClass('hideNoneSelected1');
   }
 });
-//16 to 19 reconciliation statements (Document type 2)
+// 16 to 19 reconciliation statements (Document type 2)
 $("[id^=selectDocumentType2]").click(function () {
   if ($("[id^=documentType2]").hasClass('hideDocumentType')) {
     $("[id^=documentType2]").removeClass('hideDocumentType');
@@ -165,7 +165,7 @@ $("[id^=selectDocumentType2]").click(function () {
     $("[id^=noneSelected]").removeClass('hideNoneSelected2');
   }
 });
-//Business case audit evidence requests (Document type 3)
+// Business case audit evidence requests (Document type 3)
 $("[id^=selectDocumentType3]").click(function () {
   if ($("[id^=documentType3]").hasClass('hideDocumentType')) {
     $("[id^=documentType3]").removeClass('hideDocumentType');
@@ -178,7 +178,7 @@ $("[id^=selectDocumentType3]").click(function () {
     $("[id^=noneSelected]").removeClass('hideNoneSelected3');
   }
 });
-//Data and management information (MI) reports (Document type 4)
+// Data and management information (MI) reports (Document type 4)
 $("[id^=selectDocumentType4]").click(function () {
   if ($("[id^=documentType4]").hasClass('hideDocumentType')) {
     $("[id^=documentType4]").removeClass('hideDocumentType');
@@ -191,7 +191,7 @@ $("[id^=selectDocumentType4]").click(function () {
     $("[id^=noneSelected]").removeClass('hideNoneSelected4');
   }
 });
-//Local authority (LA) student number summaries (Document type 5)
+// Local authority (LA) student number summaries (Document type 5)
 $("[id^=selectDocumentType5]").click(function () {
   if ($("[id^=documentType5]").hasClass('hideDocumentType')) {
     $("[id^=documentType5]").removeClass('hideDocumentType');
@@ -204,7 +204,7 @@ $("[id^=selectDocumentType5]").click(function () {
     $("[id^=noneSelected]").removeClass('hideNoneSelected5');
   }
 });
-//Non maintained special school allocation statements (Document type 6)
+// Non maintained special school allocation statements (Document type 6)
 $("[id^=selectDocumentType6]").click(function () {
   if ($("[id^=documentType6]").hasClass('hideDocumentType')) {
     $("[id^=documentType6]").removeClass('hideDocumentType');
