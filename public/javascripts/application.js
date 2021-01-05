@@ -303,27 +303,53 @@ $("[id^=selectDocumentType6]").click(function () {
 //   }
 // });
 
-// Radios for 'Publish documents' design
-// 14 to 16 revenue funding allocation statements (Document type 1)
-$("[id^=radioSelectDocumentType1]").click(function () {
-  if ($("[id^=documentType1]").hasClass('hideDocumentType')) {
-    $("[id^=documentType1]").removeClass('hideDocumentType');
-    $("[id^=documentType1]").addClass('showDocumentType');
-  }
-  else {
-    $("[id^=documentType1]").removeClass('showDocumentType');
-    $("[id^=documentType1]").addClass('hideDocumentType');
-  }
-});
+// // Radios for 'Publish documents' design
+// // 14 to 16 revenue funding allocation statements (Document type 1)
+// $("[id^=radioSelectDocumentType1]").click(function () {
+//   if ($("[id^=documentType1]").hasClass('hideDocumentType')) {
+//     $("[id^=documentType1]").removeClass('hideDocumentType');
+//     $("[id^=documentType1]").addClass('showDocumentType');
+//   }
+//   else {
+//     $("[id^=documentType1]").removeClass('showDocumentType');
+//     $("[id^=documentType1]").addClass('hideDocumentType');
+//   }
+// });
 
-// 16 to 19 reconciliation statements (Document type 2)
-$("[id^=radioSelectDocumentType2]").click(function () {
-  if ($("[id^=documentType2]").hasClass('hideDocumentType')) {
-    $("[id^=documentType2]").removeClass('hideDocumentType');
-    $("[id^=documentType2]").addClass('showDocumentType');
+// // 16 to 19 reconciliation statements (Document type 2)
+// $("[id^=radioSelectDocumentType2]").click(function () {
+//   if ($("[id^=documentType2]").hasClass('hideDocumentType')) {
+//     $("[id^=documentType2]").removeClass('hideDocumentType');
+//     $("[id^=documentType2]").addClass('showDocumentType');
+//   }
+//   else {
+//     $("[id^=documentType2]").removeClass('showDocumentType');
+//     $("[id^=documentType2]").addClass('hideDocumentType');
+//   }
+// });
+
+
+
+// Listening for radio buttons at the radios-document-type
+// level being clicked.
+$(".radios-document-type input[type='radio']").on("change", function() {
+  // Regardless of WHICH radio was clicked, is the
+  //  showSelect radio active?
+   if ($("#showDocumentType1").is(':checked')) {
+     $('.documentType1').removeClass("hidden");
+     $("#noneSelected").addClass('hidden');
+   } else {
+     $('.documentType1').addClass("hidden");
+   }
+ })
+
+ $(".radios-document-type input[type='radio']").on("change", function() {
+  // Regardless of WHICH radio was clicked, is the
+  //  showSelect radio active?
+   if ($("#showDocumentType2").is(':checked')) {
+    $('.documentType2').removeClass("hidden");
+    $("#noneSelected").addClass('hidden');
+  } else {
+    $('.documentType2').addClass("hidden");
   }
-  else {
-    $("[id^=documentType2]").removeClass('showDocumentType');
-    $("[id^=documentType2]").addClass('hideDocumentType');
-  }
-});
+ })

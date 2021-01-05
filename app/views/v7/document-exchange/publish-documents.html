@@ -1,7 +1,6 @@
 <!--
     This page is a prototype.
-    Please do not use as production code.
-    It was created with speed in mind, so treat as throwaway HTML.
+    Please do not use this code for production.
 -->
 
 {% extends "layout.html" %}
@@ -58,6 +57,10 @@
 {% endblock %}
 
 {% block content %}
+<!--
+    This page is a prototype.
+    Please do not use this code for production.
+-->
 <!--
     Heading
 -->
@@ -128,16 +131,17 @@
                     </button>
                     
                     <div id="filter-content-document-type">
+                        <div class="radios-document-type">
                         <div class="govuk-radios govuk-radios--small filterbyCheckbox govuk-!-margin-top-3" id="SelectDocumentType">
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="radioSelectDocumentType1" name="select-document-type"
+                                <input class="govuk-radios__input" id="showDocumentType1" name="select-document-type"
                                     type="radio" value="funding-centre">
                                 <label class="govuk-label govuk-radios__label" for="team-2">
                                     14 to 16 revenue funding allocation statements
                                 </label>
                             </div>
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="radioSelectDocumentType2" name="select-document-type"
+                                <input class="govuk-radios__input" id="showDocumentType2" name="select-document-type"
                                     type="radio" value="other-thing" >
                                 <label class="govuk-label govuk-radios__label" for="team-2">
                                     16 to 19 reconciliation statements
@@ -173,6 +177,7 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                 </fieldset>
             </div>
 
@@ -188,11 +193,15 @@
         <div class="govuk-grid-column-two-thirds govuk-!-margin-top-3">
             <!--<p class="govuk-body">0 documents selected</p>-->
 
+            <p id="noneSelected" class="govuk-body">0 document types selected</p>
+
 <!--
-    Table start for document type 1
+    Table start for document type 1 - '14 to 16 revenue funding allocation statements'
     Updated 5-1-2021
+
+    This table is revealed using the relevant 'Select document type' radio button
 -->
-<div id="documentType1" class="hideDocumentType">
+<div id="documentType1" class="documentType1 hidden">
 <table class="govuk-table">
     <!--Table head-->
     <thead class="govuk-table__head">
@@ -333,7 +342,9 @@
 <!--
     Nav end
 -->
-            <div class="govuk-form-group govuk-!-margin-top-9 govuk-!-margin-bottom-0">
+            <p class="govuk-body govuk-!-margin-top-9">You can publish <strong>8</strong> 14 to 16 revenue funding allocation statements.</p>
+
+            <div class="govuk-form-group govuk-!-margin-top-3 govuk-!-margin-bottom-0">
                 <a href="documents-to-publish-confirm-14to16" class="govuk-button govuk-button--primary" data-module="govuk-button" role="button" draggable="false" title="Publish all">Publish all</a>
             </div>
 
@@ -355,10 +366,12 @@
             </div>
 </div>
 <!--
-    Table start for document type 2
+    Table start for document type 2 - '16 to 19 reconciliation statements'
     Updated 5-1-2021
+
+    This table is revealed using the relevant 'Select document type' radio button
 -->
-<div id="documentType2" class="hideDocumentType">
+<div id="documentType2" class="documentType2 hidden">
     <table class="govuk-table">
         <!--Table head-->
         <thead class="govuk-table__head">
@@ -458,7 +471,9 @@
     <!--
         Nav end
     -->
-                <div class="govuk-form-group govuk-!-margin-top-9 govuk-!-margin-bottom-0">
+    <p class="govuk-body govuk-!-margin-top-9">You can publish <strong>5</strong> 16 to 19 reconciliation statements.</p>            
+    
+    <div class="govuk-form-group govuk-!-margin-bottom-0">
                     <a href="documents-to-publish-confirm-14to16" class="govuk-button govuk-button--primary" data-module="govuk-button" role="button" draggable="false" title="Publish all">Publish all</a>
                 </div>
     
