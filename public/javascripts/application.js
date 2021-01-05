@@ -333,8 +333,7 @@ $("[id^=selectDocumentType6]").click(function () {
 // Listening for radio buttons at the radios-document-type
 // level being clicked.
 $(".radios-document-type input[type='radio']").on("change", function() {
-  // Regardless of WHICH radio was clicked, is the
-  //  showSelect radio active?
+  // Checks if the Document type 1 radio is active
    if ($("#showDocumentType1").is(':checked')) {
      $('.documentType1').removeClass("hidden");
      $("#noneSelected").addClass('hidden');
@@ -344,12 +343,21 @@ $(".radios-document-type input[type='radio']").on("change", function() {
  })
 
  $(".radios-document-type input[type='radio']").on("change", function() {
-  // Regardless of WHICH radio was clicked, is the
-  //  showSelect radio active?
+  // Checks if the Document type 2 radio is active
    if ($("#showDocumentType2").is(':checked')) {
     $('.documentType2').removeClass("hidden");
     $("#noneSelected").addClass('hidden');
   } else {
     $('.documentType2').addClass("hidden");
+  }
+ })
+
+ $(".radios-document-type input[type='radio']").on("change", function() {
+  // Checks if the Document type 3 radio is active
+   if ($("#showDocumentType3").is(':checked')) {
+    $('.documentType3').removeClass("hidden");
+    $("#noneSelected").addClass('hidden');
+  } else {
+    $('.documentType3').addClass("hidden");
   }
  })
