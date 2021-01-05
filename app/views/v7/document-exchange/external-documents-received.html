@@ -1,0 +1,466 @@
+<!--
+    This page is a prototype.
+    Please do not use as production code.
+    It was created with speed in mind, so treat as throwaway HTML.
+-->
+
+{% extends "layout.html" %}
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+{% block pageTitle %}
+Documents received from ESFA
+{% endblock %}
+
+{% set serviceName %}
+  Document exchange
+{% endset%}
+
+{% block beforeContent %}
+<!--Phase banner-->
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+<!--
+    Navigation
+-->
+<div class="account-features">
+  <span class="account-link">
+    <a href="#">My roles and permissions</a>
+  </span>
+  <span class="account-link">
+    <a href="#">Sign out</a>
+  </span>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+<!--
+    Breadcrumbs
+-->
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="home.html">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            Documents received from ESFA
+          </li>
+      </ol>
+    </div>
+{% endblock %}
+
+{% block content %}
+<!--
+    Heading
+-->
+    <h1 class="govuk-heading-xl">Documents received from ESFA</h1>
+    <p class="govuk-body">You can download documents by</p>
+    <ul class="govuk-list govuk-list--bullet">
+    <li>manually selecting up to 25 documents</li>
+    <li>downloading all filtered documents</li>
+    </ul>
+    
+    <!--<p class="govuk-body">You can select up to 25 documents to download, or download all filtered documents.</p>
+    -->
+    <!--TECHNICAL DEBT - What to do when the user tries to select another document once the limit has been reached?-->
+    <section>
+<!--
+    Row start
+-->
+      <div class="govuk-grid-row govuk-!-margin-top-6">
+<!--
+    One third column start
+-->
+
+        <div class="govuk-grid-column-one-third govuk-!-margin-top-6">
+<!--
+    Visually hidden 'Documents selected' count for screen readers
+    <p class="govuk-visually-hidden govuk-body">0 documents selected</p>
+-->
+<p class="govuk-body" tabindex="0">0 documents selected</p>
+
+<!--
+    Filter by status.
+    Checkbox inputs.
+-->
+            <div class="govuk-form-group filterbyContainer">
+                <fieldset class="govuk-fieldset">
+                    <!--
+                    <div id="status" class="govuk-hint govuk-visually-hidden">
+                        Filter by status
+                    </div>
+                    -->
+                    <button id="statusButton" onclick="buttonChangeStatus()"
+                        class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-status govuk-button" aria-label="Filter by document status" aria-expanded="false">
+                        <h4 class="govuk-heading-s">Filter by status<span class="govuk-visually-hidden">:</span><span><i id="arrowRotateStatus" class="material-icons right-align" aria-describedby="status"> expand_more </i></span>
+                        </h4>
+                    </button>
+                    <script>function buttonChangeStatus() {
+                        var x = document.getElementById("statusButton").getAttribute("aria-expanded"); 
+                        if (x == "true") 
+                        {
+                        x = "false"
+                        } else {
+                        x = "true"
+                        }
+                        document.getElementById("statusButton").setAttribute("aria-expanded", x);
+                        }</script>
+                    <div id="filter-content-status" class="filter-content-status">
+                        <div class="govuk-checkboxes govuk-checkboxes--small filterbyCheckbox govuk-!-margin-top-3 group" id="filterBySchoolResults">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="new" name="new"
+                                    type="checkbox" value="new">
+                                <label class="govuk-label govuk-checkboxes__label" for="new">
+                                    New
+                                </label>
+                                <div id="new-hint" class="govuk-hint govuk-visually-hidden" for="new">
+                                    Filter by status: New
+                                </div>
+                            </div>
+                            <div class="govuk-checkboxes__item govuk-!-margin-bottom-3">
+                                <input class="govuk-checkboxes__input" id="downloaded" name="downloaded"
+                                    type="checkbox" value="downloaded">
+                                <label class="govuk-label govuk-checkboxes__label" for="downloaded">
+                                    Downloaded
+                                </label>
+                                <div id="downloaded-hint" class="govuk-hint govuk-visually-hidden" for="downloaded">
+                                    Filter by status: Downloaded
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+<!--
+    ADDED 4-1-2021.
+    Filter by organisation.
+    Checkbox input.
+-->
+<div class="govuk-form-group filterbyContainer">
+    <fieldset class="govuk-fieldset">
+        <button id="providerTypeButton" onclick="buttonChangeProviderType()"
+            class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-establishment-type govuk-button" aria-label="Filter by provider type" aria-expanded="false">
+            <h4 class="govuk-heading-s">Filter by organisation <span class="govuk-visually-hidden">:</span><span><span id="arrowRotateEstablishmentType" class="material-icons right-align"> expand_more </span>
+            </h4>
+            <!--
+                Number selected
+                <p class="govuk-body-s govuk-!-margin-bottom-0">0 Selected</p>
+            -->
+        </button>
+        <script>function buttonChangeProviderType() {
+            var x = document.getElementById("providerTypeButton").getAttribute("aria-expanded"); 
+            if (x == "true") 
+            {
+            x = "false"
+            } else {
+            x = "true"
+            }
+            document.getElementById("providerTypeButton").setAttribute("aria-expanded", x);
+            }</script>
+        <div id="filter-content-establishment-type" class="filter-content-establishment-type">
+            
+            <div class="govuk-checkboxes govuk-checkboxes--small filterbyCheckbox govuk-!-margin-top-3" id="filterBySchoolResults">
+                <!--Academies-->
+                <div class="govuk-checkboxes__item govuk-!-margin-bottom-0">
+                    <input class="govuk-checkboxes__input" id="organisation-1" name="organisation-1"
+                        type="checkbox" value="Beacon View Primary Academy">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-1">
+                        Beacon View Primary Academy
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item govuk-!-margin-bottom-3">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation-2"
+                        type="checkbox" value="Hill View Primary School">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Hill View Primary School
+                    </label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</div>
+<!--
+    Filter by document type.
+    Checkbox inputs.
+-->
+            <div class="govuk-form-group filterbyContainer">
+                <fieldset class="govuk-fieldset">
+                    <button id="documentTypeButton" onclick="buttonChangeDocumentType()"
+                        class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-document-type govuk-button" aria-label="Filter by document type" aria-expanded="false">
+                        <h4 class="govuk-heading-s">Filter by document type <span class="govuk-visually-hidden">:</span><span><i id="arrowRotateDocumentType" class="material-icons right-align">
+                                    expand_more</i></span>
+                        </h4>
+                    </button>
+                    <script>function buttonChangeDocumentType() {
+                        var x = document.getElementById("documentTypeButton").getAttribute("aria-expanded"); 
+                        if (x == "true") 
+                        {
+                        x = "false"
+                        } else {
+                        x = "true"
+                        }
+                        document.getElementById("documentTypeButton").setAttribute("aria-expanded", x);
+                        }</script>
+                    <div id="filter-content-document-type" class="filter-content-document-type">
+                        <div class="govuk-checkboxes govuk-checkboxes--small filterbyCheckbox govuk-!-margin-top-3" id="filterBySchoolResults">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Alternative completion
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Business case
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Business case audit evidence
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Data sharing protocol
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Financial report
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Funding monitoring report
+                                </label>
+                            </div>
+                            <!--
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Grant assurance
+                                </label>
+                            </div>
+                            -->
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Infrastructure return
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item govuk-!-margin-bottom-3">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Reconciliation return
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+
+
+            <a href>Clear filters</a>
+                <!--
+                Alternative 'Clear filters' link          
+                <a href="#" class="govuk-link" onclick="$('input:checkbox').removeAttr('checked');">Clear filters</a>
+                -->
+        </div>
+<!--
+    Two thirds column start
+-->
+        <div class="govuk-grid-column-two-thirds">
+<!-- TEST this placement of documents selected indicator
+            <p class="govuk-body">0 documents selected</p>
+-->
+
+<!--
+    Table start
+    Updated 21-10-2020
+-->
+<table class="govuk-table govuk-!-margin-top-3">
+    <!--Table head-->
+    <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" style="padding-left: 35px;">Document name</th>
+            <th scope="col" class="govuk-table__header">Organisation</th>
+            <th scope="col" class="govuk-table__header">Document type</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+            <!--<th scope="col" class="govuk-table__header govuk-!-width-one-third">Status</th>-->
+        </tr>
+    </thead>
+    <tbody class="govuk-table__body" id="mainContentResults">
+        <!--Table row 1-->
+        <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+            <td class="govuk-table__cell">
+                <!--<div class="govuk-form-group">-->
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="Business case audit evidence">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-1">
+                            <!--Longest document type name-->
+                            <span class="govuk-body">10016903_10002_202021-3.pdf
+                                <br>
+                                6:15pm on 29 September 2020</span>
+                                    </label>
+                                    </div>
+                                </div>
+                </fieldset>
+                
+                <!--</div>-->
+                    
+            </td>
+            <!--Organisation name-->
+            <td class="govuk-table__cell" style="padding-top: 19px;"><span class="govuk-body">Beacon View Primary Academy</span>
+                
+            </td>
+            <!--Document type-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                <span class="govuk-body" aria-label="one zero zero zero six three three seven">Business case</span>
+            </td>
+            <!--Status-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                
+                <span class="govuk-tag govuk-tag--red govuk-!-margin-top-3">New</span>
+                
+            </td>
+        </tr>
+        <!--Table row 2 Business case-->
+        <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+            <td class="govuk-table__cell">
+                <!--<div class="govuk-form-group">-->
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="Business case audit evidence">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-1">
+                            <!--Longest document type name-->
+                            <span class="govuk-body">10016903_10001_202021-3.pdf
+                                <br>
+                                6:15pm on 29 September 2020</span>
+                                    </label>
+                                    </div>
+                                </div>
+                </fieldset>
+                
+                <!--</div>-->
+                    
+            </td>
+            <!--Organisation name-->
+            <td class="govuk-table__cell" style="padding-top: 19px;"><span class="govuk-body">Beacon View Primary Academy</span>
+                
+            </td>
+            <!--Document type-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                <span class="govuk-body" aria-label="one zero zero zero six three three seven">Financial report</span>
+            </td>
+            <!--Status-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                
+                <span class="govuk-tag govuk-tag--red govuk-!-margin-top-3">New</span>
+                
+            </td>
+        <!--Table row 3 Alternative completion-->
+        <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+            <td class="govuk-table__cell">
+                <!--<div class="govuk-form-group">-->
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="Business case audit evidence">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-1">
+                            <!--Longest document type name-->
+                <span class="govuk-body">10018033_10002_202021-2.pdf
+                    <br>
+                    6:15pm on 29 September 2020</span>
+                        </label>
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <!--</div>-->
+                    
+            </td>
+            <!--Organisation name-->
+            <td class="govuk-table__cell" style="padding-top: 19px;"><span class="govuk-body">Hill View Primary School</span>
+                
+            </td>
+            <!--Document type-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                <span class="govuk-body" aria-label="one zero zero zero six three three seven">Business case</span>
+            </td>
+            <!--Status-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                
+                <span class="govuk-tag govuk-tag--blue govuk-!-margin-top-3">Downloaded</span>
+                
+            </td>
+    </tbody>
+</table>
+<!--
+    Pagination
+-->     
+            <div class="govuk-form-group">       
+                        <nav role="navigation" aria-label="Pagination">
+                            <div class="pagination__summary">Showing 1 to 3 of 3 documents</div>
+                            
+                        </nav>
+            </div>
+<!--
+    Nav end
+-->
+            <!--Download all filtered documents-->
+            <div class="govuk-form-group govuk-!-margin-top-9 govuk-!-margin-bottom-0">
+                <!--Points to 'Are you sure?' page'-->
+                <a href="#" class="govuk-button govuk-button--primary" data-module="govuk-button" role="button" draggable="false" title="Download all filtered documents">Download all filtered documents</a>
+            </div>
+            <!--Download selected documents-->
+            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                <!--Allows immediate download without additional 'Are you sure?' step-->
+                <a href="#" class="govuk-button govuk-button--secondary" data-module="govuk-button" role="button" draggable="false" title="Download selected documents">Download selected documents</a>
+            </div>
+            
+            <div class="back-to-top">       
+            <div class="app-back-to-top app-back-to-top--fixed" data-module="app-back-to-top">
+                <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+                <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                    <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                </svg>Back to top
+                </a>
+            </div>
+            </div>
+
+            </div>
+            <!--Column two thirds end-->
+        </div>
+        <!--Row end-->
+    </section>
+  </div>
+</div>
+
+<!--
+    Row end
+-->
+
+{% endblock %}

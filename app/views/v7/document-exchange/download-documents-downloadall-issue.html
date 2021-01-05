@@ -1,0 +1,1380 @@
+<!--
+    This page is a prototype.
+    Please do not use as production code.
+    It was created with speed in mind, so treat as throwaway HTML.
+-->
+
+{% extends "layout.html" %}
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+{% block pageTitle %}
+  Download your documents
+{% endblock %}
+
+{% set serviceName %}
+  Document exchange
+{% endset%}
+
+{% block beforeContent %}
+<!--Phase banner-->
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+<!--
+    Navigation
+-->
+<div class="account-features">
+  <span class="account-link">
+    <a href="#">My roles and permissions</a>
+  </span>
+  <span class="account-link">
+    <a href="#">Sign out</a>
+  </span>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+<!--
+    Breadcrumbs
+-->
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="home.html">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            Download your documents
+          </li>
+      </ol>
+    </div>
+{% endblock %}
+
+{% block content %}
+<!--
+    Heading
+-->
+    <h1 class="govuk-heading-xl">Download your documents</h1>
+    <p class="govuk-body">You can download all filtered documents by using the 'Download all filtered documents' button at the bottom of the list.</p>
+    <p class="govuk-body">Alternatively, you can manually select up to 25 documents and download them using the 'Download selected documents' button at the bottom of the list.</p>
+    <!--TECHNICAL DEBT - What to do when the user tries to select another document once the limit has been reached?-->
+    <section>
+<!--
+    Row start
+-->
+      <div class="govuk-grid-row govuk-!-margin-top-6">
+<!--
+    One third column start
+-->
+
+        <div class="govuk-grid-column-one-third govuk-!-margin-top-3">
+<!--
+    Visually hidden 'Documents selected' count for screen readers
+    <p class="govuk-visually-hidden govuk-body">0 documents selected</p>
+-->
+<p class="govuk-body" tabindex="0">0 documents selected</p>
+<!--
+    Search by UKPRN.
+    Numeric input.
+    Updated 5.11.2020.
+-->
+
+<div class="govuk-form-group filterbyContainer" id="search-by-ukprn">
+    <section>
+    <fieldset class="govuk-fieldset">
+    <h4 class="govuk-label-wrapper" tabindex="0">
+        <label class="govuk-label govuk-label--s searchbyHeading" for="ukprn-search" aria-describedby="ukprn-search-hint">
+        Search by UKPRN
+      </label>
+    </h4>
+    <div class="filterSearch">
+        <div id="ukprn-search-hint" class="govuk-hint" style="margin-bottom: 10px;">
+        Search by UK Provider Reference Number. Must be an 8 digit number
+        </div>
+        <input class="govuk-input filterSearchInput" id="ukprn-search" name="ukprn-search" type="text" spellcheck="false" aria-describedby="ukprn-search-hint" pattern="[0-9]*" inputmode="numeric">
+        <form action="download-documents-10076625#search-by-ukprn" method="link" novalidate>
+
+    
+    
+    
+          
+        
+        <button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-3" style="margin-top: 25px;" data-module="govuk-button" id="apply-ukprn-search" type="submit">
+            <span class="govuk-visually-hidden">Apply</span> Search <span class="govuk-visually-hidden">by UKPRN</span>
+        </button>
+        <a href="#" style="display: inline-block; margin-top: 32px; margin-left: 10px;">Clear search<span class="govuk-visually-hidden"> by UKPRN</span></a>
+    </form>
+    </div>
+</fieldset>
+</section>
+</div>
+<!--
+    Filter by status.
+    Checkbox inputs.
+-->
+            <div class="govuk-form-group filterbyContainer">
+                <fieldset class="govuk-fieldset">
+                    <!--
+                    <div id="status" class="govuk-hint govuk-visually-hidden">
+                        Filter by status
+                    </div>
+                    -->
+                    <button id="statusButton" onclick="buttonChangeStatus()"
+                        class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-status govuk-button" aria-label="Filter by document status" aria-expanded="false">
+                        <h4 class="govuk-heading-s">Filter by status<span class="govuk-visually-hidden">:</span><span><i id="arrowRotateStatus" class="material-icons right-align" aria-describedby="status"> expand_more </i></span>
+                        </h4>
+                    </button>
+                    <script>function buttonChangeStatus() {
+                        var x = document.getElementById("statusButton").getAttribute("aria-expanded"); 
+                        if (x == "true") 
+                        {
+                        x = "false"
+                        } else {
+                        x = "true"
+                        }
+                        document.getElementById("statusButton").setAttribute("aria-expanded", x);
+                        }</script>
+                    <div id="filter-content-status" class="filter-content-status">
+                        <div class="govuk-checkboxes govuk-checkboxes--small filterbyCheckbox govuk-!-margin-top-3 group" id="filterBySchoolResults">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="new" name="new"
+                                    type="checkbox" value="new">
+                                <label class="govuk-label govuk-checkboxes__label" for="new">
+                                    New
+                                </label>
+                                <div id="new-hint" class="govuk-hint govuk-visually-hidden" for="new">
+                                    Filter by status: New
+                                </div>
+                            </div>
+                            <div class="govuk-checkboxes__item govuk-!-margin-bottom-3">
+                                <input class="govuk-checkboxes__input" id="downloaded" name="downloaded"
+                                    type="checkbox" value="downloaded">
+                                <label class="govuk-label govuk-checkboxes__label" for="downloaded">
+                                    Downloaded
+                                </label>
+                                <div id="downloaded-hint" class="govuk-hint govuk-visually-hidden" for="downloaded">
+                                    Filter by status: Downloaded
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+<!--
+    Filter by document type.
+    Checkbox inputs.
+-->
+            <div class="govuk-form-group filterbyContainer">
+                <fieldset class="govuk-fieldset">
+                    <button id="documentTypeButton" onclick="buttonChangeDocumentType()"
+                        class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-document-type govuk-button" aria-label="Filter by document type" aria-expanded="false">
+                        <h4 class="govuk-heading-s">Filter by document type <span class="govuk-visually-hidden">:</span><span><i id="arrowRotateDocumentType" class="material-icons right-align">
+                                    expand_more</i></span>
+                        </h4>
+                    </button>
+                    <script>function buttonChangeDocumentType() {
+                        var x = document.getElementById("documentTypeButton").getAttribute("aria-expanded"); 
+                        if (x == "true") 
+                        {
+                        x = "false"
+                        } else {
+                        x = "true"
+                        }
+                        document.getElementById("documentTypeButton").setAttribute("aria-expanded", x);
+                        }</script>
+                    <div id="filter-content-document-type" class="filter-content-document-type">
+                        <div class="govuk-checkboxes govuk-checkboxes--small filterbyCheckbox govuk-!-margin-top-3" id="filterBySchoolResults">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Alternative completion
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Business case
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Business case audit evidence
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Data sharing protocol
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Financial report
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Funding monitoring report
+                                </label>
+                            </div>
+                            <!--
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Grant assurance
+                                </label>
+                            </div>
+                            -->
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Infrastructure return
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item govuk-!-margin-bottom-3">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                                    type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                    Reconciliation return
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+<!-- 
+    Filter by uploaded today.
+    Radio button inputs.
+    Updated 21.10.2020
+-->
+            <div class="govuk-form-group filterbyContainer">
+                <fieldset class="govuk-fieldset">
+                    <button id="uploadedTodayButton" onclick="buttonChangeUploadedToday()"
+                        class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-time-period govuk-button" aria-label="Filter by documents uploaded today" aria-expanded="false">
+                        <h4 class="govuk-heading-s">Filter by uploaded today <span class="govuk-visually-hidden">:</span><span><i id="arrowRotateTime" class="material-icons right-align"> expand_more </i></span>
+                        </h4>
+                    </button>
+                    <script>function buttonChangeUploadedToday() {
+                        var x = document.getElementById("uploadedTodayButton").getAttribute("aria-expanded"); 
+                        if (x == "true") 
+                        {
+                        x = "false"
+                        } else {
+                        x = "true"
+                        }
+                        document.getElementById("uploadedTodayButton").setAttribute("aria-expanded", x);
+                        }</script>
+                    <div id="filter-content-time-period" class="filter-content-time-period govuk-!-margin-top-3">
+                        <div class="govuk-radios govuk-radios--small filterbyRadios" id="filterBySchoolResults">
+
+<!--This morning-->
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="organisation-2" name="organisation"
+                                    type="radio" value="employment-tribunal">
+                                <label class="govuk-label govuk-radios__label" for="organisation-2">
+                                    This morning
+                                </label>
+                                <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                                    Midnight to 11:59am
+                                  </div>
+                            </div>
+<!--This afternoon-->
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="organisation-2" name="organisation"
+                                    type="radio" value="employment-tribunal">
+                                <label class="govuk-label govuk-radios__label" for="organisation-2">
+                                    This afternoon
+                                </label>
+                                <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                                    Midday to 11:59pm
+                                </div>
+                            </div>
+<!--Today-->
+                            <div class="govuk-radios__item govuk-!-margin-bottom-3">
+                                <input class="govuk-radios__input" id="organisation-2" name="organisation"
+                                    type="radio" value="employment-tribunal">
+                                <label class="govuk-label govuk-radios__label" for="organisation-2">
+                                    Today
+                                </label>
+                                <!--
+                                <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                                    Midnight onwards
+                                </div>
+                                -->
+                                <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                                    All documents uploaded today
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+<!-- 
+    Filter by date.
+    Text field inputs.
+-->
+            <div class="govuk-form-group filterbyContainer">
+                <fieldset class="govuk-fieldset">
+                    <button id="dateFilterButton" onclick="buttonChangeDate()"
+                        class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-date govuk-button" aria-label="Filter by date uploaded" aria-expanded="false">
+                        <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Filter by date <span class="govuk-visually-hidden">:</span><span><i id="arrowRotateDate" class="material-icons right-align"> expand_more </i></span>
+                        </h2>
+                    </button>
+                    <script>
+                    function buttonChangeDate() {
+                        var x = document.getElementById("dateFilterButton").getAttribute("aria-expanded"); 
+                        if (x == "true") 
+                        {
+                        x = "false"
+                        } else {
+                        x = "true"
+                        }
+                        document.getElementById("dateFilterButton").setAttribute("aria-expanded", x);
+                        }
+                    </script>
+                    <div id="filter-content-date" class="filter-content-date dates">
+                        <div class="govuk-date-input" id="date-from">
+                            <label class="govuk-label" for="from-date">
+                                <strong>Date from</strong>
+                              </label>
+                            <span id="date-hint-1" class="govuk-hint">
+                                For example, 22 10 2020
+                            </span>
+                            <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                                Day
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                            </div>
+                            </div>
+                            <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                                Month
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                            </div>
+                            </div>
+                            <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                                Year
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                            </div>
+                            </div>
+                        </div>
+                        <!-- 'To' section -->
+                            <div class="govuk-date-input" id="date-to">
+                            <label class="govuk-label govuk-!-margin-top-6" for="to-date">
+                                <strong>Date to</strong>
+                              </label>
+                            <span id="date-hint-2" class="govuk-hint">
+                                For example, 22 10 2020
+                            </span>
+                            <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                                Day
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                            </div>
+                            </div>
+                            <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                                Month
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                            </div>
+                            </div>
+                            <div class="govuk-date-input__item govuk-!-margin-bottom-3">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                                Year
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                            </div>
+                            </div>
+                        </div>
+                        <button class="govuk-button govuk-button--secondary govuk-!-margin-top-3" data-module="govuk-button" id="apply-payment-filters" type="submit" formaction="/manage-funding/payments">
+                            Apply date filter
+                        </button>
+                        <a href="#" style="display: inline-block; margin-top: 22px; margin-left: 10px;">Clear date filter<span class="govuk-visually-hidden"> by UKPRN</span></a>
+                    </div>
+                </fieldset>
+            </div>
+<!--
+    UPDATED 12-10-2020
+    Filter by provider (establishment) type.
+    Checkbox input.
+    Combined and auto height.
+-->
+<div class="govuk-form-group filterbyContainer">
+    <fieldset class="govuk-fieldset">
+        <button id="providerTypeButton" onclick="buttonChangeProviderType()"
+            class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-establishment-type govuk-button" aria-label="Filter by provider type" aria-expanded="false">
+            <h4 class="govuk-heading-s">Filter by provider type <span class="govuk-visually-hidden">:</span><span><span id="arrowRotateEstablishmentType" class="material-icons right-align"> expand_more </span>
+            </h4>
+            <!--
+                Number selected
+                <p class="govuk-body-s govuk-!-margin-bottom-0">0 Selected</p>
+            -->
+        </button>
+        <script>function buttonChangeProviderType() {
+            var x = document.getElementById("providerTypeButton").getAttribute("aria-expanded"); 
+            if (x == "true") 
+            {
+            x = "false"
+            } else {
+            x = "true"
+            }
+            document.getElementById("providerTypeButton").setAttribute("aria-expanded", x);
+            }</script>
+        <div id="filter-content-establishment-type" class="filter-content-establishment-type">
+            <!--
+            SEARCH FIELD
+            Removed 2.11.2020
+            -->
+            <!--
+            <div class="govuk-form-group filterSearch">
+                <label id="filter-by-provider-type" class="govuk-label filterLabel" for="filter-by-provider-type">
+                    Search
+                </label>
+                <input class="govuk-input filterSearchInput" id="filter-by-provider-type-1" name="filter-by-provider-type-1"
+                    autocomplete="off" type="text">
+            </div>
+            -->
+            <div class="govuk-checkboxes govuk-checkboxes--small filterbyCheckbox govuk-!-margin-top-3" id="filterBySchoolResults">
+                <!--Academies-->
+                <div class="govuk-checkboxes__item govuk-!-margin-bottom-0">
+                    <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                        type="checkbox" value="hmrc">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                        <span class="govuk-heading-s govuk-!-margin-bottom-0">Academies</span>
+                    </label>
+                    <!--
+                    <h5 class="govuk-heading-s govuk-!-margin-bottom-0" style="margin-left: -35px;">
+                        Academies
+                    </h5>
+                    -->
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                        type="checkbox" value="hmrc" disabled>
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                        Academy 16 to 19 sponsor led <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal" disabled>
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Academy 16 to 19 converter <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Academy alternative provision converter <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal" disabled>
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Academy alternative provision sponsor led <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Academy converter <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Academy special converter <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal" disabled>
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Academy special sponsor led <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Academy sponsor led <span></span>
+                    </label>
+                </div>
+                <!--Children's centres-->
+                <div class="govuk-checkboxes__item govuk-!-margin-top-3 govuk-!-margin-bottom-0">
+                    <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                        type="checkbox" value="hmrc" disabled>
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                        <span class="govuk-heading-s govuk-!-margin-bottom-0">Children's centres</span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal" disabled>
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Children's centre <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal" disabled>
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Children's centre linked site <span></span>
+                    </label>
+                </div>
+                <!--Colleges-->
+                <div class="govuk-checkboxes__item govuk-!-margin-top-3 govuk-!-margin-bottom-0">
+                    <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                        type="checkbox" value="hmrc">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                        <span class="govuk-heading-s govuk-!-margin-bottom-0">Colleges</span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Further education <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Sixth form centres <span></span>
+                    </label>
+                </div>
+                <!--Free schools-->
+                <div class="govuk-checkboxes__item govuk-!-margin-top-3 govuk-!-margin-bottom-0">
+                    <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                        type="checkbox" value="hmrc">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                        <span class="govuk-heading-s govuk-!-margin-bottom-0">Free schools</span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Free schools <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Free schools 16 to 19 <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Free schools alternative provision <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Free schools special <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Studio schools <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        University technical college <span></span>
+                    </label>
+                </div>
+                <!--Independent schools-->
+                <div class="govuk-checkboxes__item govuk-!-margin-top-3 govuk-!-margin-bottom-0">
+                    <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                        type="checkbox" value="hmrc">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                        <span class="govuk-heading-s govuk-!-margin-bottom-0">Independent schools</span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        City technology college <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Other independent school <span></span>
+                    </label>
+                </div>
+                <!--Local authority maintained schools-->
+                <div class="govuk-checkboxes__item govuk-!-margin-top-3 govuk-!-margin-bottom-0">
+                    <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                        type="checkbox" value="hmrc">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                        <span class="govuk-heading-s govuk-!-margin-bottom-0">Local authority maintained schools</span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Community school <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Community special school <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Foundation school <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Foundation special school <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Local authority nursery school <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Pupil referral unit <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Voluntary aided school <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Voluntary controlled school <span></span>
+                    </label>
+                </div>
+                <!--Online provider-->
+                <div class="govuk-checkboxes__item govuk-!-margin-top-3 govuk-!-margin-bottom-0">
+                    <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                        type="checkbox" value="hmrc">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                        <span class="govuk-heading-s govuk-!-margin-bottom-0">Online provider</span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Online provider <span></span>
+                    </label>
+                </div>
+                <!--Other types-->
+                <div class="govuk-checkboxes__item govuk-!-margin-top-3 govuk-!-margin-bottom-0">
+                    <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                        type="checkbox" value="hmrc">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                        <span class="govuk-heading-s govuk-!-margin-bottom-0">Other types</span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        British school overseas <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Institution funded by other government department <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Miscellaneous <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Offshore schools <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Secure units <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Service children's education <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Special post 16 institution <span></span>
+                    </label>
+                </div>
+                <!--Special schools-->
+                <div class="govuk-checkboxes__item govuk-!-margin-top-3 govuk-!-margin-bottom-0">
+                    <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                        type="checkbox" value="hmrc">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                        <span class="govuk-heading-s govuk-!-margin-bottom-0">Special schools</span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Academy special converter <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Academy special sponsor led <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Community special school <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Foundation special school <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Free schools special <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Non-maintained special school <span></span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Other independent special school <span></span>
+                    </label>
+                </div>
+                <!--Universities-->
+                <div class="govuk-checkboxes__item govuk-!-margin-top-3 govuk-!-margin-bottom-0">
+                    <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                        type="checkbox" value="hmrc">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                        <span class="govuk-heading-s govuk-!-margin-bottom-0">Universities</span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Higher education institutions <span></span>
+                    </label>
+                </div>
+                <!--Welsh schools-->
+                <div class="govuk-checkboxes__item govuk-!-margin-top-3 govuk-!-margin-bottom-0">
+                    <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
+                        type="checkbox" value="hmrc">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                        <span class="govuk-heading-s govuk-!-margin-bottom-0">Welsh schools</span>
+                    </label>
+                </div>
+                <div class="govuk-checkboxes__item govuk-!-margin-bottom-3" style="margin-left: 23px;">
+                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation"
+                        type="checkbox" value="employment-tribunal">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                        Welsh establishment <span></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</div>
+            <a href>Clear filters</a>
+                <!--
+                Alternative 'Clear filters' link          
+                <a href="#" class="govuk-link" onclick="$('input:checkbox').removeAttr('checked');">Clear filters</a>
+                -->
+        </div>
+<!--
+    Two thirds column start
+-->
+        <div class="govuk-grid-column-two-thirds">
+<!-- TEST this placement of documents selected indicator
+            <p class="govuk-body">0 documents selected</p>
+-->
+
+<!--
+    Table start
+    Updated 21-10-2020
+-->
+<table class="govuk-table govuk-!-margin-top-3">
+    <!--Table head-->
+    <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" style="padding-left: 35px;">Document type</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Provider name</th>
+            <th scope="col" class="govuk-table__header">UKPRN</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Uploaded</th>
+            <!--<th scope="col" class="govuk-table__header govuk-!-width-one-third">Status</th>-->
+        </tr>
+    </thead>
+    <tbody class="govuk-table__body" id="mainContentResults">
+        <!--Table row 1 Business case audit evidence-->
+        <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+            <td class="govuk-table__cell">
+                <!--<div class="govuk-form-group">-->
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="document-1" name="document-1" type="checkbox" value="Business case audit evidence">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-1">
+                            <!--Longest document type name-->
+                <span class="govuk-body">Business case audit evidence</span>
+                        </label>
+                        
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <!--</div>-->
+                    
+            </td>
+            <!--Provider name-->
+            <td class="govuk-table__cell" style="padding-top: 19px;"><span class="govuk-body">Stockton-on-Tees Borough Council</span>
+                
+            </td>
+            <!--UKPRN-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                <span class="govuk-body" aria-label="one zero zero zero six three three seven">10006337</span>
+            </td>
+            <!--Uploaded-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                <span class="govuk-body">Today 10:54am</span>
+                <br>
+                <strong class="govuk-tag govuk-tag--red govuk-!-margin-top-3">New</strong>
+                <div class="govuk-!-margin-top-6">
+                    <details class="govuk-details govuk-!-margin-top-0 govuk-!-margin-bottom-3" data-module="govuk-details">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                            Document details
+                            </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                            <p class="govuk-body" aria-label="1. 0. 0. 0. 6. 3. 3. 7. Stockton On Tees Borough Council. Business case audit evidence. v1. 202021.xlsx"><strong>Document name:</strong> <br>10006337_Stockton-On-Tees-Borough-Council_Business-case-audit-evidence_v1_202021.xlsx</p>
+                            <p class="govuk-body"><strong>Document version:</strong> <br>1</p>
+                            <!--
+                            <p class="govuk-body"><strong>Change note for this version:</strong> </p>
+                            <p class="govuk-body"><a class="govuk-link" href="datasethistory">View all versions</a></p>
+                            -->
+                        </div>
+                        </details>
+                </div>
+            </td>
+        </tr>
+        <!--Table row 2 Business case-->
+        <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+            <td class="govuk-table__cell">
+                <!--<div class="govuk-form-group">-->
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="document-2" name="document-2" type="checkbox" value="hmrc">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-2">
+                            <!--Shortest document type name-->
+                            <span class="govuk-body">Business case</span>
+                        </label>
+                        </div>
+                    </div>
+                </fieldset>
+                <!-- DOWNLOADED TAG
+                <div style="padding-left: 35px;"><strong class="govuk-tag govuk-tag--blue">Downloaded</strong></div>
+                -->
+                <!--</div>-->
+                    
+            </td>
+            <!--Provider name-->
+            <td class="govuk-table__cell" style="padding-top: 19px;"><!--Longest document type name-->
+                <span class="govuk-body">Cambridge Academic Partnership</span></td>
+            <!--UKPRN-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                <span class="govuk-body">10058609</span>
+            </td>
+            <!--Uploaded-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                <span class="govuk-body">Today 8:15am</span>
+                <br>
+                <strong class="govuk-tag govuk-tag--red govuk-!-margin-top-3">New</strong>
+                <div class="govuk-!-margin-top-6">
+                    <details class="govuk-details govuk-!-margin-top-0 govuk-!-margin-bottom-3" data-module="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          Document details
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        <p class="govuk-body "><strong>Document name:</strong> <br>10058609_Cambridge-Academic-Partnership_Business-case_v1_202021.xlsx</p>
+                        <p class="govuk-body "><strong>Document version:</strong> <br>1</p>
+                        <!--
+                        <p class="govuk-body"><strong>Change note for this version:</strong> </p>
+                        <p class="govuk-body"><a class="govuk-link" href="datasethistory">View all versions</a></p>
+                        -->
+                      </div>
+                    </details>
+                    </div>
+            </td>
+        </tr>
+        <!--Table row 3 Alternative completion-->
+        <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+            <td class="govuk-table__cell">
+                <!--<div class="govuk-form-group">-->
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="document-3" name="document-3" type="checkbox" value="hmrc">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-3">
+                            <!--Shortest document type name-->
+                            <span class="govuk-body">Alternative completion</span>
+                        </label>
+                        </div>
+                    </div>
+                </fieldset>
+                <!-- DOWNLOADED TAG
+                <div style="padding-left: 35px;"><strong class="govuk-tag govuk-tag--blue">Downloaded</strong></div>
+                -->
+                <!--</div>-->
+                    
+            </td>
+            <!--Provider name-->
+            <td class="govuk-table__cell" style="padding-top: 19px;"><!--Longest document type name-->
+                <span class="govuk-body">Baginton Fields School</span></td>
+            <!--UKPRN-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                <span class="govuk-body">10014875</span>
+            </td>
+            <!--Uploaded-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                <span class="govuk-body">6:15pm on 29 September 2020</span>
+                <div class="govuk-!-margin-top-6">
+                    <details class="govuk-details govuk-!-margin-top-0 govuk-!-margin-bottom-3" data-module="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          Document details
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        <p class="govuk-body "><strong>Document name:</strong> <br>10014875-Baginton_Fields_School-Alternative_completion-v1-202021.xlsx</p>
+                        <p class="govuk-body "><strong>Document version:</strong> <br>1</p>
+                        <p class="govuk-body "><strong>Downloaded:</strong> <br>3:34pm on 2 October 2020</p>
+                        <p class="govuk-body "><strong>Downloaded by:</strong> <br>Jonathan Jones</p>
+                        <!--
+                        <p class="govuk-body"><strong>Change note for this version:</strong> </p>
+                        <p class="govuk-body"><a class="govuk-link" href="datasethistory">View all versions</a></p>
+                        -->
+                      </div>
+                    </details>
+                    </div>
+            </td>
+        </tr>
+        <!--Table row 4 Data sharing protocol-->
+        <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+            <td class="govuk-table__cell">
+                <!--<div class="govuk-form-group">-->
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="document-4" name="document-4" type="checkbox" value="hmrc">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-4">
+                            <!--Shortest document type name-->
+                            <span class="govuk-body">Data sharing protocol</span>
+                        </label>
+                        </div>
+                    </div>
+                </fieldset>
+                <!-- DOWNLOADED TAG
+                <div style="padding-left: 35px;"><strong class="govuk-tag govuk-tag--blue">Downloaded</strong></div>
+                -->
+                <!--</div>-->
+                    
+            </td>
+            <!--Provider name-->
+            <td class="govuk-table__cell" style="padding-top: 19px;"><!--Longest document type name-->
+                <span class="govuk-body">Barr's Hill School and Community College</span></td>
+            <!--UKPRN-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                <span class="govuk-body">10054167</span>
+            </td>
+            <!--Uploaded-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                <span class="govuk-body">4:14pm on 29 September 2020</span>
+                <div class="govuk-!-margin-top-6">
+                    <details class="govuk-details govuk-!-margin-top-0 govuk-!-margin-bottom-3" data-module="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          Document details
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        <p class="govuk-body "><strong>Document name:</strong> <br>10054167_Barr's Hill School and Community College_Data sharing protocol_v1-202021.xlsx</p>
+                        <p class="govuk-body "><strong>Document version:</strong> <br>1</p>
+                        <p class="govuk-body "><strong>Downloaded:</strong> <br>3:34pm on 2 October 2020</p>
+                        <p class="govuk-body "><strong>Downloaded by:</strong> <br>Jonathan Jones</p>
+                        <!--
+                        <p class="govuk-body"><strong>Change note for this version:</strong> </p>
+                        <p class="govuk-body"><a class="govuk-link" href="datasethistory">View all versions</a></p>
+                        -->
+                      </div>
+                    </details>
+                    </div>
+            </td>
+        </tr>
+        <!--Table row 5 Financial report-->
+        <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+            <td class="govuk-table__cell">
+                <!--<div class="govuk-form-group">-->
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="document-5" name="document-5" type="checkbox" value="hmrc">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-5">
+                            <!--Shortest document type name-->
+                            <span class="govuk-body">Financial report</span>
+                        </label>
+                        </div>
+                    </div>
+                </fieldset>
+                <!-- DOWNLOADED TAG
+                <div style="padding-left: 35px;"><strong class="govuk-tag govuk-tag--blue">Downloaded</strong></div>
+                -->
+                <!--</div>-->
+                    
+            </td>
+            <!--Provider name-->
+            <td class="govuk-table__cell" style="padding-top: 19px;"><!--Longest document type name-->
+                <span class="govuk-body">Berkswell Church of England Voluntary Aided Primary School</span></td>
+            <!--UKPRN-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                <span class="govuk-body">10073943</span>
+            </td>
+            <!--Uploaded-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                <span class="govuk-body">3:27pm on 29 September 2020</span>
+                <div class="govuk-!-margin-top-6">
+                    <details class="govuk-details govuk-!-margin-top-0 govuk-!-margin-bottom-3" data-module="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          Document details
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        <p class="govuk-body "><strong>Document name:</strong> <br>10073943_Berkswell Church of England Voluntary Aided Primary School_Financial report_v1-202021.xlsx</p>
+                        <p class="govuk-body "><strong>Document version:</strong> <br>1</p>
+                        <p class="govuk-body "><strong>Downloaded:</strong> <br>3:34pm on 2 October 2020</p>
+                        <p class="govuk-body "><strong>Downloaded by:</strong> <br>Jonathan Jones</p>
+                        <!--
+                        <p class="govuk-body"><strong>Change note for this version:</strong> </p>
+                        <p class="govuk-body"><a class="govuk-link" href="datasethistory">View all versions</a></p>
+                        -->
+                      </div>
+                    </details>
+                    </div>
+            </td>
+        </tr>
+        <!--Table row 6 Funding monitoring report-->
+        <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+            <td class="govuk-table__cell">
+                <!--<div class="govuk-form-group">-->
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="document-6" name="document-6" type="checkbox" value="hmrc">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-6">
+                            <!--Shortest document type name-->
+                            <span class="govuk-body">Funding monitoring report</span>
+                        </label>
+                        </div>
+                    </div>
+                </fieldset>
+                <!-- DOWNLOADED TAG
+                <div style="padding-left: 35px;"><strong class="govuk-tag govuk-tag--blue">Downloaded</strong></div>
+                -->
+                <!--</div>-->
+                    
+            </td>
+            <!--Provider name-->
+            <td class="govuk-table__cell" style="padding-top: 19px;"><!--Longest document type name-->
+                <span class="govuk-body">Better Futures Multi-Academy Trust</span></td>
+            <!--UKPRN-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                <span class="govuk-body">10081879</span>
+            </td>
+            <!--Uploaded-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                <span class="govuk-body">12:01pm on 29 September 2020</span>
+                <div class="govuk-!-margin-top-6">
+                    <details class="govuk-details govuk-!-margin-top-0 govuk-!-margin-bottom-3" data-module="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          Document details
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        <p class="govuk-body "><strong>Document name:</strong> <br>10081879_Better Futures Multi-Academy Trust_Funding monitoring report_v1-202021.xlsx</p>
+                        <p class="govuk-body "><strong>Document version:</strong> <br>1</p>
+                        <p class="govuk-body "><strong>Downloaded:</strong> <br>3:34pm on 2 October 2020</p>
+                        <p class="govuk-body "><strong>Downloaded by:</strong> <br>Jonathan Jones</p>
+                        <!--
+                        <p class="govuk-body"><strong>Change note for this version:</strong> </p>
+                        <p class="govuk-body"><a class="govuk-link" href="datasethistory">View all versions</a></p>
+                        -->
+                      </div>
+                    </details>
+                    </div>
+            </td>
+        </tr>
+        <!--Table row 7 Infrastructure return-->
+        <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+            <td class="govuk-table__cell">
+                <!--<div class="govuk-form-group">-->
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="document-7" name="document-7" type="checkbox" value="hmrc">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-7">
+                            <!--Shortest document type name-->
+                            <span class="govuk-body">Infrastructure return</span>
+                        </label>
+                        </div>
+                    </div>
+                </fieldset>
+                <!-- DOWNLOADED TAG
+                <div style="padding-left: 35px;"><strong class="govuk-tag govuk-tag--blue">Downloaded</strong></div>
+                -->
+                <!--</div>-->
+                    
+            </td>
+            <!--Provider name-->
+            <td class="govuk-table__cell" style="padding-top: 19px;"><!--Longest document type name-->
+                <span class="govuk-body">Cardinal Newman Catholic School Specialist Arts and Community College</span></td>
+            <!--UKPRN-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                <span class="govuk-body">10084120</span>
+            </td>
+            <!--Uploaded-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                <span class="govuk-body">11:39am on 29 September 2020</span>
+                <div class="govuk-!-margin-top-6">
+                    <details class="govuk-details govuk-!-margin-top-0 govuk-!-margin-bottom-3" data-module="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          Document details
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        <p class="govuk-body "><strong>Document name:</strong> <br>10084120_Cardinal Newman Catholic School Specialist Arts and Community College_Infrastructure return_v1-202021.xlsx</p>
+                        <p class="govuk-body "><strong>Document version:</strong> <br>1</p>
+                        <p class="govuk-body "><strong>Downloaded:</strong> <br>3:34pm on 2 October 2020</p>
+                        <p class="govuk-body "><strong>Downloaded by:</strong> <br>Jonathan Jones</p>
+                        <!--
+                        <p class="govuk-body"><strong>Change note for this version:</strong> </p>
+                        <p class="govuk-body"><a class="govuk-link" href="datasethistory">View all versions</a></p>
+                        -->
+                      </div>
+                    </details>
+                    </div>
+            </td>
+        </tr>
+        <!--Table row 8 Reconciliation return-->
+        <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+            <td class="govuk-table__cell">
+                <!--<div class="govuk-form-group">-->
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="document-8" name="document-8" type="checkbox" value="hmrc">
+                        <label class="govuk-label govuk-checkboxes__label" for="document-8">
+                            <!--Shortest document type name-->
+                            <span class="govuk-body">Reconciliation return</span>
+                        </label>
+                        </div>
+                    </div>
+                </fieldset>
+                <!-- DOWNLOADED TAG
+                <div style="padding-left: 35px;"><strong class="govuk-tag govuk-tag--blue">Downloaded</strong></div>
+                -->
+                <!--</div>-->
+                    
+            </td>
+            <!--Provider name-->
+            <td class="govuk-table__cell" style="padding-top: 19px;"><!--Longest document type name-->
+                <span class="govuk-body">Castle Wood Special School</span></td>
+            <!--UKPRN-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                <span class="govuk-body">10076625</span>
+            </td>
+            <!--Uploaded-->
+            <td class="govuk-table__cell" style="padding-top: 19px;">
+                <span class="govuk-body">9:17am on 29 September 2020</span>
+                <div class="govuk-!-margin-top-6">
+                    <details class="govuk-details govuk-!-margin-top-0 govuk-!-margin-bottom-3" data-module="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          Document details
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        <p class="govuk-body"><strong>Document name:</strong> <br>10076625_Castle Wood Special School_Reconciliation return_v1-202021.xlsx</p>
+                        <p class="govuk-body"><strong>Document version:</strong> <br>1</p>
+                        <p class="govuk-body"><strong>Downloaded:</strong> <br>3:34pm on 2 October 2020</p>
+                        <p class="govuk-body"><strong>Downloaded by:</strong> <br>Jonathan Jones</p>
+                        <!--
+                        <p class="govuk-body"><strong>Change note for this version:</strong> </p>
+                        <p class="govuk-body"><a class="govuk-link" href="datasethistory">View all versions</a></p>
+                        -->
+                      </div>
+                    </details>
+                    </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!--
+    Pagination
+-->     
+            <div class="govuk-form-group">       
+                        <nav role="navigation" aria-label="Pagination">
+                            <div class="pagination__summary">Showing 1 to 25 of 5,535 documents</div>
+                            <ul class="pagination">
+                                <!--
+                                <li class="pagination__item"><a class="pagination__link" href="#0" aria-label="Previous page"><span aria-hidden="true" role="presentation"></span> Previous</a></li>
+                                -->
+                                <li class="pagination__item"><a class="pagination__link current" href="#0" aria-current="true" aria-label="Page 1, current page">1</a></li>
+                                <li class="pagination__item"><a class="pagination__link" href="#0" aria-label="Page 2">2</a></li>
+                                <li class="pagination__item"><a class="pagination__link" href="#0" aria-label="Page 3">3</a></li>
+                                <li class="pagination__item"><a class="pagination__link" href="#0" aria-label="Page 4">4</a></li>
+                                <li class="pagination__item"><a class="pagination__link" href="#0" aria-label="Page 5">5</a></li>
+                                <li class="pagination__item"><a class="pagination__link" href="#0" aria-label="Next page">Next <span aria-hidden="true" role="presentation"></span></a></li>
+                            </ul>
+                        </nav>
+            </div>
+<!--
+    Nav end
+-->
+            <!--Download all filtered documents-->
+            <div class="govuk-form-group govuk-!-margin-top-9 govuk-!-margin-bottom-0">
+                <!--Points to 'Are you sure?' page'-->
+                <a href="#" class="govuk-button govuk-button--primary" data-module="govuk-button" role="button" draggable="false" title="Download all filtered documents">Download all filtered documents</a>
+            </div>
+            <!--Download selected documents-->
+            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                <!--Allows immediate download without additional 'Are you sure?' step-->
+                <a href="#" class="govuk-button govuk-button--secondary" data-module="govuk-button" role="button" draggable="false" title="Download selected documents">Download selected documents</a>
+            </div>
+            
+            <div class="back-to-top">       
+            <div class="app-back-to-top app-back-to-top--fixed" data-module="app-back-to-top">
+                <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+                <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                    <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                </svg>Back to top
+                </a>
+            </div>
+            </div>
+
+            </div>
+            <!--Column two thirds end-->
+        </div>
+        <!--Row end-->
+    </section>
+  </div>
+</div>
+
+<!--
+    Row end
+-->
+
+{% endblock %}
