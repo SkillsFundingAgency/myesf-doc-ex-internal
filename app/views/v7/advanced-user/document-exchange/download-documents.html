@@ -62,7 +62,7 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
         <p class="govuk-body">You can download all filtered documents by using the 'Download all filtered documents' button at the bottom of the list.</p>
-        <p class="govuk-body">Alternatively, you can manually select up to 25 documents and download them using the 'Download selected documents' button at the bottom of the list.</p>
+        <p class="govuk-body">Alternatively, you can manually select documents and download them using the 'Download selected documents' button at the bottom of the list.</p>
         </div>    
     </div>
     <!--TECHNICAL DEBT - What to do when the user tries to select another document once the limit has been reached?-->
@@ -81,6 +81,44 @@
     <p class="govuk-visually-hidden govuk-body">0 documents selected</p>
 -->
 <p class="govuk-body" tabindex="0">0 documents selected</p>
+<!--
+    Select a (Filter by) team.
+    Radio inputs.
+    ADVANCED users only.
+
+    Updated 6-1-2021
+-->
+<div class="govuk-form-group filterbyContainer">
+    <fieldset class="govuk-fieldset">
+        <button
+            class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-team govuk-button">
+            <h4 class="govuk-heading-s">Select a team
+                <!--
+                <span><i id="arrowRotateStatus" class="material-icons right-align"> keyboard_arrow_down </i></span>
+                -->
+            </h4>
+            
+        </button>
+        <div id="filter-content-team" class="filter-content-team">
+            <div class="govuk-radios govuk-radios--small filterbyCheckbox govuk-!-margin-top-3" id="filterByTeam">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="team-1" name="filter-by-team"
+                        type="radio" value="funding-centre" checked="checked">
+                    <label class="govuk-label govuk-radios__label" for="team-1">
+                        Funding centre
+                    </label>
+                </div>
+                <div class="govuk-radios__item govuk-!-margin-bottom-3">
+                    <input class="govuk-radios__input" id="team-2" name="filter-by-team"
+                        type="radio" value="risk-assurance">
+                    <label class="govuk-label govuk-radios__label" for="team-2">
+                        Risk assurance
+                    </label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</div>
 <!--
     Search by UKPRN.
     Numeric input.
@@ -1350,13 +1388,17 @@
 -->
             <!--Download all filtered documents-->
             <div class="govuk-form-group govuk-!-margin-top-9 govuk-!-margin-bottom-0">
-                <!--Points to 'Are you sure?' page'-->
-                <a href="#" class="govuk-button govuk-button--primary" data-module="govuk-button" role="button" draggable="false" title="Download all filtered documents">Download all filtered documents</a>
+                <!--Points to 'Are you sure?' page-->
+                <a href="download-are-you-sure.html" class="govuk-button govuk-button--primary" data-module="govuk-button" role="button" draggable="false" title="Download all filtered documents">Download all filtered documents</a>
             </div>
             <!--Download selected documents-->
             <div class="govuk-form-group govuk-!-margin-bottom-0">
                 <!--Allows immediate download without additional 'Are you sure?' step-->
                 <a href="#" class="govuk-button govuk-button--secondary" data-module="govuk-button" role="button" draggable="false" title="Download selected documents">Download selected documents</a>
+            </div>
+            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                <!--Advanced users only. Points to 'Are you sure?' page-->
+                <a href="download-delete-are-you-sure.html">Delete selected documents</a>
             </div>
             
             <div class="back-to-top">       

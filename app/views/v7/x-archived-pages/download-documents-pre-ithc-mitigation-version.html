@@ -59,13 +59,6 @@
     Heading
 -->
     <h1 class="govuk-heading-xl">Download your documents</h1>
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-        <p class="govuk-body">You can download all filtered documents by using the 'Download all filtered documents' button at the bottom of the list.</p>
-        <p class="govuk-body">Alternatively, you can manually select up to 25 documents and download them using the 'Download selected documents' button at the bottom of the list.</p>
-        </div>    
-    </div>
-    <!--TECHNICAL DEBT - What to do when the user tries to select another document once the limit has been reached?-->
     <section>
 <!--
     Row start
@@ -81,44 +74,6 @@
     <p class="govuk-visually-hidden govuk-body">0 documents selected</p>
 -->
 <p class="govuk-body" tabindex="0">0 documents selected</p>
-<!--
-    Select a (Filter by) team.
-    Radio inputs.
-    ADVANCED users only.
-
-    Updated 6-1-2021
--->
-<div class="govuk-form-group filterbyContainer">
-    <fieldset class="govuk-fieldset">
-        <button
-            class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-team govuk-button">
-            <h4 class="govuk-heading-s">Select a team
-                <!--
-                <span><i id="arrowRotateStatus" class="material-icons right-align"> keyboard_arrow_down </i></span>
-                -->
-            </h4>
-            
-        </button>
-        <div id="filter-content-team" class="filter-content-team">
-            <div class="govuk-radios govuk-radios--small filterbyCheckbox govuk-!-margin-top-3" id="filterByTeam">
-                <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="team-1" name="filter-by-team"
-                        type="radio" value="funding-centre" checked="checked">
-                    <label class="govuk-label govuk-radios__label" for="team-1">
-                        Funding centre
-                    </label>
-                </div>
-                <div class="govuk-radios__item govuk-!-margin-bottom-3">
-                    <input class="govuk-radios__input" id="team-2" name="filter-by-team"
-                        type="radio" value="risk-assurance">
-                    <label class="govuk-label govuk-radios__label" for="team-2">
-                        Risk assurance
-                    </label>
-                </div>
-            </div>
-        </div>
-    </fieldset>
-</div>
 <!--
     Search by UKPRN.
     Numeric input.
@@ -929,12 +884,33 @@
 <!-- TEST this placement of documents selected indicator
             <p class="govuk-body">0 documents selected</p>
 -->
-
+<!--
+    Select all
+-->
+            <div class="govuk-form-group govuk-!-margin-top-6">
+                <fieldset class="govuk-fieldset">
+                    <!--
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h1 class="govuk-fieldset__heading">
+                    Heading here
+                    </h1>
+                </legend>
+                -->
+                    <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="select-all" name="select-all" type="checkbox" value="select-all">
+                        <label class="govuk-label govuk-checkboxes__label" for="select-all">
+                            Select all documents
+                        </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
 <!--
     Table start
     Updated 21-10-2020
 -->
-<table class="govuk-table govuk-!-margin-top-3">
+<table class="govuk-table">
     <!--Table head-->
     <thead class="govuk-table__head">
         <tr class="govuk-table__row">
@@ -1386,21 +1362,15 @@
 <!--
     Nav end
 -->
-            <!--Download all filtered documents-->
             <div class="govuk-form-group govuk-!-margin-top-9 govuk-!-margin-bottom-0">
-                <!--Points to 'Are you sure?' page'-->
-                <a href="#" class="govuk-button govuk-button--primary" data-module="govuk-button" role="button" draggable="false" title="Download all filtered documents">Download all filtered documents</a>
+                <a href="https://esfstest.herokuapp.com/public/documents/allocation-statements/example-statement-breakdown.pdf" class="govuk-button govuk-button--primary" data-module="govuk-button" role="button" draggable="false" title="Download selected documents">Download selected documents</a>
             </div>
-            <!--Download selected documents-->
+            <!--Delete selected documents for advanced users only-->
+            <!--
             <div class="govuk-form-group govuk-!-margin-bottom-0">
-                <!--Allows immediate download without additional 'Are you sure?' step-->
-                <a href="#" class="govuk-button govuk-button--secondary" data-module="govuk-button" role="button" draggable="false" title="Download selected documents">Download selected documents</a>
+                <a href="delete-selected-confirm.html">Delete selected documents</a>
             </div>
-            <div class="govuk-form-group govuk-!-margin-bottom-0">
-                <!--Advanced users only-->
-                <a href="#">Delete selected documents</a>
-            </div>
-            
+            -->
             <div class="back-to-top">       
             <div class="app-back-to-top app-back-to-top--fixed" data-module="app-back-to-top">
                 <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
