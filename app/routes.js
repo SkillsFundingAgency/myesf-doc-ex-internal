@@ -14,7 +14,7 @@ router.post('/v7/document-exchange/publish-14-to-16-answer', function (req, res)
     if (publish14to16 === 'true') {
       res.redirect('/v7/document-exchange/confirmation-14to16')
     } else {
-      res.redirect('/v7/document-exchange/publish-documents-new')
+      res.redirect('/v7/document-exchange/publish-documents')
     }
   })
 

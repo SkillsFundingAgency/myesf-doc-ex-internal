@@ -35,25 +35,7 @@
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-<!--
-    Breadcrumbs
--->
-    <div class="govuk-breadcrumbs">
-      <ol class="govuk-breadcrumbs__list">
-        <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" href="home.html">Home</a>
-        </li>
-        <li class="govuk-breadcrumbs__list-item">
-            <a class="govuk-breadcrumbs__link" href="file-share.html">File share documents</a>
-          </li>
-        <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="publish-documents.html">Publish your documents</a>
-        </li>
-        <li class="govuk-breadcrumbs__list-item">
-          Confirm
-        </li>
-      </ol>
-    </div>
+
 </div>
 </div>
 {% endblock %}
@@ -61,24 +43,20 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
 
       <div class="govuk-panel govuk-panel--confirmation">
-        <h1 class="govuk-panel__title">Application complete</h1>
-        <div class="govuk-panel__body">
-          Your reference number<br><strong>HDJ2123F</strong>
-        </div>
+        <h1 class="govuk-panel__title">You've published 8 14 to 16 revenue funding allocation statements</h1>
+        
       </div>
 
-      <p>
-        We have sent you a confirmation email.
-      </p>
-
-      <h2 class="govuk-heading-m">What happens next</h2>
-      <p>We've sent your application to Hackney Electoral Register Office.</p>
-      <p>They will contact you either to confirm your registration, or to ask for more information.</p>
-      <p><a href="https://www.gov.uk/service-manual/user-centred-design/resources/patterns/feedback-pages.html">What did you think of this service?</a> (takes 30 seconds)</p>
-
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">What happens next</h2>
+      <p>We’ll send you an email to confirm that we've published your documents. It may take a few minutes for all of your documents to show in provider view.</p>
+      
+      <h2 class="govuk-heading-m govuk-!-margin-top-6">Publish more documents</h2>
+      <p>You can add more documents to your file share, then publish them using document exchange.</p>
+      
+        <a href="publish-documents.html" class="govuk-button govuk-button--primary govuk-!-margin-top-6" data-module="govuk-button" role="button" draggable="false" title="Finish">Finish</a>
 
     </div>
   </div>
