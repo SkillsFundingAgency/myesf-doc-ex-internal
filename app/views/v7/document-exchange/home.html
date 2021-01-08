@@ -1,5 +1,3 @@
-<!--This page is a prototype. Please do not use as production code.-->
-
 {% extends "layout.html" %}
 
 {% block pageTitle %}
@@ -36,28 +34,35 @@
 {% endblock %}
 
 {% block content %}
-<!--Row start
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-Heading-->
+<!--
+    This page is a prototype.
+    Please do not use as production code.
+-->
+<!--
+  Heading H1
+-->
     <h1 class="govuk-heading-xl">Document exchange</h1>
     <section>
-<!--Row start-->
+<!--
+  Row start
+-->
       <div class="govuk-grid-row">
-<!--One third column start-->
+<!--
+  One third column start
+-->
         <div class="govuk-grid-column-one-third govuk-!-margin-top-3">
           <a id="allocations" class="dashboard-links" href="file-share.html">
             <span id="allocations-service" class="service-name">Publish documents from your file share</span>
             <span id="allocation-alert" class="alert alert-name-red">68 documents in your file share</span>
-            <!-- <span id="contract-alert" class="alert alert-name-green">View documents</span> -->
           </a>
         </div>
-
+<!--
+  One third column start
+-->
         <div class="govuk-grid-column-one-third govuk-!-margin-top-3">
           <a id="contracts" class="dashboard-links" href="download-documents.html">
             <span id="contracts-service" class="service-name">Download documents</span>
             <span id="contract-alert" class="alert alert-name-red">2 new documents</span>
-            <!-- <span id="contract-alert" class="alert alert-name-green">View documents</span> -->
           </a>
         </div>
       </div>

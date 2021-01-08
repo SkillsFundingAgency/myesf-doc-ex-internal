@@ -1,8 +1,3 @@
-<!--
-    This page is a prototype.
-    Please do not use as production code.
-    It was created with speed in mind, so treat as throwaway HTML.
--->
 
 {% extends "layout.html" %}
 
@@ -25,7 +20,6 @@ Documents received from ESFA
   },
   html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
 }) }}
-
 <!--
     Navigation
 -->
@@ -56,14 +50,18 @@ Documents received from ESFA
 
 {% block content %}
 <!--
-    Heading
+    This page is a prototype.
+    Please do not use as production code.
+-->
+<!--
+    Heading H1
 -->
     <h1 class="govuk-heading-xl">Documents received from ESFA</h1>
     <p class="govuk-body">If you need a document in a different format, email <a href="mailto:pds.mailbox@education.gov.uk">pds.mailbox@education.gov.uk</a>.</p>
-    
-    <!--<p class="govuk-body">You can select up to 25 documents to download, or download all filtered documents.</p>
+    <!--
+        TECHNICAL DEBT
+        What to do when the user tries to select another document once the limit has been reached?
     -->
-    <!--TECHNICAL DEBT - What to do when the user tries to select another document once the limit has been reached?-->
     <section>
 <!--
     Row start
@@ -74,12 +72,7 @@ Documents received from ESFA
 -->
 
         <div class="govuk-grid-column-one-third govuk-!-margin-top-6">
-<!--
-    Visually hidden 'Documents selected' count for screen readers
-    <p class="govuk-visually-hidden govuk-body">0 documents selected</p>
--->
-<p class="govuk-body" tabindex="0">0 documents selected</p>
-
+            <p class="govuk-body" tabindex="0">0 documents selected</p>
 <!--
     Filter by status.
     Checkbox inputs.
@@ -91,6 +84,7 @@ Documents received from ESFA
                         Filter by status
                     </div>
                     -->
+                    <!-- Script to toggle Aria expanded/collapsed -->
                     <button id="statusButton" onclick="buttonChangeStatus()"
                         class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-status govuk-button" aria-label="Filter by document status" aria-expanded="false">
                         <h4 class="govuk-heading-s">Filter by status<span class="govuk-visually-hidden">:</span><span><i id="arrowRotateStatus" class="material-icons right-align" aria-describedby="status"> expand_more </i></span>
@@ -148,6 +142,7 @@ Documents received from ESFA
                 <p class="govuk-body-s govuk-!-margin-bottom-0">0 Selected</p>
             -->
         </button>
+        <!-- Script to toggle Aria expanded/collapsed -->
         <script>function buttonChangeProviderType() {
             var x = document.getElementById("providerTypeButton").getAttribute("aria-expanded"); 
             if (x == "true") 
@@ -192,6 +187,7 @@ Documents received from ESFA
                                     expand_more</i></span>
                         </h4>
                     </button>
+                    <!-- Script to toggle Aria expanded/collapsed -->
                     <script>function buttonChangeDocumentType() {
                         var x = document.getElementById("documentTypeButton").getAttribute("aria-expanded"); 
                         if (x == "true") 
@@ -246,15 +242,6 @@ Documents received from ESFA
                                     Funding monitoring report
                                 </label>
                             </div>
-                            <!--
-                            <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
-                                    type="checkbox" value="hmrc">
-                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
-                                    Grant assurance
-                                </label>
-                            </div>
-                            -->
                             <div class="govuk-checkboxes__item">
                                 <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
                                     type="checkbox" value="hmrc">
@@ -273,9 +260,6 @@ Documents received from ESFA
                     </div>
                 </fieldset>
             </div>
-
-
-
             <a href>Clear filters</a>
                 <!--
                 Alternative 'Clear filters' link          
@@ -286,7 +270,8 @@ Documents received from ESFA
     Two thirds column start
 -->
         <div class="govuk-grid-column-two-thirds">
-<!-- TEST this placement of documents selected indicator
+<!--
+    TEST this placement of documents selected indicator
             <p class="govuk-body">0 documents selected</p>
 -->
 
@@ -323,8 +308,6 @@ Documents received from ESFA
                                     </div>
                                 </div>
                 </fieldset>
-                
-                <!--</div>-->
                     
             </td>
             <!--Organisation name-->
@@ -360,7 +343,6 @@ Documents received from ESFA
                                 </div>
                 </fieldset>
                 
-                <!--</div>-->
                     
             </td>
             <!--Organisation name-->
@@ -395,7 +377,6 @@ Documents received from ESFA
                     </div>
                 </fieldset>
                 
-                <!--</div>-->
                     
             </td>
             <!--Organisation name-->
@@ -449,7 +430,6 @@ Documents received from ESFA
     </section>
   </div>
 </div>
-
 <!--
     Row end
 -->
