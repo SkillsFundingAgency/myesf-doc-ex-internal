@@ -21,6 +21,7 @@ It was not created inside the main Skills Funding Agency sfs-sitedesign prototyp
 * the sfs-sitedesign prototype cannot be updated to the latest version of the prototype kit
 * adding new pages to the sfs-sitedesign prototype was out of scope
 * this prototype was built with speed in mind
+* this prototype is to be considered throwaway HTML, CSS and JavaScript - not production code
 
 ## Links to the Document exchange internal prototype
 
