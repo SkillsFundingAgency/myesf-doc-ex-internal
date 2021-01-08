@@ -10,7 +10,7 @@ This prototype represents the internal view of Document Exchange.
 
 ## Version 7
 
-This version is focused on the **'Download your documents'** page.
+This version is focused on the **'Download your documents'** and **'Publish your documents'** page.
 
 ## Background
 
@@ -26,18 +26,23 @@ It was not created inside the main Skills Funding Agency sfs-sitedesign prototyp
 ## Links to the Document exchange internal prototype
 
 [//]: # (This comment should not appear in the HTML output)
-<!--- This comment should appear in the HTML output -->
+<!--- This comment should appear in the HTML output - but doesn't! -->
+
+<!--- DONE -->
 ### Prototype (Heroku app) ###
 [https://myesf-doc-ex-internal.herokuapp.com/](https://myesf-doc-ex-internal.herokuapp.com/)
 
+<!--- DONE -->
 ### GitHub repo ###
 [https://github.com/SkillsFundingAgency/myesf-doc-ex-internal](hhttps://github.com/SkillsFundingAgency/myesf-doc-ex-internal)
 
 ## Links to the Document exchange internal design history
 
+<!--- DONE -->
 ### Design history (Heroku app) ###
 [https://myesf-doc-ex-internal-history.herokuapp.com/](https://myesf-doc-ex-internal-history.herokuapp.com/)
 
+<!--- DONE -->
 ### GitHub repo ###
 [https://github.com/SkillsFundingAgency/myesf-doc-ex-internal-design-history](https://github.com/SkillsFundingAgency/myesf-doc-ex-internal-design-history)
 
@@ -55,6 +60,7 @@ The features prototyped were:
 All screens created/tested in this round:
 
 * [Download your documents](#download-documents)
+* [Download your documents - advanced user view](#this)
 
 ## Features
 
@@ -62,7 +68,7 @@ All screens created/tested in this round:
 
 The 'Search by UKPRN' component on the 'Download your documents' page was updated.
 
-![Search by UKPRN](../../assets/images/v6/ukprn-search.png)
+![Search by UKPRN](../../assets/images/v7/.png)
 
 The update to this component
 * allows users to clear the UKPRN search and return to the default view of the page.
@@ -70,13 +76,13 @@ The update to this component
 
 **Error state** for UKPRN search
 
-![Search by UKPRN error](../../assets/images/v6/ukprn-search-error.png)
+![Search by UKPRN error](../../assets/images/v7/.png)
 
 ### Filter by date update
 
 The 'Filter by date' component on the 'Download your documents' page was updated.
 
-![Search by UKPRN](../../assets/images/v6/date-filter-update.png)
+![Search by UKPRN](../../assets/images/v7/.png)
 
 The update to this component allows users to clear the date search.
 
@@ -94,7 +100,7 @@ This component was iterated based on the hypothesis that:
 
 **Previous version** (Version 4) of the 'Filter by provider type' component.
 
-![Filter by provider type version 4](../../assets/images/v5/filter-by-provider-type-v4.png)
+![Filter by provider type version 4](../../assets/images/v7/.png)
 
 This iteration of 'Filter by provider type':
 
@@ -104,12 +110,28 @@ This iteration of 'Filter by provider type':
 
 **NEW version** (Version 5) of the 'Filter by provider type' component.
 
-![Filter by provider type version 5](../../assets/images/v6/filter-by-provider-type-v5.png)
+![Filter by provider type version 5](../../assets/images/v7/.png)
 
 ## All screenshots
 
 ### Download documents
-![Download your documents version 6](../../assets/images/v6/download-documents-v6.png)
+![Download your documents version 6](../../assets/images/v7/download-documents-v7.png)
 
-### Date error states MVP update
-![Date error states MVP update](../../assets/images/v6/date-error-states-mvp-v2.png)
+### This
+![This](../../assets/images/v7/advanced-user-download-documents-v7.png)
+
+### This
+![This](../../assets/images/v7/dfe-sign-in.png)
+
+
+### This
+![This](../../assets/images/v7/dfe-sign-in.png)
+
+### This
+![This](../../assets/images/v7/dfe-sign-in.png)
+
+### This
+![This](../../assets/images/v7/dfe-sign-in.png)
+
+### This
+![This](../../assets/images/v7/dfe-sign-in.png)
