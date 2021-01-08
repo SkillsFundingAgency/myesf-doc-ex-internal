@@ -1,9 +1,3 @@
-<!--
-    This page is a prototype.
-    Please do not use as production code.
-    It was created with speed in mind, so treat as throwaway HTML.
--->
-
 {% extends "layout.html" %}
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -17,7 +11,9 @@
 {% endset%}
 
 {% block beforeContent %}
-<!--Phase banner-->
+<!--
+    Phase banner
+-->
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 {{ govukPhaseBanner({
   tag: {
@@ -25,7 +21,6 @@
   },
   html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
 }) }}
-
 <!--
     Navigation
 -->
@@ -56,7 +51,11 @@
 
 {% block content %}
 <!--
-    Heading
+    This page is a prototype.
+    Please do not use as production code.
+-->
+<!--
+    Heading H1
 -->
     <h1 class="govuk-heading-xl">Download your documents</h1>
     <div class="govuk-grid-row">
@@ -65,7 +64,10 @@
         <p class="govuk-body">Alternatively, you can manually select documents and download them using the 'Download selected documents' button at the bottom of the list.</p>
         </div>    
     </div>
-    <!--TECHNICAL DEBT - What to do when the user tries to select another document once the limit has been reached?-->
+    <!--
+        TECHNICAL DEBT? - What to do when the user tries to select another document once the limit has been reached?
+        Current WAF limit c. 300+ documents. Hypothesis is that users will not manually select this many.
+    -->
     <section>
 <!--
     Row start
@@ -74,13 +76,8 @@
 <!--
     One third column start
 -->
-
         <div class="govuk-grid-column-one-third govuk-!-margin-top-3">
-<!--
-    Visually hidden 'Documents selected' count for screen readers
-    <p class="govuk-visually-hidden govuk-body">0 documents selected</p>
--->
-<p class="govuk-body" tabindex="0">0 documents selected</p>
+            <p class="govuk-body" tabindex="0">0 documents selected</p>
 <!--
     Select a (Filter by) team.
     Radio inputs.
@@ -90,14 +87,15 @@
 -->
 <div class="govuk-form-group filterbyContainer">
     <fieldset class="govuk-fieldset">
+        <!--This no longer needs to be a button, as the filter will be permanently 'open'-->
         <button
             class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading filter-expand-team govuk-button">
             <h4 class="govuk-heading-s">Select a team
                 <!--
+                Open/close arrow
                 <span><i id="arrowRotateStatus" class="material-icons right-align"> keyboard_arrow_down </i></span>
                 -->
             </h4>
-            
         </button>
         <div id="filter-content-team" class="filter-content-team">
             <div class="govuk-radios govuk-radios--small filterbyCheckbox govuk-!-margin-top-3" id="filterByTeam">
@@ -122,12 +120,12 @@
 <!--
     Search by UKPRN.
     Numeric input.
-    Updated 5.11.2020.
+    Updated 5-11-2020.
 -->
-
 <div class="govuk-form-group filterbyContainer" id="search-by-ukprn">
     <section>
     <fieldset class="govuk-fieldset">
+        <!--This was converted from a button, as the search will be permanently 'open'-->
     <h4 class="govuk-label-wrapper" tabindex="0">
         <label class="govuk-label govuk-label--s searchbyHeading" for="ukprn-search" aria-describedby="ukprn-search-hint">
         Search by UKPRN
@@ -139,12 +137,6 @@
         </div>
         <input class="govuk-input filterSearchInput" id="ukprn-search" name="ukprn-search" type="text" spellcheck="false" aria-describedby="ukprn-search-hint" pattern="[0-9]*" inputmode="numeric">
         <form action="download-documents-10076625#search-by-ukprn" method="link" novalidate>
-
-    
-    
-    
-          
-        
         <button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-3" style="margin-top: 25px;" data-module="govuk-button" id="apply-ukprn-search" type="submit">
             <span class="govuk-visually-hidden">Apply</span> Search <span class="govuk-visually-hidden">by UKPRN</span>
         </button>
@@ -170,6 +162,7 @@
                         <h4 class="govuk-heading-s">Filter by status<span class="govuk-visually-hidden">:</span><span><i id="arrowRotateStatus" class="material-icons right-align" aria-describedby="status"> expand_more </i></span>
                         </h4>
                     </button>
+                    <!--Script to toggle button Aria expanded/collapsed-->
                     <script>function buttonChangeStatus() {
                         var x = document.getElementById("statusButton").getAttribute("aria-expanded"); 
                         if (x == "true") 
@@ -218,6 +211,7 @@
                                     expand_more</i></span>
                         </h4>
                     </button>
+                    <!--Script to toggle button Aria expanded/collapsed-->
                     <script>function buttonChangeDocumentType() {
                         var x = document.getElementById("documentTypeButton").getAttribute("aria-expanded"); 
                         if (x == "true") 
@@ -272,15 +266,6 @@
                                     Funding monitoring report
                                 </label>
                             </div>
-                            <!--
-                            <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
-                                    type="checkbox" value="hmrc">
-                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
-                                    Grant assurance
-                                </label>
-                            </div>
-                            -->
                             <div class="govuk-checkboxes__item">
                                 <input class="govuk-checkboxes__input" id="organisation-1" name="organisation"
                                     type="checkbox" value="hmrc">
@@ -302,7 +287,7 @@
 <!-- 
     Filter by uploaded today.
     Radio button inputs.
-    Updated 21.10.2020
+    Updated 21-10-2020
 -->
             <div class="govuk-form-group filterbyContainer">
                 <fieldset class="govuk-fieldset">
@@ -311,6 +296,7 @@
                         <h4 class="govuk-heading-s">Filter by uploaded today <span class="govuk-visually-hidden">:</span><span><i id="arrowRotateTime" class="material-icons right-align"> expand_more </i></span>
                         </h4>
                     </button>
+                    <!--Script to toggle button Aria expanded/collapsed-->
                     <script>function buttonChangeUploadedToday() {
                         var x = document.getElementById("uploadedTodayButton").getAttribute("aria-expanded"); 
                         if (x == "true") 
@@ -323,8 +309,7 @@
                         }</script>
                     <div id="filter-content-time-period" class="filter-content-time-period govuk-!-margin-top-3">
                         <div class="govuk-radios govuk-radios--small filterbyRadios" id="filterBySchoolResults">
-
-<!--This morning-->
+                        <!--This morning-->
                             <div class="govuk-radios__item">
                                 <input class="govuk-radios__input" id="organisation-2" name="organisation"
                                     type="radio" value="employment-tribunal">
@@ -335,7 +320,7 @@
                                     Midnight to 11:59am
                                   </div>
                             </div>
-<!--This afternoon-->
+                        <!--This afternoon-->
                             <div class="govuk-radios__item">
                                 <input class="govuk-radios__input" id="organisation-2" name="organisation"
                                     type="radio" value="employment-tribunal">
@@ -346,18 +331,13 @@
                                     Midday to 11:59pm
                                 </div>
                             </div>
-<!--Today-->
+                        <!--Today-->
                             <div class="govuk-radios__item govuk-!-margin-bottom-3">
                                 <input class="govuk-radios__input" id="organisation-2" name="organisation"
                                     type="radio" value="employment-tribunal">
                                 <label class="govuk-label govuk-radios__label" for="organisation-2">
                                     Today
                                 </label>
-                                <!--
-                                <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
-                                    Midnight onwards
-                                </div>
-                                -->
                                 <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
                                     All documents uploaded today
                                 </div>
@@ -377,6 +357,7 @@
                         <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Filter by date <span class="govuk-visually-hidden">:</span><span><i id="arrowRotateDate" class="material-icons right-align"> expand_more </i></span>
                         </h2>
                     </button>
+                    <!--Script to toggle button Aria expanded/collapsed-->
                     <script>
                     function buttonChangeDate() {
                         var x = document.getElementById("dateFilterButton").getAttribute("aria-expanded"); 
@@ -492,7 +473,7 @@
         <div id="filter-content-establishment-type" class="filter-content-establishment-type">
             <!--
             SEARCH FIELD
-            Removed 2.11.2020
+            Removed 2-11-2020
             -->
             <!--
             <div class="govuk-form-group filterSearch">
@@ -926,8 +907,9 @@
     Two thirds column start
 -->
         <div class="govuk-grid-column-two-thirds">
-<!-- TEST this placement of documents selected indicator
-            <p class="govuk-body">0 documents selected</p>
+<!--
+    TEST this placement of documents selected indicator
+    <p class="govuk-body">0 documents selected</p>
 -->
 
 <!--
@@ -1388,8 +1370,8 @@
 -->
             <!--Download all filtered documents-->
             <div class="govuk-form-group govuk-!-margin-top-9 govuk-!-margin-bottom-0">
-                <!--Points to 'Are you sure?' page-->
-                <a href="download-are-you-sure.html" class="govuk-button govuk-button--primary" data-module="govuk-button" role="button" draggable="false" title="Download all filtered documents">Download all filtered documents</a>
+                <!--Allows immediate download without additional 'Are you sure?' step-->
+                <a href="#" class="govuk-button govuk-button--primary" data-module="govuk-button" role="button" draggable="false" title="Download all filtered documents">Download all filtered documents</a>
             </div>
             <!--Download selected documents-->
             <div class="govuk-form-group govuk-!-margin-bottom-0">
@@ -1397,7 +1379,10 @@
                 <a href="#" class="govuk-button govuk-button--secondary" data-module="govuk-button" role="button" draggable="false" title="Download selected documents">Download selected documents</a>
             </div>
             <div class="govuk-form-group govuk-!-margin-bottom-0">
-                <!--Advanced users only. Points to 'Are you sure?' page-->
+                <!--
+                    Advanced users only. Points to 'Are you sure?' page.
+                    This will be a button styled as a link, as this page has to post to the 'Are you sure?' page.
+                -->
                 <a href="download-delete-are-you-sure.html">Delete selected documents</a>
             </div>
             

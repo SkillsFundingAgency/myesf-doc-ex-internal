@@ -1,8 +1,3 @@
-<!--
-    This page is a prototype.
-    Please do not use as production code.
--->
-
 {% extends "layout.html" %}
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -10,6 +5,10 @@
 {% block pageTitle %}
   Are you sure you want to delete these documents?
 {% endblock %}
+
+{% set serviceName %}
+  Document exchange
+{% endset%}
 
 {% block beforeContent %}
 <!--Phase banner-->
@@ -20,7 +19,6 @@
   },
   html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
 }) }}
-
 <!--
     Navigation
 -->
@@ -57,10 +55,10 @@
     This page is a prototype.
     Please do not use as production code.
 -->
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
     <form action="#" method="post" class="form">
+      <!--Route from this page is Yes=confirmation page No=back to 'Download your documents'-->
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset" aria-describedby="download-filtered-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -85,7 +83,6 @@
             </label>
           </div>
         </div>
-    
       </fieldset>
     </div>
 
