@@ -26,6 +26,7 @@ It was not created inside the main Skills Funding Agency sfs-sitedesign prototyp
 ## Links to the Document exchange internal prototype
 
 [//]: # (This comment should not appear in the HTML output)
+<!--- This comment should appear in the HTML output -->
 ### Prototype (Heroku app) ###
 [https://myesf-doc-ex-internal.herokuapp.com/](https://myesf-doc-ex-internal.herokuapp.com/)
 
