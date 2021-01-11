@@ -9,9 +9,14 @@ $(document).ready(function () {
   window.GOVUKFrontend.initAll()
 })
 
-//Work in progress scripts
+// Document exchange custom scripts
 
-// // Collapsible filters template
+// // Collapsible filters TEMPLATE
+// Example filter provided by Alex Painter alex.painter@methods.co.uk
+// Used in CFS prototypes
+// Collapsible filters adapted for use in this Document exchange prototype
+
+
 // $('.filter-expand').click(function () {
 //   if ($("[id^=filter-content]").hasClass('filter-content')) {
 //     $("[id^=filter-content]").removeClass('filter-content');
@@ -23,7 +28,7 @@ $(document).ready(function () {
 //   }
 // });
 
-// // Collapsible filters status
+// Collapsible filters STATUS
 $('.filter-expand-status').click(function () {
   if ($("[id^=filter-content-status]").hasClass('filter-content-status')) {
     $("[id^=filter-content-status]").removeClass('filter-content-status');
@@ -35,7 +40,7 @@ $('.filter-expand-status').click(function () {
   }
 });
 
-// Collapsible filters document type
+// Collapsible filters DOCUMENT TYPE
 $('.filter-expand-document-type').click(function () {
   if ($("[id^=filter-content-document-type]").hasClass('filter-content-document-type')) {
     $("[id^=filter-content-document-type]").removeClass('filter-content-document-type');
@@ -46,7 +51,8 @@ $('.filter-expand-document-type').click(function () {
     $("[id^=filter-content-document-type]").addClass('filter-content-document-type');
   }
 });
-// Collapsible filters time period
+
+// Collapsible filters TIME PERIOD
 $('.filter-expand-time-period').click(function () {
   if ($("[id^=filter-content-time-period]").hasClass('filter-content-time-period')) {
     $("[id^=filter-content-time-period]").removeClass('filter-content-time-period');
@@ -57,7 +63,8 @@ $('.filter-expand-time-period').click(function () {
     $("[id^=filter-content-time-period]").addClass('filter-content-time-period');
   }
 });
-// Collapsible filters date
+
+// Collapsible filters DATE
 $('.filter-expand-date').click(function () {
   if ($("[id^=filter-content-date]").hasClass('filter-content-date')) {
     $("[id^=filter-content-date]").removeClass('filter-content-date');
@@ -68,7 +75,8 @@ $('.filter-expand-date').click(function () {
     $("[id^=filter-content-date]").addClass('filter-content-date');
   }
 });
-// Collapsible filters establishment type
+
+// Collapsible filters ESTABLISHMENT (PROVIDER) TYPE
 $('.filter-expand-establishment-type').click(function () {
   if ($("[id^=filter-content-establishment-type]").hasClass('filter-content-establishment-type')) {
     $("[id^=filter-content-establishment-type]").removeClass('filter-content-establishment-type');
@@ -79,17 +87,6 @@ $('.filter-expand-establishment-type').click(function () {
     $("[id^=filter-content-establishment-type]").addClass('filter-content-establishment-type');
   }
 });
-// Collapsible filters establishment sub-type
-// $('.filter-expand-establishment-sub-type').click(function () {
-//   if ($("[id^=filter-content-establishment-sub-type]").hasClass('filter-content-establishment-sub-type')) {
-//     $("[id^=filter-content-establishment-sub-type]").removeClass('filter-content-establishment-sub-type');
-//     $("[id^=arrowRotateEstablishmentSubType]").addClass('arrowChange');
-//   }
-//   else {
-//     $("[id^=arrowRotateEstablishmentSubType]").removeClass('arrowChange');
-//     $("[id^=filter-content-establishment-sub-type]").addClass('filter-content-establishment-sub-type');
-//   }
-// });
 
 //Filter and search 
 $(document).ready(function () {
@@ -100,6 +97,7 @@ $(document).ready(function () {
     });
   });
 });
+
 // Main content search
 $(document).ready(function () {
   $("#mainContentSearch").on("keyup", function () {
@@ -109,6 +107,7 @@ $(document).ready(function () {
     });
   });
 });
+
 //Profiling search
 $(document).ready(function () {
   $("#profilingSearch").on("keyup", function () {
@@ -118,6 +117,7 @@ $(document).ready(function () {
     });
   });
 });
+
 // Accordion search
 $(document).ready(function () {
   $("#mainContentSearch").on("keyup", function () {
@@ -128,90 +128,7 @@ $(document).ready(function () {
   });
 });
 
-// // Button changes
-
-// // STATUS FILTER
-// function buttonChangeStatus() {
-// var x = document.getElementById("statusButton").getAttribute("aria-expanded"); 
-// if (x == "true") 
-// {
-// x = "false"
-// } else {
-// x = "true"
-// }
-// document.getElementById("statusButton").setAttribute("aria-expanded", x);
-// }
-
-// // DOCUMENT TYPE FILTER
-// function buttonChangeDocumentType() {
-// var x = document.getElementById("documentTypeButton").getAttribute("aria-expanded"); 
-// if (x == "true") 
-// {
-// x = "false"
-// } else {
-// x = "true"
-// }
-// document.getElementById("documentTypeButton").setAttribute("aria-expanded", x);
-// }
-
-// // UPLOADED TODAY FILTER
-// function buttonChangeUploadedToday() {
-// var x = document.getElementById("uploadedTodayButton").getAttribute("aria-expanded"); 
-// if (x == "true") 
-// {
-// x = "false"
-// } else {
-// x = "true"
-// }
-// document.getElementById("uploadedTodayButton").setAttribute("aria-expanded", x);
-// }
-
-// // DATE FILTER
-// function buttonChangeDate() {
-// var x = document.getElementById("dateFilterButton").getAttribute("aria-expanded"); 
-// if (x == "true") 
-// {
-// x = "false"
-// } else {
-// x = "true"
-// }
-// document.getElementById("dateFilterButton").setAttribute("aria-expanded", x);
-// }
-
-// // PROVIDER TYPE FILTER
-// function buttonChangeProviderType() {
-// var x = document.getElementById("providerTypeButton").getAttribute("aria-expanded"); 
-// if (x == "true") 
-// {
-// x = "false"
-// } else {
-// x = "true"
-// }
-// document.getElementById("providerTypeButton").setAttribute("aria-expanded", x);
-// }
-
-// // Checkbox select
-
-// function toggleCheckbox() {
-//   var checkbox1 = document.getElementById("documenttype1").checked;
-//   if (checkbox1) {
-//     document.getElementById("14to16revenue").style.display = "block";
-//   } else {
-//     document.getElementById("14to16revenue").style.display = "none";
-//   }
-// }
-
-// document.getElementById("documenttype1").onclick = toggleCheckbox;
-
-
-// $('.selecttype1').click(function () {
-//   if ($("[id^=14to16revenue]").hasClass('select1416revenue')) {
-//     $("[id^=14to16revenue]").removeClass('select1416revenue');
-//   }
-//   else {
-//     $("[id^=14to16revenue]").addClass('select1416revenue');
-//   }
-// });
+// Checkbox select
 
 $( document ).ready(function() {
     

@@ -1,3 +1,7 @@
+// Example filters provided by Alex Painter alex.painter@methods.co.uk
+// Used in CFS prototypes
+// Collapsible filters adapted for use in this Document exchange prototype
+
 // Collapsible filters
 $('.filter-expand').click(function () {
   if ($("[id^=filter-content]").hasClass('filter-content')) {
@@ -8,7 +12,7 @@ $('.filter-expand').click(function () {
   }
 });
 
-//Filter and search 
+// Filter and search 
 $(document).ready(function () {
   $("#myInput").on("keyup", function () {
     var value = $(this).val().toLowerCase();
@@ -28,7 +32,7 @@ $(document).ready(function () {
   });
 });
 
-//Profiling search
+// Profiling search
 $(document).ready(function () {
   $("#profilingSearch").on("keyup", function () {
     var value = $(this).val().toLowerCase();

@@ -3,6 +3,7 @@ const router = express.Router()
 
 // Add your routes below here - above the module.exports line
 
+// Publish documents page confirmation (documents-to-publish-confirm-14to16 - publish - yes/no?) route
 // Branching for publish 14 to 16 document type
 router.post('/v7/document-exchange/publish-14-to-16-answer', function (req, res) {
     // Get the answer from session data

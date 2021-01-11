@@ -1,4 +1,7 @@
-/* Work in progress styles */
+/*
+  Document exchange custom styles.
+  Updated 11-1-2021.
+*/
 
 a.dashboard-links {
   color: white;
@@ -31,8 +34,9 @@ a.dashboard-links {
 	padding: 10px 20px;
 }
 
+
 /* 
-GOV.UK width container override
+  GOV.UK width container override
 */
 .govuk-width-container {
   max-width: 1200px;
@@ -47,10 +51,9 @@ GOV.UK width container override
     padding: 10px 20px;
 }
 
-  /*
+/*
   Media queries
-  */
-
+*/
   @media (min-width: 641px) {
     .account-link {
       margin-top: 0px;
@@ -95,8 +98,10 @@ GOV.UK width container override
     }
   }
 
-/*CFS stylesheet*/
 
+/*
+  CFS styles
+*/
 .hidden {
     display: none;
 }
@@ -154,17 +159,30 @@ margin-inline-start: 10px;
 	margin-bottom: 10px;
 }
 
+.filterSearchUkprn {
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: 10px;
+}
+
 .filterLabel {
 	font-size: 16px;
 	color: grey;
 	margin-top: 10px;
 }
 
+.filterSearchInputBlack {
+  border-color: black;
+}
+
 .filterSearchInput {
 	border-color: grey;
 }
 
-/* Hides filters on load */
+
+/*
+  Hides filters on load
+*/
 /*
 div.filter-content {
 	display: none;
@@ -185,7 +203,11 @@ div.filter-content-time-period {
 div.filter-content-date {
 	display: none;
 }
-
+/*
+div.filter-content-date-error-states-examples {
+	display: none;
+}
+*/
 div.filter-content-establishment-type {
 	display: none;
 }
@@ -194,6 +216,10 @@ div.filter-content-establishment-sub-type {
 	display: none;
 }
 
+
+/*
+  Filter styles
+*/
 .filterbyContainer {
   border: solid 1px lightgrey;
 }
@@ -203,6 +229,14 @@ div.filter-content-establishment-sub-type {
 	width: 100%;
 	padding: 6px;
 	margin-bottom: 0px;
+	cursor: pointer;
+}
+
+.searchbyHeading {
+	background-color: lightgrey;
+	width: auto;
+	padding: 6px;
+	margin-bottom: 10px;
 	cursor: pointer;
 }
 
@@ -227,7 +261,10 @@ div.filter-content-establishment-sub-type {
   height: auto;
 }
 
-/* Material icons */
+
+/*
+  Material icons
+*/
 
 @font-face {
   font-family: 'Material Icons';
@@ -252,19 +289,10 @@ div.filter-content-establishment-sub-type {
   -webkit-font-smoothing: antialiased;
 }
 
-.right-align {
-  float: right;
-}
 
-.arrowChange {
-	transform: rotateX(180deg);
-}
-
-.dates {
-  margin: 20px 0 0 20px;
-}
-
-/* Visually hidden */
+/*
+  Visually hidden
+*/
 
 .visually-hidden {
   clip: rect(0 0 0 0);
@@ -276,9 +304,12 @@ div.filter-content-establishment-sub-type {
   width: 1px;
 }
 
+
 /* Custom GOV checkboxes with no label showing
 
-/* Checkboxes */
+/*
+  Checkboxes
+*/
 .document-checkbox-th {
 	vertical-align: top;
 	margin: 0px;
@@ -316,7 +347,9 @@ div.filter-content-establishment-sub-type {
 }
 
 
-/* Pagination */
+/*
+  Pagination
+*/
 .pagination .pagination_list-items li {
   display: inline-block;
 }
@@ -393,7 +426,10 @@ div.filter-content-establishment-sub-type {
   }
 }
 
-/* Back to top */
+
+/*
+  Back to top
+*/
 
 .app-back-to-top a svg {
   margin-right: 8px;
@@ -413,9 +449,6 @@ div.filter-content-establishment-sub-type {
   outline: 3px solid #FFBF47;
 }
 
-.custom-form-group-padding {
-  padding-right: 10px;
-}
 
 /* GIAS filter permanent scrollbar 
 @media (min-width: 769px)
@@ -424,3 +457,119 @@ div.filter-content-establishment-sub-type {
     width: 7px;
 }
 */
+
+
+/* Error controllers
+
+/* 
+#identifier-error-duplicate {
+  display: none;
+}
+*/
+
+#identifier-error-short-or-long {
+  display: none;
+}
+
+#identifier-error-missing-input {
+  display: none;
+}
+
+
+/*
+  Document type divs toggle on/off
+*/
+.hideDocumentType
+{
+  display: none;
+}
+
+.showDocumentType
+{
+	display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+
+/*
+  Hide none selected for each div
+*/
+.hideNoneSelected1
+{
+  display: none;
+}
+
+.hideNoneSelected2
+{
+  display: none;
+}
+
+.hideNoneSelected3
+{
+  display: none;
+}
+
+.hideNoneSelected4
+{
+  display: none;
+}
+
+.hideNoneSelected5
+{
+  display: none;
+}
+
+.hideNoneSelected6
+{
+  display: none;
+}
+
+
+/*
+  Hide 'Back to top'
+*/
+.hideBackToTop
+{
+  display: none;
+}
+
+
+/*
+  Document list
+*/
+.document-list
+{
+  border-bottom: 1px solid #b1b4b6;
+}
+
+
+/*
+  Miscellaneous styles
+*/
+.right-align {
+  float: right;
+}
+
+.arrowChange {
+	transform: rotateX(180deg);
+}
+
+.dates {
+  margin: 20px 0 0 20px;
+}
+
+.custom-form-group-padding {
+  padding-right: 10px;
+}
+
+.error-form-group-padding {
+  padding-left: 50px;
+}
+
+.ukprn-error-margins {
+  margin-top: 20px;
+  margin-left: 20px;
+}
