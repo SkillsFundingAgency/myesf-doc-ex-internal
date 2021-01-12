@@ -1,6 +1,6 @@
 # MYESF Doc Ex internal prototype
 
-Designs for the ESFA MYESF Document Exchange (Doc Ex) internal prototype, Autumn-Winter 2020
+Designs for the ESFA MYESF Document Exchange (Doc Ex) internal prototype, Autumn-Winter 2020–2021
 
 ## Links to the Document exchange internal prototype
 
