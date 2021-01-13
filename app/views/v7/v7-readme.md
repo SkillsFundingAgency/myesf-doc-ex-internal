@@ -122,7 +122,7 @@ Document exchange home page (internal view), displaying 2 'tiles', 'Publish docu
 
 Changes are:
 
-* removing 'Select all' funcionality
+* removing 'Select all' functionality
 * a new primary button - 'Download all filtered documents' (was 'Download selected documents')
 * a new secondary button - 'Download selected documents'
 
