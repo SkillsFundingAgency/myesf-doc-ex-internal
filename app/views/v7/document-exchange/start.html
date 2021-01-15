@@ -14,13 +14,13 @@
 {% endblock %}
 
 {% block beforeContent %}
-<!--Phase banner-->
+<!--Phase banner with feedback link to Document exchange Qualtrics survey-->
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 {{ govukPhaseBanner({
   tag: {
     text: "beta"
   },
-  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  html: 'This is a new service – your <a class="govuk-link" href="https://dferesearch.fra1.qualtrics.com/jfe/form/SV_1TumnFi6WPxJpnn">feedback</a> will help us to improve it.'
 }) }}
 <!--
   10-12-2020 Breadrumbs removed from this page until we know where it would sit
@@ -58,7 +58,9 @@
       </a>
 
       <h2 class="govuk-heading-m">Before you start</h2>
-
+      <!--
+        Subject to approval to use DfE Sign-in, we'll include the following.  
+      -->
       <p class="govuk-body">You need to have a <a href="https://services.signin.education.gov.uk/">DfE Sign-in account</a> to use this service.</p>
 
     </div>
