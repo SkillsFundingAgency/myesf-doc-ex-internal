@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Document exchange
+{% endblock %}
+
+{% set serviceName %}
+  Document exchange
+{% endset%}
+
+{% block beforeContent %}
+<!--Phase banner-->
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+<!--Navigation-->
+<div class="account-features">
+  <span class="account-link">
+    <a href="settings">My roles and permissions</a>
+  </span>
+  <span class="account-link">
+    <a href="#">Sign out</a>
+  </span>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <!--
+    Breadcrumbs
+-->
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="home.html">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+        Terms and conditions
+      </li>
+  </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+<!--
+    This page is a prototype.
+    Please do not use as production code.
+-->
+<!--
+  Heading H1
+-->
+    <h1 class="govuk-heading-xl">Terms and conditions</h1>
+    <p>By using this service, you agree to these terms and conditions.</p>
+    <div class='govuk-govspeak'>
+    <h2 class="govuk-heading-m">Our responsibilities</h2>
+      <p>This service is run by the Education and Skills Funding Agency (ESFA). We do our best to make sure this service is constantly available, virus free and that the information we provide is accurate and complete. </p>
+      <p>However, the ESFA accepts no liability for:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>you are being unable to access the service (for example owing to excessive demand or because we’ve taken the service down for maintenance)</li>
+        <li>loss of any data</li>
+        <li>delay or failure in receiving data</li>
+        <li>loss or damage arising from the use of the service or reliance on its content</li>
+        <li>the content and availability of external websites that link to the service or which are linked from it.</li>
+      </ul>
+      <h2 class="govuk-heading-m">Your responsibilities</h2>
+      
+      <p>As a provider you must:</p>
+      
+        <ul class="govuk-list govuk-list--bullet">
+          <li>keep your username and password confidential</li>
+          <li>accept responsibility for all activities associated with your account</li>
+          <li>ensure that any personal data (as defined under the EU General Data Protection Regulation (GDPR) and the Data Protection Act 2018) is protected, used only for the purposes for which it was obtained and disposed of appropriately</li>
+          <li>agree not to use the service for any illegal purpose</li>
+        </ul>
+        </div>
+  </div>
+</div>
+<!--Row end-->
+
+
+{% endblock %}
