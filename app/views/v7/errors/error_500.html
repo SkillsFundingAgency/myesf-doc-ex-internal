@@ -5,6 +5,24 @@
   Problem with the service
 {% endblock %}
 
+{% set serviceName %}
+  Document exchange
+{% endset%}
+
+{% block beforeContent %}
+
+<!--Navigation-->
+<div class="account-features">
+  <span class="account-link">
+    <a href="settings">My roles and permissions</a>
+  </span>
+  <span class="account-link">
+    <a href="#">Sign out</a>
+  </span>
+</div>
+
+{% endblock %}
+
 {% block content %}
 
   <div class="govuk-grid-row">
