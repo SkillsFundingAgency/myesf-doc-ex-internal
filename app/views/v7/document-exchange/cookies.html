@@ -21,7 +21,7 @@
 <!--Navigation-->
 <div class="account-features">
   <span class="account-link">
-    <a href="settings">My roles and permissions</a>
+    <a href="settings">Settings</a>
   </span>
   <span class="account-link">
     <a href="start">Sign out</a>
@@ -33,16 +33,7 @@
     <!--
     Breadcrumbs
 -->
-<div class="govuk-breadcrumbs">
-  <ol class="govuk-breadcrumbs__list">
-    <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="home.html">Home</a>
-    </li>
-    <li class="govuk-breadcrumbs__list-item">
-        Cookies
-      </li>
-  </ol>
-</div>
+<a href="home" class="govuk-back-link">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -53,8 +44,9 @@
 <!--
   Heading H1
 -->
+
     <h1 class="govuk-heading-xl">Cookies</h1>
-    <div class='govuk-govspeak'>
+    <div class='govuk-govspeak govuk-grid-column-two-thirds' style='padding:0'>
     <h2 class="govuk-heading-m">Who we are</h2>
       <p>This service is run by the Education and Skills Funding Agency (ESFA), which is part of the Department for Education (DfE). For the purpose of data protection legislation, the DfE is the data controller for the personal data processed as part of this service.</p>
       <h2 class="govuk-heading-m">How we will use your information</h2>
