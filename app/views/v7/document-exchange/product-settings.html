@@ -1,0 +1,659 @@
+<!--
+    This page is a prototype.
+    Please do not use as production code.
+    It was created with speed in mind, so treat as throwaway HTML.
+-->
+
+{% extends "layout.html" %}
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+{% block pageTitle %}
+  Product settings
+{% endblock %}
+
+{% block beforeContent %}
+<!--
+    Phase banner
+-->
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<!--
+    Navigation
+-->
+<div class="account-features">
+  <span class="account-link">
+    <a href="#">Settings</a>
+  </span>
+  <span class="account-link">
+    <a href="#">Sign out</a>
+  </span>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+<!--
+    Breadcrumbs
+-->
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="dashboard.html">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            Product settings
+          </li>
+      </ol>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <h1 class="govuk-heading-xl">Product settings</h1>
+  
+<!--
+    Table start
+-->
+<table class="govuk-table govuk-!-margin-top-9">
+  <!--Table head-->
+  <thead class="govuk-table__head">
+      <!--Head row-->
+      <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Last update</th>
+          <!--Column 1-->
+          <th scope="col" class="govuk-table__header">Identifier</th>
+          <!--Column 2-->
+          <th scope="col" class="govuk-table__header">Document name</th>
+          <!--Column 3
+            NOT NEEDED IN THE TABLE
+          <th scope="col" class="govuk-table__header">Document plural name</th>
+          -->
+          <!--Column 4-->
+          <th scope="col" class="govuk-table__header">Agency team</th>
+          <!--Column 5-->
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Can providers return?</th>
+          <!--Column 6-->
+          <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Edit</span></th>
+          <!--<th scope="col" class="govuk-table__header govuk-!-width-one-third">Status</th>-->
+      </tr>
+  </thead>
+  <!--Table body-->
+  <tbody class="govuk-table__body" id="mainContentResults">
+<!--Table row 1-->
+    <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+      <td class="govuk-table__cell">
+        23/02/2021      
+      </td>
+        <!--Column 1-->
+        <td class="govuk-table__cell">
+            10001     
+        </td>
+        <!--Column 2-->
+        <td class="govuk-table__cell">
+          Allocation calculation toolkit
+        </td>
+        <!--Column 3
+          NOT NEEDED IN THE TABLE
+        <td class="govuk-table__cell">
+            10006337
+        </td>
+        -->
+        <!--Column 4-->
+        <td class="govuk-table__cell">
+          Funding
+        </td>
+        <!--Column 5-->
+        <td class="govuk-table__cell">
+          No
+        </td>
+        <!--Column 6-->
+        <td class="govuk-table__cell">
+          <a href="edit-product-v2.html">Edit</a>
+        </td>
+    </tr>
+<!--Table row 2-->
+    <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+      <td class="govuk-table__cell">
+        20/02/2021      
+      </td>
+      <!--Column 1-->
+      <td class="govuk-table__cell">
+          10002     
+      </td>
+      <!--Column 2-->
+      <td class="govuk-table__cell">
+        Data sharing protocol
+      </td>
+      <!--Column 3
+        NOT NEEDED IN THE TABLE
+      <td class="govuk-table__cell">
+          10006337
+      </td>
+      -->
+      <!--Column 4-->
+      <td class="govuk-table__cell">
+        Funding
+      </td>
+      <!--Column 5-->
+      <td class="govuk-table__cell">
+        No
+      </td>
+      <!--Column 6-->
+      <td class="govuk-table__cell">
+        <a href="edit-product-v2.html">Edit</a>
+      </td>
+    </tr>
+<!--Table row 3-->
+    <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+      <td class="govuk-table__cell">
+        19/02/2021     
+      </td>
+      <!--Column 1-->
+      <td class="govuk-table__cell">
+          10003     
+      </td>
+      <!--Column 2-->
+      <td class="govuk-table__cell">
+        Data and MI report
+      </td>
+      <!--Column 3
+        NOT NEEDED IN THE TABLE
+      <td class="govuk-table__cell">
+          10006337
+      </td>
+      -->
+      <!--Column 4-->
+      <td class="govuk-table__cell">
+        Funding
+      </td>
+      <!--Column 5-->
+      <td class="govuk-table__cell">
+        No
+      </td>
+      <!--Column 6-->
+      <td class="govuk-table__cell">
+        <a href="edit-product-v2.html">Edit</a>
+      </td>
+    </tr>
+<!--Table row 4-->
+    <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+      <td class="govuk-table__cell">
+        19/02/2021    
+      </td>
+      <!--Column 1-->
+      <td class="govuk-table__cell">
+          10004     
+      </td>
+      <!--Column 2-->
+      <td class="govuk-table__cell">
+        14 to 16 revenue funding allocation statement
+      </td>
+      <!--Column 3
+        NOT NEEDED IN THE TABLE
+      <td class="govuk-table__cell">
+          10006337
+      </td>
+      -->
+      <!--Column 4-->
+      <td class="govuk-table__cell">
+        Funding
+      </td>
+      <!--Column 5-->
+      <td class="govuk-table__cell">
+        No
+      </td>
+      <!--Column 6-->
+      <td class="govuk-table__cell">
+        <a href="edit-product-v2.html">Edit</a>
+      </td>
+    </tr>
+<!--Table row 5-->
+    <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+      <td class="govuk-table__cell">
+        15/02/2021    
+      </td>
+      <!--Column 1-->
+      <td class="govuk-table__cell">
+          10005     
+      </td>
+      <!--Column 2-->
+      <td class="govuk-table__cell">
+        16 to 19 reconciliation statement
+      </td>
+      <!--Column 3
+        NOT NEEDED IN THE TABLE
+      <td class="govuk-table__cell">
+          10006337
+      </td>
+      -->
+      <!--Column 4-->
+      <td class="govuk-table__cell">
+        Funding
+      </td>
+      <!--Column 5-->
+      <td class="govuk-table__cell">
+        No
+      </td>
+      <!--Column 6-->
+      <td class="govuk-table__cell">
+        <a href="edit-product-v2.html">Edit</a>
+      </td>
+    </tr>
+<!--Table row 6-->
+    <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+      <td class="govuk-table__cell">
+        14/02/2021    
+      </td>
+      <!--Column 1-->
+      <td class="govuk-table__cell">
+          10006     
+      </td>
+      <!--Column 2-->
+      <td class="govuk-table__cell">
+        Non maintained special school allocation statement
+      </td>
+      <!--Column 3
+        NOT NEEDED IN THE TABLE
+      <td class="govuk-table__cell">
+          10006337
+      </td>
+      -->
+      <!--Column 4-->
+      <td class="govuk-table__cell">
+        Funding
+      </td>
+      <!--Column 5-->
+      <td class="govuk-table__cell">
+        No
+      </td>
+      <!--Column 6-->
+      <td class="govuk-table__cell">
+        <a href="edit-product-v2.html">Edit</a>
+      </td>
+    </tr>
+<!--Table row 7-->
+    <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+      <td class="govuk-table__cell">
+        10/02/2021    
+      </td>
+      <!--Column 1-->
+      <td class="govuk-table__cell">
+          10007     
+      </td>
+      <!--Column 2-->
+      <td class="govuk-table__cell">
+        LA student number summary
+      </td>
+      <!--Column 3
+        NOT NEEDED IN THE TABLE
+      <td class="govuk-table__cell">
+          10006337
+      </td>
+      -->
+      <!--Column 4-->
+      <td class="govuk-table__cell">
+        Funding
+      </td>
+      <!--Column 5-->
+      <td class="govuk-table__cell">
+        No
+      </td>
+      <!--Column 6-->
+      <td class="govuk-table__cell">
+        <a href="edit-product-v2.html">Edit</a>
+      </td>
+    </tr>
+<!--Table row …-->
+<!--EXTERNAL DOCUMENTS START-->
+<tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+  <td class="govuk-table__cell">
+    ...
+  </td>
+  <!--Column 1-->
+  <td class="govuk-table__cell">
+      …     
+  </td>
+  <!--Column 2-->
+  <td class="govuk-table__cell">
+    …
+  </td>
+  <!--Column 3
+    NOT NEEDED IN THE TABLE
+  <td class="govuk-table__cell">
+      10006337
+  </td>
+  -->
+  <!--Column 4-->
+  <td class="govuk-table__cell">
+    …
+  </td>
+  <!--Column 5-->
+  <td class="govuk-table__cell">
+    …
+  </td>
+  <!--Column 6-->
+  <td class="govuk-table__cell">
+    <a href="edit-product-v2.html">…</a>
+  </td>
+</tr>
+<!--Table row 8-->
+    <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+      <td class="govuk-table__cell">
+        05/02/2021    
+      </td>
+      <!--Column 1-->
+      <td class="govuk-table__cell">
+          10083     
+      </td>
+      <!--Column 2-->
+      <td class="govuk-table__cell">
+        Alternative completion
+      </td>
+      <!--Column 3
+        NOT NEEDED IN THE TABLE
+      <td class="govuk-table__cell">
+          10006337
+      </td>
+      -->
+      <!--Column 4-->
+      <td class="govuk-table__cell">
+        Funding
+      </td>
+      <!--Column 5-->
+      <td class="govuk-table__cell">
+        Yes
+      </td>
+      <!--Column 6-->
+      <td class="govuk-table__cell">
+        <a href="edit-product-v2.html">Edit</a>
+      </td>
+    </tr>
+<!--Table row 9-->
+    <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+      <td class="govuk-table__cell">
+        05/02/2021    
+      </td>
+      
+      <!--Column 1-->
+      <td class="govuk-table__cell">
+          10084     
+      </td>
+      <!--Column 2-->
+      <td class="govuk-table__cell">
+        Business case audit evidence
+      </td>
+      <!--Column 3
+        NOT NEEDED IN THE TABLE
+      <td class="govuk-table__cell">
+          10006337
+      </td>
+      -->
+      <!--Column 4-->
+      <td class="govuk-table__cell">
+        Funding
+      </td>
+      <!--Column 5-->
+      <td class="govuk-table__cell">
+        Yes
+      </td>
+      <!--Column 6-->
+      <td class="govuk-table__cell">
+        <a href="edit-product-v2.html">Edit</a>
+      </td>
+    </tr>
+<!--Table row 10-->
+    <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+      <td class="govuk-table__cell">
+        03/02/2021    
+      </td>
+      <!--Column 1-->
+      <td class="govuk-table__cell">
+          10085     
+      </td>
+      <!--Column 2-->
+      <td class="govuk-table__cell">
+        Business case
+      </td>
+      <!--Column 3
+        NOT NEEDED IN THE TABLE
+      <td class="govuk-table__cell">
+          10006337
+      </td>
+      -->
+      <!--Column 4-->
+      <td class="govuk-table__cell">
+        Funding
+      </td>
+      <!--Column 5-->
+      <td class="govuk-table__cell">
+        Yes
+      </td>
+      <!--Column 6-->
+      <td class="govuk-table__cell">
+        <a href="edit-product-v2.html">Edit</a>
+      </td>
+    </tr>
+<!--Table row 11-->
+    <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+      <td class="govuk-table__cell">
+        03/02/2021    
+      </td>
+      <!--Column 1-->
+      <td class="govuk-table__cell">
+          10086     
+      </td>
+      <!--Column 2-->
+      <td class="govuk-table__cell">
+        Data sharing protocol
+      </td>
+      <!--Column 3
+        NOT NEEDED IN THE TABLE
+      <td class="govuk-table__cell">
+          10006337
+      </td>
+      -->
+      <!--Column 4-->
+      <td class="govuk-table__cell">
+        Funding
+      </td>
+      <!--Column 5-->
+      <td class="govuk-table__cell">
+        Yes
+      </td>
+      <!--Column 6-->
+      <td class="govuk-table__cell">
+        <a href="edit-product-v2.html">Edit</a>
+      </td>
+    </tr>
+<!--Table row 12-->
+    <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+      <td class="govuk-table__cell">
+        03/02/2021    
+      </td>
+      <!--Column 1-->
+      <td class="govuk-table__cell">
+          10087     
+      </td>
+      <!--Column 2-->
+      <td class="govuk-table__cell">
+        Financial report
+      </td>
+      <!--Column 3
+        NOT NEEDED IN THE TABLE
+      <td class="govuk-table__cell">
+          10006337
+      </td>
+      -->
+      <!--Column 4-->
+      <td class="govuk-table__cell">
+        Funding
+      </td>
+      <!--Column 5-->
+      <td class="govuk-table__cell">
+        Yes
+      </td>
+      <!--Column 6-->
+      <td class="govuk-table__cell">
+        <a href="edit-product-v2.html">Edit</a>
+      </td>
+    </tr>
+<!--Table row 13-->
+    <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+      <td class="govuk-table__cell">
+        02/02/2021    
+      </td>
+      <!--Column 1-->
+      <td class="govuk-table__cell">
+          10088     
+      </td>
+      <!--Column 2-->
+      <td class="govuk-table__cell">
+        Funding monitoring report
+      </td>
+      <!--Column 3
+        NOT NEEDED IN THE TABLE
+      <td class="govuk-table__cell">
+          10006337
+      </td>
+      -->
+      <!--Column 4-->
+      <td class="govuk-table__cell">
+        Funding
+      </td>
+      <!--Column 5-->
+      <td class="govuk-table__cell">
+        Yes
+      </td>
+      <!--Column 6-->
+      <td class="govuk-table__cell">
+        <a href="edit-product-v2.html">Edit</a>
+      </td>
+    </tr>
+<!--Table row 14-->
+    <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+      <td class="govuk-table__cell">
+        02/02/2021    
+      </td>
+      <!--Column 1-->
+      <td class="govuk-table__cell">
+          10089     
+      </td>
+      <!--Column 2-->
+      <td class="govuk-table__cell">
+        Infrastructure return
+      </td>
+      <!--Column 3
+        NOT NEEDED IN THE TABLE
+      <td class="govuk-table__cell">
+          10006337
+      </td>
+      -->
+      <!--Column 4-->
+      <td class="govuk-table__cell">
+        Funding
+      </td>
+      <!--Column 5-->
+      <td class="govuk-table__cell">
+        Yes
+      </td>
+      <!--Column 6-->
+      <td class="govuk-table__cell">
+        <a href="edit-product-v2.html">Edit</a>
+      </td>
+    </tr>
+<!--Table row 15-->
+    <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+      <td class="govuk-table__cell">
+        02/02/2021    
+      </td>
+      <!--Column 1-->
+      <td class="govuk-table__cell">
+          10090     
+      </td>
+      <!--Column 2-->
+      <td class="govuk-table__cell">
+        Reconciliation return
+      </td>
+      <!--Column 3
+        NOT NEEDED IN THE TABLE
+      <td class="govuk-table__cell">
+          10006337
+      </td>
+      -->
+      <!--Column 4-->
+      <td class="govuk-table__cell">
+        Funding
+      </td>
+      <!--Column 5-->
+      <td class="govuk-table__cell">
+        Yes
+      </td>
+      <!--Column 6-->
+      <td class="govuk-table__cell">
+        <a href="edit-product-v2.html">Edit</a>
+      </td>
+    </tr>
+<!--Table row 16-->
+    <tr class="govuk-table__row" id="newSpecSource" style="display: table-row;">
+      <td class="govuk-table__cell">
+        01/02/2021    
+      </td>
+      <!--Column 1-->
+      <td class="govuk-table__cell">
+          10091     
+      </td>
+      <!--Column 2-->
+      <td class="govuk-table__cell">
+        Grant assurance
+      </td>
+      <!--Column 3
+        NOT NEEDED IN THE TABLE
+      <td class="govuk-table__cell">
+          10006337
+      </td>
+      -->
+      <!--Column 4-->
+      <td class="govuk-table__cell">
+        Provider risk and assurance
+      </td>
+      <!--Column 5-->
+      <td class="govuk-table__cell">
+        Yes
+      </td>
+      <!--Column 6-->
+      <td class="govuk-table__cell">
+        <a href="edit-product-v2.html">Edit</a>
+      </td>
+    </tr>
+<!--EXTERNAL DOCUMENTS END-->
+  </tbody>
+</table>
+
+
+<div class="govuk-form-group govuk-!-margin-bottom-0">
+  <a href="download-documents.html">Add a new product</a>
+</div>
+
+  </div>
+</div>
+
+
+  </div>
+</div>
+
+{% endblock %}
