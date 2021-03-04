@@ -10,10 +10,45 @@
 
 {% block header %}
   <!-- Blank header with no service name for the start page -->
+  {% from "govuk/components/cookie-banner/macro.njk" import govukCookieBanner %}
+
+{% set html %}
+  <p>We use some essential cookies to make this service work.</p>
+  <p>We’d also like to use analytics cookies so we can understand how you use the service and make improvements.</p>
+{% endset %}
+
+{{ govukCookieBanner({
+  ariaLabel: "Cookies on Document Exchange",
+  messages: [
+    {
+      headingText: "Cookies on Document Exchange",
+      html: html,
+      actions: [
+        {
+          text: "Accept analytics cookies",
+          type: "button",
+          name: "cookies",
+          value: "accept"
+        },
+        {
+          text: "Reject analytics cookies",
+          type: "button",
+          name: "cookies",
+          value: "reject"
+        },
+        {
+          text: "View cookies",
+          href: "https://myesf-doc-ex-internal.herokuapp.com/v7/cookies-details"
+        }
+      ]
+    }
+  ]
+}) }}
   {{ govukHeader() }}
 {% endblock %}
 
 {% block beforeContent %}
+
 <!--Phase banner with feedback link to Document exchange Qualtrics survey-->
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 {{ govukPhaseBanner({
@@ -25,6 +60,7 @@
 <!--
   10-12-2020 Breadrumbs removed from this page until we know where it would sit
 -->
+
 {% endblock %}
 
 {% block content %}
@@ -33,7 +69,7 @@
     Please do not use as production code.
 -->
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
 
       <h1 class="govuk-heading-xl">
         {% if serviceName %} {{ serviceName }} {% endif %}
@@ -62,33 +98,12 @@
         Subject to approval to use DfE Sign-in, we'll include the following.  
       -->
       <p class="govuk-body">You need to have a <a href="https://services.signin.education.gov.uk/">DfE Sign-in account</a> to use this service.</p>
+      <p class="govuk-body">See the <a class="govuk-link" href="user-guide">Document exchange user guide</a> for more information.</p>
       <h3 class="govuk-heading-m">Contact us</h3>
       <!--
         Subject to approval to use DfE Sign-in, we'll include the following.  
       -->
       <p class="govuk-body">If you need help with anything, you can <a href='https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes'>submit an enquiry</a>.</p>
-
-    </div>
-    <div class="govuk-grid-column-one-third">
-
-      <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
-
-      <aside class="app-related-items" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">
-          Resources
-        </h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list govuk-!-font-size-16">
-            
-            <li>
-              <a class="govuk-link" href="user-guide">
-                Document exchange user guide
-              </a>
-            </li>
-           
-          </ul>
-        </nav>
-      </aside>
 
     </div>
 
