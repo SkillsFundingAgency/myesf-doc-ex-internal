@@ -10,40 +10,50 @@
 
 {% block header %}
   <!-- Blank header with no service name for the start page -->
-  {% from "govuk/components/cookie-banner/macro.njk" import govukCookieBanner %}
+<div class="govuk-cookie-banner" role="region" aria-label="Cookies on Document exchange">
+  <div class="govuk-cookie-banner__message govuk-width-container showjs" id='cookies'>
 
-{% set html %}
-  <p>We use some essential cookies to make this service work.</p>
-  <p>We’d also like to use analytics cookies so we can understand how you use the service and make improvements.</p>
-{% endset %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-cookie-banner__heading govuk-heading-m">Cookies on Document exchange</h2>
 
-{{ govukCookieBanner({
-  ariaLabel: "Cookies on Document Exchange",
-  messages: [
-    {
-      headingText: "Cookies on Document Exchange",
-      html: html,
-      actions: [
-        {
-          text: "Accept analytics cookies",
-          type: "button",
-          name: "cookies",
-          value: "accept"
-        },
-        {
-          text: "Reject analytics cookies",
-          type: "button",
-          name: "cookies",
-          value: "reject"
-        },
-        {
-          text: "View cookies",
-          href: "https://myesf-doc-ex-internal.herokuapp.com/v7/cookies-details"
-        }
-      ]
-    }
-  ]
-}) }}
+        <div class="govuk-cookie-banner__content">
+          <p>We use some essential cookies to make this service work.</p>
+          <p>We’d also like to use analytics cookies so we can understand how you use the service and make improvements.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-button-group">
+      <button value="accept" type="button" name="cookies" class="govuk-button" data-module="govuk-button">
+        Accept analytics cookies
+      </button>
+      <button value="reject" type="button" name="cookies" class="govuk-button" data-module="govuk-button">
+        Reject analytics cookies
+      </button>
+      <a class="govuk-link" href="https://myesf-doc-ex-internal.herokuapp.com/v7/cookies-esfa">View cookies</a>
+    </div>
+  </div>
+<noscript>
+  <div class="govuk-cookie-banner " role="region" aria-label="Cookies on [name of service]">
+    <div class="govuk-cookie-banner__message govuk-width-container">
+  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h2 class="govuk-cookie-banner__heading govuk-heading-m">Cookies on Document exchange</h2>
+  
+          <div class="govuk-cookie-banner__content">
+            <p class="govuk-body">We use some essential cookies to make this service work.</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="govuk-button-group">
+        <a class="govuk-link" href="https://myesf-doc-ex-internal.herokuapp.com/v7/cookies-esfa">View cookies</a>
+      </div>
+    </div>
+  </div>
+</noscript>
   {{ govukHeader() }}
 {% endblock %}
 
@@ -112,4 +122,8 @@
       Removed Aside column
     -->
   </div>
+  <script>
+    var element = document.getElementById("cookies");
+    element.classList.remove("showjs");
+  </script>
 {% endblock %}
