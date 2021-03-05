@@ -44,6 +44,18 @@
 <!--
   Heading H1
 -->
+<div class="govuk-notification-banner govuk-notification-banner--success govuk-visually-hidden" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" id='confirm'>
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      You’ve set your cookie preferences. <a class="govuk-notification-banner__link" href="#" onclick='javascript:history.back();return false;'>Go back to the page you were looking at</a>.
+    </p>
+  </div>
+</div>
     <h1 class="govuk-heading-xl">Cookies on Education and Skills Funding Agency (ESFA) service pages</h1>
     <div class='govuk-govspeak govuk-grid-column-two-thirds' style='padding-left:0;padding-right:0'>
       <p>Cookies are files saved on your phone, tablet or computer when you visit a website.</p>
@@ -83,7 +95,7 @@
       <p>These essential cookies make our services work in your browser.</p>
       <p>They always need to be on.</p>
        <p><a href='cookies-details'>Find out more about ESFA's cookies</a></p>
-       <button class="govuk-button" data-module="govuk-button">
+       <button class="govuk-button" data-module="govuk-button" onclick=Validate()>
         Save changes
       </button>
         <h2 class="govuk-heading-m">Government services</h2>
@@ -92,6 +104,14 @@
   </div>
 </div>
 <!--Row end-->
-
+<script>
+  var element = document.getElementById('confirm')
+  function Validate()
+  {
+    element.classList.remove('govuk-visually-hidden');
+    document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
+</script>
 
 {% endblock %}

@@ -25,13 +25,51 @@
     </div>
 
     <div class="govuk-button-group">
-      <button value="accept" type="button" name="cookies" class="govuk-button" data-module="govuk-button">
+      <button value="accept" type="button" name="cookies" class="govuk-button" data-module="govuk-button" onclick='CookiesAllowed()'>
         Accept analytics cookies
       </button>
-      <button value="reject" type="button" name="cookies" class="govuk-button" data-module="govuk-button">
+      <button value="reject" type="button" name="cookies" class="govuk-button" data-module="govuk-button" onclick='CookiesNotAllowed()'>
         Reject analytics cookies
       </button>
       <a class="govuk-link" href="https://myesf-doc-ex-internal.herokuapp.com/v7/cookies-esfa">View cookies</a>
+    </div>
+  </div>
+  <div class="govuk-cookie-banner govuk-visually-hidden" role="region" aria-label="Cookies on Document exchange" id='cookiesallowed'>
+    <div class="govuk-cookie-banner__message govuk-width-container">
+  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+  
+          <div class="govuk-cookie-banner__content">
+            <p>You’ve accepted analytics cookies. You can <a class="govuk-link" href="https://myesf-doc-ex-internal.herokuapp.com/v7/cookies-esfa">change your cookie settings</a> at any time.</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="govuk-button-group">
+        <button class="govuk-button" data-module="govuk-button" onclick=HideMessage()>
+          Hide this message
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-cookie-banner govuk-visually-hidden" role="region" aria-label="Cookies on Document exchange" id='cookiesnotallowed'>
+    <div class="govuk-cookie-banner__message govuk-width-container">
+  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+  
+          <div class="govuk-cookie-banner__content">
+            <p>You’ve rejected analytics cookies. You can <a class="govuk-link" href="https://myesf-doc-ex-internal.herokuapp.com/v7/cookies-esfa">change your cookie settings</a> at any time.</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="govuk-button-group">
+        <button class="govuk-button" data-module="govuk-button" onclick=HideMessage()>
+          Hide this message
+        </button>
+      </div>
     </div>
   </div>
 <noscript>
@@ -125,5 +163,22 @@
   <script>
     var element = document.getElementById("cookies");
     element.classList.remove("showjs");
+    var nocookies = document.getElementById('cookiesnotallowed')
+    var yescookies = document.getElementById('cookiesallowed')
+    function CookiesAllowed()
+    {
+      yescookies.classList.remove('govuk-visually-hidden')
+      element.classList.add("govuk-visually-hidden");
+    }
+    function CookiesNotAllowed()
+    {
+      nocookies.classList.remove('govuk-visually-hidden')
+      element.classList.add("govuk-visually-hidden");
+    }
+    function HideMessage()
+    {
+      nocookies.classList.add('govuk-visually-hidden');
+      yescookies.classList.add('govuk-visually-hidden')
+    }
   </script>
 {% endblock %}
