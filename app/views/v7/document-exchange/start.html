@@ -10,8 +10,8 @@
 
 {% block header %}
   <!-- Blank header with no service name for the start page -->
-<div class="govuk-cookie-banner" role="region" aria-label="Cookies on Document exchange">
-  <div class="govuk-cookie-banner__message govuk-width-container showjs" id='cookies'>
+<div class="govuk-cookie-banner showjs" role="region" id='cookies' aria-label="Cookies on Document exchange">
+  <div class="govuk-cookie-banner__message govuk-width-container">
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
@@ -35,6 +35,7 @@
       <a class="govuk-link" href="https://myesf-doc-ex-internal.herokuapp.com/v7/cookies-esfa">View cookies used by ESFA</a>
     </div>
   </div>
+</div>
   <div class="govuk-cookie-banner govuk-visually-hidden" role="region" aria-label="Cookies on Document exchange" id='cookiesallowed'>
     <div class="govuk-cookie-banner__message govuk-width-container">
   
@@ -42,7 +43,7 @@
         <div class="govuk-grid-column-two-thirds">
   
           <div class="govuk-cookie-banner__content">
-            <p>You’ve accepted additional cookies. You can <a class="govuk-link" href="https://myesf-doc-ex-internal.herokuapp.com/v7/cookies-esfa">change your cookie settings</a> at any time.</p>
+            <p>You have accepted additional cookies. You can <a class="govuk-link" href="https://myesf-doc-ex-internal.herokuapp.com/v7/cookies-esfa">change your cookie settings</a> at any time.</p>
           </div>
         </div>
       </div>
@@ -61,7 +62,7 @@
         <div class="govuk-grid-column-two-thirds">
   
           <div class="govuk-cookie-banner__content">
-            <p>You’ve rejected additional cookies. You can <a class="govuk-link" href="https://myesf-doc-ex-internal.herokuapp.com/v7/cookies-esfa">change your cookie settings</a> at any time.</p>
+            <p>You have rejected additional cookies. You can <a class="govuk-link" href="https://myesf-doc-ex-internal.herokuapp.com/v7/cookies-esfa">change your cookie settings</a> at any time.</p>
           </div>
         </div>
       </div>
@@ -73,6 +74,7 @@
       </div>
     </div>
   </div>
+
 <noscript>
   <div class="govuk-cookie-banner " role="region" aria-label="Cookies on [name of service]">
     <div class="govuk-cookie-banner__message govuk-width-container">
