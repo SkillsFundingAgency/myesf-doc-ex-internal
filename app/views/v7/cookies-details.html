@@ -157,11 +157,23 @@
       
 
         <h2 class="govuk-heading-m">Change your settings</h2>
-      <p>You can <a href='cookies-esfa'>change your Google Analytics cookies preference</a>.</p>
+      <p class='showjs' id='js'>You can <a href='cookies-esfa'>change your Google Analytics cookies preference</a>.</p>
+      <noscript><p>You can <a href='cookies-esfa-nonjs'>change your Google Analytics cookies preference</a>.</p></noscript>
       <p class="govuk-body-s">Last updated: 3 March 2021</p>
     </div>
   </div>
 </div>
+<script>
+  var element = document.getElementById("js");
+    element.classList.remove("showjs");
+    var nocookies = document.getElementById('cookiesnotallowed')
+    var yescookies = document.getElementById('cookiesallowed')
+    function CookiesAllowed()
+    {
+      yescookies.classList.remove('govuk-visually-hidden')
+      element.classList.add("govuk-visually-hidden");
+    }
+</script>
 <!--Row end-->
 
 
